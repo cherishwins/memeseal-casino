@@ -5,7 +5,7 @@ import App from './App.jsx'
 import './styles/index.css'
 
 // TON Connect manifest URL
-const manifestUrl = 'https://memeseal.vercel.app/tonconnect-manifest.json'
+const manifestUrl = 'https://memeseal-casino.vercel.app/tonconnect-manifest.json'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
