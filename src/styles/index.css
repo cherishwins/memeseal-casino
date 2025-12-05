@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Matrix Rain Background */
+@keyframes matrix-rain {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background: #0d0d0d;
+  color: #00ff41;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Matrix Rain Effect */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.matrix-column {
+  position: absolute;
+  top: -100%;
+  font-size: 14px;
+  line-height: 1;
+  color: #00ff41;
+  text-shadow: 0 0 10px #00ff41;
+  animation: matrix-rain 10s linear infinite;
+  opacity: 0.3;
+}
+
+/* Neon Glow Effects */
+.neon-text {
+  text-shadow:
+    0 0 5px #00ff41,
+    0 0 10px #00ff41,
+    0 0 20px #00ff41,
+    0 0 40px #00ff41;
+}
+
+.neon-pink {
+  text-shadow:
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #ff00ff;
+}
+
+.neon-cyan {
+  text-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 20px #00ffff;
+}
+
+.neon-gold {
+  color: #ffd700;
+  text-shadow:
+    0 0 5px #ffd700,
+    0 0 10px #ffd700,
+    0 0 20px #ffd700;
+}
+
+/* Button Styles */
+.btn-casino {
+  @apply px-6 py-3 font-casino font-bold text-lg uppercase tracking-wider;
+  @apply bg-gradient-to-r from-green-600 to-green-400;
+  @apply border-2 border-matrix-green rounded-lg;
+  @apply transition-all duration-300 ease-in-out;
+  @apply hover:scale-105 hover:shadow-lg;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+}
+
+.btn-casino:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.8);
+}
+
+.btn-stars {
+  @apply bg-gradient-to-r from-yellow-500 to-yellow-300;
+  @apply border-casino-gold text-black;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.btn-ton {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-400;
+  @apply border-neon-cyan text-white;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Card Styles */
+.game-card {
+  @apply bg-black/80 border-2 border-matrix-green rounded-xl p-4;
+  @apply backdrop-blur-sm;
+  box-shadow:
+    0 0 20px rgba(0, 255, 65, 0.3),
+    inset 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+/* Slot Machine */
+.slot-reel {
+  @apply bg-black border-2 border-matrix-green rounded-lg overflow-hidden;
+  @apply w-20 h-24 flex items-center justify-center;
+  box-shadow: inset 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.slot-symbol {
+  @apply text-4xl;
+}
+
+/* Roulette */
+.roulette-wheel {
+  @apply w-64 h-64 rounded-full border-4 border-casino-gold;
+  @apply bg-gradient-conic from-red-600 via-black to-red-600;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+/* Crash Game */
+.crash-graph {
+  @apply bg-black/90 border-2 border-matrix-green rounded-lg;
+  @apply relative overflow-hidden;
+  height: 300px;
+}
+
+.rocket {
+  @apply text-4xl absolute;
+  filter: drop-shadow(0 0 10px #ff6600);
+}
+
+/* Countdown Timer */
+.countdown {
+  @apply font-casino text-4xl font-bold;
+  @apply bg-black/80 border-2 border-neon-pink rounded-lg p-4;
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+}
+
+/* Loyalty Card Input */
+.loyalty-input {
+  @apply bg-black border-2 border-casino-gold rounded-lg;
+  @apply text-center text-2xl font-casino text-casino-gold;
+  @apply tracking-[0.5em] px-4 py-3;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.loyalty-input:focus {
+  @apply outline-none;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff41;
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Frog Dealer */
+.frog-dealer {
+  filter: drop-shadow(0 0 20px #39ff14);
+}
