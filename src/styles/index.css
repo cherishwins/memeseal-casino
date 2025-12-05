@@ -132,7 +132,18 @@ body {
 /* Roulette */
 .roulette-wheel {
   @apply w-64 h-64 rounded-full border-4 border-casino-gold;
-  @apply bg-gradient-conic from-red-600 via-black to-red-600;
+  background: conic-gradient(
+    #ff4444 0deg 45deg,
+    #4444ff 45deg 90deg,
+    #39ff14 90deg 100deg,
+    #ff4444 100deg 145deg,
+    #4444ff 145deg 190deg,
+    #ff4444 190deg 235deg,
+    #4444ff 235deg 280deg,
+    #39ff14 280deg 290deg,
+    #ff4444 290deg 335deg,
+    #4444ff 335deg 360deg
+  );
   box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
 }
 
