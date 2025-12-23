@@ -1,13 +1,25 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { useTonConnectUI, useTonWallet } from '@tonconnect/ui-react'
 import MatrixRain from './components/MatrixRain'
 import FrogDealer from './components/FrogDealer'
 import LotteryCountdown from './components/LotteryCountdown'
 import PotDisplay from './components/PotDisplay'
 import LoyaltyCard from './components/LoyaltyCard'
-import SlotsGame from './games/SlotsGame'
-import RouletteGame from './games/RouletteGame'
-import CrashGame from './games/CrashGame'
+
+// Lazy load games - only loaded when user selects them
+const SlotsGame = lazy(() => import('./games/SlotsGame'))
+const RouletteGame = lazy(() => import('./games/RouletteGame'))
+const CrashGame = lazy(() => import('./games/CrashGame'))
+
+// Loading skeleton for games
+function GameLoading() {
+  return (
+    <div className="game-card p-8 text-center animate-pulse">
+      <div className="text-4xl mb-4">🎲</div>
+      <p className="font-casino text-matrix-green">LOADING GAME...</p>
+    </div>
+  )
+}
 
 function App() {
   const [tonConnectUI] = useTonConnectUI()
@@ -167,18 +179,32 @@ function App() {
             >
               {'<'} BACK TO LOBBY
             </button>
-            <ActiveGameComponent
-              balance={balance}
-              setBalance={setBalance}
-              onBet={handleBet}
-              wallet={wallet}
-            />
+            <Suspense fallback={<GameLoading />}>
+              <ActiveGameComponent
+                balance={balance}
+                setBalance={setBalance}
+                onBet={handleBet}
+                wallet={wallet}
+              />
+            </Suspense>
           </div>
         )}
 
         {/* Pay with Stars */}
         <div className="mt-8 text-center">
-          <button className="btn-casino btn-stars text-black">
+          <button
+            className="btn-casino btn-stars text-black"
+            onClick={() => {
+              // Telegram Stars payment - opens invoice
+              if (window.Telegram?.WebApp?.openInvoice) {
+                // In production, fetch invoice URL from backend
+                // For now, show coming soon
+                alert('Telegram Stars integration coming soon! Use TON wallet for now.')
+              } else {
+                alert('Please open this app in Telegram to buy chips with Stars')
+              }
+            }}
+          >
             BUY CHIPS WITH STARS
           </button>
           <p className="text-xs text-matrix-green/50 mt-2">
