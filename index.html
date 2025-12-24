@@ -13,6 +13,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- TON Builders Analytics SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@telegram-apps/analytics@1/dist/index.iife.min.js"></script>
+    <script>
+      if (window.TelegramAnalytics) {
+        window.TelegramAnalytics.init({
+          token: 'eyJhcHBfbmFtZSI6Im1lbWVzZWFsX3RvbiIsImFwcF91cmwiOiJodHRwczovL3QubWUvTWVtZVNlYWxUT05fYm90IiwiYXBwX2RvbWFpbiI6Imh0dHBzOi8vbm90YXJ5dG9uLmNvbSJ9!8ui0w9R2CzU+bHPkzuFlFFTpHkvOKH9k4r6BdJEoSKs=',
+          appName: 'memeseal_ton',
+        });
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
