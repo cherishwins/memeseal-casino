@@ -19,23 +19,23 @@ const PAYOUTS = {
   'two-of-kind': { multiplier: 2, name: 'PAIR' },
 }
 
-const SlotsGame = ({ balance, setBalance, onBet }) => {
+const SlotsGame = ({ balance, setBalance, onBet, userId }) => {
   const [reels, setReels] = useState([SYMBOLS[0], SYMBOLS[1], SYMBOLS[2]])
   const [spinning, setSpinning] = useState(false)
-  const [betAmount, setBetAmount] = useState(0.1)
+  const [betAmount, setBetAmount] = useState(10) // Now in chips, not TON
   const [result, setResult] = useState(null)
   const [spinningReels, setSpinningReels] = useState([false, false, false])
+  const [pendingWin, setPendingWin] = useState(null)
 
   const spin = async () => {
     if (balance < betAmount) {
-      setResult({ message: 'INSUFFICIENT FUNDS', win: false })
+      setResult({ message: 'NEED MORE CHIPS! 💰', win: false })
       return
     }
 
-    setBalance(prev => prev - betAmount)
     setSpinning(true)
     setResult(null)
-    onBet(betAmount, 'slots')
+    setPendingWin(null)
 
     // Start all reels spinning
     setSpinningReels([true, true, true])
@@ -60,49 +60,60 @@ const SlotsGame = ({ balance, setBalance, onBet }) => {
     }
 
     setSpinning(false)
+    setPendingWin(true) // Trigger result processing
   }
 
   // Check for wins after spinning stops
   useEffect(() => {
-    if (!spinning && reels.every(r => r)) {
-      checkWin()
+    if (!spinning && reels.every(r => r) && pendingWin !== null) {
+      processResult()
     }
-  }, [spinning])
+  }, [spinning, pendingWin])
 
-  const checkWin = () => {
+  const processResult = async () => {
     const ids = reels.map(r => r.id)
     const key = ids.join('-')
+    let multiplier = 0
+    let winName = ''
 
     // Check for jackpots
     if (PAYOUTS[key]) {
-      const payout = PAYOUTS[key]
-      const winAmount = betAmount * payout.multiplier
-      setBalance(prev => prev + winAmount)
-      setResult({
-        message: `${payout.name}! +${winAmount.toFixed(2)} TON`,
-        win: true,
-        big: payout.multiplier >= 25
-      })
-      return
+      multiplier = PAYOUTS[key].multiplier
+      winName = PAYOUTS[key].name
     }
-
     // Check three of a kind
-    if (ids[0] === ids[1] && ids[1] === ids[2]) {
-      const winAmount = betAmount * 10
-      setBalance(prev => prev + winAmount)
-      setResult({ message: `THREE OF A KIND! +${winAmount.toFixed(2)} TON`, win: true })
-      return
+    else if (ids[0] === ids[1] && ids[1] === ids[2]) {
+      multiplier = 10
+      winName = 'THREE OF A KIND'
     }
-
     // Check pairs
-    if (ids[0] === ids[1] || ids[1] === ids[2] || ids[0] === ids[2]) {
-      const winAmount = betAmount * 2
-      setBalance(prev => prev + winAmount)
-      setResult({ message: `PAIR! +${winAmount.toFixed(2)} TON`, win: true })
+    else if (ids[0] === ids[1] || ids[1] === ids[2] || ids[0] === ids[2]) {
+      multiplier = 2
+      winName = 'PAIR'
+    }
+
+    const winAmount = betAmount * multiplier
+    const isWin = multiplier > 0
+
+    // Call backend with result
+    const success = await onBet(betAmount, 'slots', isWin ? 'win' : 'lose', winAmount)
+    
+    if (!success) {
+      setResult({ message: 'BET FAILED - TRY AGAIN', win: false })
       return
     }
 
-    setResult({ message: 'TRY AGAIN', win: false })
+    if (isWin) {
+      setResult({
+        message: `${winName}! +${winAmount} CHIPS 🎉`,
+        win: true,
+        big: multiplier >= 25
+      })
+    } else {
+      setResult({ message: 'TRY AGAIN 🐸', win: false })
+    }
+    
+    setPendingWin(null)
   }
 
   return (
@@ -145,22 +156,22 @@ const SlotsGame = ({ balance, setBalance, onBet }) => {
         {/* Bet Controls */}
         <div className="flex items-center justify-center gap-4 mb-4">
           <button
-            onClick={() => setBetAmount(prev => Math.max(0.01, prev - 0.1))}
+            onClick={() => setBetAmount(prev => Math.max(1, prev - 5))}
             className="btn-casino px-3 py-1 text-sm"
             disabled={spinning}
           >
-            -
+            -5
           </button>
           <div className="text-center">
             <p className="text-xs text-matrix-green/70">BET</p>
-            <p className="font-casino text-xl">{betAmount.toFixed(2)} TON</p>
+            <p className="font-casino text-xl">{betAmount} CHIPS</p>
           </div>
           <button
-            onClick={() => setBetAmount(prev => prev + 0.1)}
+            onClick={() => setBetAmount(prev => Math.min(balance, prev + 5))}
             className="btn-casino px-3 py-1 text-sm"
             disabled={spinning}
           >
-            +
+            +5
           </button>
         </div>
 
@@ -176,14 +187,15 @@ const SlotsGame = ({ balance, setBalance, onBet }) => {
 
       {/* Paytable */}
       <div className="mt-4 text-xs text-matrix-green/70">
-        <p className="text-center mb-2 font-casino">PAYTABLE</p>
+        <p className="text-center mb-2 font-casino">PAYTABLE (MULTIPLIERS)</p>
         <div className="grid grid-cols-2 gap-1">
-          <span>🐸🐸🐸 = 100x</span>
-          <span>🚀🚀🚀 = 50x</span>
-          <span>🍊🍊🍊 = 25x</span>
+          <span>🐸🐸🐸 = 100x JACKPOT</span>
+          <span>🚀🚀🚀 = 50x MOON</span>
+          <span>🍊🍊🍊 = 25x MAGA</span>
           <span>3 of kind = 10x</span>
           <span>Pair = 2x</span>
         </div>
+        <p className="text-center mt-2 text-casino-gold">20% of bets feed the lottery 🎰</p>
       </div>
     </div>
   )
