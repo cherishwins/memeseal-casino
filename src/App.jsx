@@ -5,14 +5,12 @@ import FrogDealer from './components/FrogDealer'
 import LotteryCountdown from './components/LotteryCountdown'
 import PotDisplay from './components/PotDisplay'
 import LoyaltyCard from './components/LoyaltyCard'
+import { DEMO_MODE, API_BASE, LOTTERY_CUT, BRAND, demoStorage } from './config'
 
 // Lazy load games - only loaded when user selects them
 const SlotsGame = lazy(() => import('./games/SlotsGame'))
 const RouletteGame = lazy(() => import('./games/RouletteGame'))
 const CrashGame = lazy(() => import('./games/CrashGame'))
-
-// API base URL
-const API_BASE = 'https://notaryton.com'
 
 // Loading skeleton for games
 function GameLoading() {
@@ -37,6 +35,17 @@ function BuyChipsModal({ onClose, onPurchase, userId }) {
 
   const handlePurchase = async () => {
     setLoading(true)
+
+    if (DEMO_MODE) {
+      const bonus = selectedAmount === 100 ? 10 : selectedAmount === 500 ? 100 : 0
+      const total = selectedAmount + bonus
+      demoStorage.addBalance(total)
+      onPurchase(total)
+      setLoading(false)
+      onClose()
+      return
+    }
+
     try {
       const res = await fetch(`${API_BASE}/api/v1/casino/buy-chips`, {
         method: 'POST',
@@ -44,7 +53,7 @@ function BuyChipsModal({ onClose, onPurchase, userId }) {
         body: JSON.stringify({ user_id: userId, amount: selectedAmount })
       })
       const data = await res.json()
-      
+
       if (data.success && data.invoice_url) {
         // Open Telegram Stars payment
         if (window.Telegram?.WebApp?.openInvoice) {
@@ -168,7 +177,13 @@ function App() {
   // Fetch user's chip balance
   const fetchBalance = useCallback(async () => {
     if (!userId) return
-    
+
+    if (DEMO_MODE) {
+      setBalance(demoStorage.getBalance())
+      setLoading(false)
+      return
+    }
+
     try {
       const res = await fetch(`${API_BASE}/api/v1/casino/balance/${userId}`)
       const data = await res.json()
@@ -177,6 +192,7 @@ function App() {
       }
     } catch (e) {
       console.log('Using local balance')
+      setBalance(demoStorage.getBalance())
     } finally {
       setLoading(false)
     }
@@ -190,6 +206,10 @@ function App() {
 
   // Fetch pot size from API
   useEffect(() => {
+    if (DEMO_MODE) {
+      setPotSize(demoStorage.getPot())
+      return
+    }
     const fetchPot = async () => {
       try {
         const res = await fetch(`${API_BASE}/api/v1/lottery/pot`)
@@ -214,13 +234,23 @@ function App() {
 
   // Handle real money bet
   const handleBet = async (betAmount, gameType, result, payout = 0) => {
-    if (!userId) {
-      alert('Please connect wallet or open in Telegram')
+    if (balance < betAmount) {
+      setShowBuyChips(true)
       return false
     }
 
-    if (balance < betAmount) {
-      setShowBuyChips(true)
+    const potDelta = Math.floor(betAmount * LOTTERY_CUT)
+
+    if (DEMO_MODE) {
+      const newBalance = demoStorage.addBalance(payout - betAmount)
+      setBalance(newBalance)
+      const newPot = demoStorage.addPot(potDelta)
+      setPotSize(newPot)
+      return true
+    }
+
+    if (!userId) {
+      alert('Please connect wallet or open in Telegram')
       return false
     }
 
@@ -237,11 +267,10 @@ function App() {
         })
       })
       const data = await res.json()
-      
+
       if (data.success) {
         setBalance(data.chips)
-        // Update pot display (20% of bet added)
-        setPotSize(prev => prev + Math.floor(betAmount * 0.2))
+        setPotSize(prev => prev + potDelta)
         return true
       } else {
         if (data.error === 'Insufficient chips') {
@@ -290,9 +319,12 @@ function App() {
         {/* Header */}
         <header className="text-center mb-6">
           <h1 className="font-casino text-3xl font-black neon-text tracking-wider">
-            MEMESEAL
+            {BRAND.name}
           </h1>
-          <p className="text-lg neon-pink font-casino">CASINO</p>
+          <p className="text-lg neon-pink font-casino">{BRAND.tagline}</p>
+          {DEMO_MODE && (
+            <p className="text-xs text-casino-gold/70 mt-1">DEMO MODE — chips are local</p>
+          )}
           <FrogDealer />
         </header>
 
@@ -403,7 +435,7 @@ function App() {
 
         {/* Footer */}
         <footer className="mt-8 text-center text-xs text-matrix-green/30">
-          <p>POWERED BY MEMESEAL x TON</p>
+          <p>{BRAND.footer}</p>
           <p>gamble responsibly you degen</p>
         </footer>
       </div>
