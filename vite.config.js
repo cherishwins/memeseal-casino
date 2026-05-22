@@ -10,6 +10,16 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: false
-  }
+    sourcemap: false,
+    chunkSizeWarningLimit: 700,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-router-dom'],
+          ton: ['@tonconnect/ui-react'],
+          three: ['three', '@react-three/fiber', '@react-three/drei'],
+        },
+      },
+    },
+  },
 })

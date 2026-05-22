@@ -18,10 +18,12 @@ export const HOUSE_EDGE = 0.03;
 
 export const LOTTERY_CUT = 0.20;
 
+import { THEME } from './themes';
+
 export const BRAND = {
-  name: import.meta.env.VITE_BRAND_NAME || 'MEMESEAL',
-  tagline: import.meta.env.VITE_BRAND_TAGLINE || 'CASINO',
-  footer: import.meta.env.VITE_BRAND_FOOTER || 'POWERED BY MEMESEAL x TON',
+  name: import.meta.env.VITE_BRAND_NAME || THEME.brand.name,
+  tagline: import.meta.env.VITE_BRAND_TAGLINE || THEME.brand.tagline,
+  footer: import.meta.env.VITE_BRAND_FOOTER || THEME.brand.footer,
 };
 
 const LS_BALANCE_KEY = 'casino_demo_balance';

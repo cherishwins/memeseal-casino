@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { THEME } from '../themes'
 
 const RouletteGame = ({ balance, setBalance, onBet }) => {
   const [selectedBet, setSelectedBet] = useState(null)
@@ -7,11 +8,7 @@ const RouletteGame = ({ balance, setBalance, onBet }) => {
   const [result, setResult] = useState(null)
   const [wheelRotation, setWheelRotation] = useState(0)
 
-  const betOptions = [
-    { id: 'trump', label: 'TRUMP', emoji: '🍊', color: 'bg-trump-red', multiplier: 2 },
-    { id: 'harris', label: 'HARRIS', emoji: '💜', color: 'bg-harris-blue', multiplier: 2 },
-    { id: 'pepe', label: 'PEPE', emoji: '🐸', color: 'bg-frog-green', multiplier: 14 },
-  ]
+  const betOptions = THEME.rouletteBets
 
   const spin = async () => {
     if (!selectedBet) {
@@ -35,12 +32,14 @@ const RouletteGame = ({ balance, setBalance, onBet }) => {
 
     await new Promise(r => setTimeout(r, 3000))
 
-    // Determine result (weighted: 45% Trump, 45% Harris, 10% Pepe)
+    // Determine result using theme weights (sum should be ~1.0)
     const rand = Math.random()
-    let winner
-    if (rand < 0.45) winner = 'trump'
-    else if (rand < 0.90) winner = 'harris'
-    else winner = 'pepe'
+    let cumulative = 0
+    let winner = betOptions[0].id
+    for (const bet of betOptions) {
+      cumulative += bet.weight
+      if (rand < cumulative) { winner = bet.id; break }
+    }
 
     setSpinning(false)
 
@@ -162,7 +161,7 @@ const RouletteGame = ({ balance, setBalance, onBet }) => {
 
       {/* Info */}
       <p className="text-center text-xs text-matrix-green/50 mt-4">
-        Pick your candidate. 🍊 Trump or 💜 Harris = 2x | 🐸 Pepe = 14x (rare!)
+        Pick your side. {betOptions.map(b => `${b.emoji} ${b.label} = ${b.multiplier}x`).join(' | ')}
       </p>
     </div>
   )

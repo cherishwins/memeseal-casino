@@ -111,10 +111,21 @@ Legal variants of this path:
 - [ ] Replace the placeholder Vercel URL in `src/main.jsx` and `public/tonconnect-manifest.json` with your own.
 - [ ] Deploy to Vercel (`npx vercel --prod`).
 - [ ] Take the 6 screenshots and the 30s screen recording. Use the demo mode, you don't need a Telegram setup.
-- [ ] Create a Gumroad account, paste the listing copy above, upload a `.zip` of this repo (excluding `node_modules`, `.git`, `dist`).
+- [ ] Run `./seller/tools/package-for-sale.sh` to produce a clean buyer-ready zip (excludes `/seller`, `node_modules`, `.git`, secrets).
+- [ ] Create a Gumroad account, paste the listing copy from `seller/LISTING-COPY.md`, upload the zip.
 - [ ] List at $79. Do NOT discount on day 1.
-- [ ] Post the live demo URL to `r/SideProject`, `r/TONblockchain`, and X with the recording. Don't sell — share.
+- [ ] Post the live demo URL to `r/SideProject`, `r/TONblockchain`, and X with the recording — copy in `seller/OUTREACH.md`.
 - [ ] Set a 14-day check-in. If 0 sales, drop to $49 and try paid promo. If 1+ sales, hold the price and double down on promo channels that worked.
+
+## For the rest of your catalogue
+
+The `seller/` directory contains everything you need to repeat this for other items:
+
+- **`seller/CATALOGUE-CHECKLIST.md`** — 10-point saleability scorecard. Apply to every item before listing.
+- **`seller/LISTING-COPY.md`** — pre-written titles, descriptions, tags for Gumroad / LemonSqueezy / CodeCanyon.
+- **`seller/OUTREACH.md`** — Reddit / X / Indie Hackers / cold DM templates.
+- **`seller/tools/lemonsqueezy/`** — Node CLI that bulk-creates Lemon Squeezy products from a `manifest.json` per item. Worth it once you have 3+ items.
+- **`seller/tools/package-for-sale.sh`** — one-command clean zip generator.
 
 ---
 
