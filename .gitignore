@@ -5,3 +5,10 @@ dist/
 *.log
 .DS_Store
 .vercel
+
+# Generated sale bundles
+memeseal-casino-v*.zip
+
+# Lemon Squeezy bulk uploader — generated lock files contain product IDs
+seller/tools/lemonsqueezy/items/**/manifest.lock.json
+seller/tools/lemonsqueezy/items.example/**/manifest.lock.json

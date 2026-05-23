@@ -1,0 +1,25 @@
+{
+  "name": "Telegram Mini App Casino Template",
+  "description": "Production-ready React + TON Connect + Telegram Stars casino kit. 3 working games (Slots, Roulette, Crash), global lottery pot, loyalty card system, and white-label theme presets. Runs in demo mode with zero backend — clone, npm install, npm run dev, you're in.\n\n**What you get:** complete source code, deploy configs (Vercel + tonconnect manifest), documented backend contract, commercial license.\n\n**Stack:** React 18, Vite 5, Tailwind, TON Connect SDK 2, Three.js (optional 3D crash), Zustand.",
+  "status": "draft",
+  "thank_you_note": "Thanks for your purchase! Open README.md to get started. Questions? Reply to the receipt email.",
+  "variants": [
+    {
+      "name": "Standard",
+      "price_cents": 7900,
+      "description": "Use in one project you own."
+    },
+    {
+      "name": "Extended",
+      "price_cents": 24900,
+      "description": "Use in up to 5 client projects."
+    },
+    {
+      "name": "White-label",
+      "price_cents": 89900,
+      "description": "Source-redistribution rights for re-skinned versions + 30 days of priority email support + 1 hour of customization help."
+    }
+  ],
+  "cover": "./cover.png",
+  "files": []
+}

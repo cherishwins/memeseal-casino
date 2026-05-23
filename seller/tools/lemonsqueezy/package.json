@@ -1,0 +1,16 @@
+{
+  "name": "lemonsqueezy-bulk-upload",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Bulk-create Lemon Squeezy products from a folder of items.",
+  "bin": {
+    "ls-bulk": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

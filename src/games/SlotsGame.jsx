@@ -1,23 +1,8 @@
 import { useState, useEffect } from 'react'
+import { THEME } from '../themes'
 
-// Politician symbols for the slot machine
-const SYMBOLS = [
-  { id: 'trump', emoji: '🍊', name: 'TRUMP' },
-  { id: 'biden', emoji: '😴', name: 'BIDEN' },
-  { id: 'harris', emoji: '💜', name: 'HARRIS' },
-  { id: 'obama', emoji: '🏀', name: 'OBAMA' },
-  { id: 'pelosi', emoji: '🍦', name: 'PELOSI' },
-  { id: 'frog', emoji: '🐸', name: 'PEPE' },
-  { id: 'rocket', emoji: '🚀', name: 'MOON' },
-]
-
-const PAYOUTS = {
-  'frog-frog-frog': { multiplier: 100, name: 'TRIPLE PEPE JACKPOT' },
-  'rocket-rocket-rocket': { multiplier: 50, name: 'TO THE MOON' },
-  'trump-trump-trump': { multiplier: 25, name: 'MAGA WINNER' },
-  'three-of-kind': { multiplier: 10, name: 'THREE OF A KIND' },
-  'two-of-kind': { multiplier: 2, name: 'PAIR' },
-}
+const SYMBOLS = THEME.slotsSymbols
+const JACKPOT_PAYOUTS = THEME.slotsJackpots
 
 const SlotsGame = ({ balance, setBalance, onBet, userId }) => {
   const [reels, setReels] = useState([SYMBOLS[0], SYMBOLS[1], SYMBOLS[2]])
@@ -76,17 +61,14 @@ const SlotsGame = ({ balance, setBalance, onBet, userId }) => {
     let multiplier = 0
     let winName = ''
 
-    // Check for jackpots
-    if (PAYOUTS[key]) {
-      multiplier = PAYOUTS[key].multiplier
-      winName = PAYOUTS[key].name
+    if (JACKPOT_PAYOUTS[key]) {
+      multiplier = JACKPOT_PAYOUTS[key].multiplier
+      winName = JACKPOT_PAYOUTS[key].name
     }
-    // Check three of a kind
     else if (ids[0] === ids[1] && ids[1] === ids[2]) {
       multiplier = 10
       winName = 'THREE OF A KIND'
     }
-    // Check pairs
     else if (ids[0] === ids[1] || ids[1] === ids[2] || ids[0] === ids[2]) {
       multiplier = 2
       winName = 'PAIR'
@@ -189,9 +171,12 @@ const SlotsGame = ({ balance, setBalance, onBet, userId }) => {
       <div className="mt-4 text-xs text-matrix-green/70">
         <p className="text-center mb-2 font-casino">PAYTABLE (MULTIPLIERS)</p>
         <div className="grid grid-cols-2 gap-1">
-          <span>🐸🐸🐸 = 100x JACKPOT</span>
-          <span>🚀🚀🚀 = 50x MOON</span>
-          <span>🍊🍊🍊 = 25x MAGA</span>
+          {Object.entries(JACKPOT_PAYOUTS).map(([key, payout]) => {
+            const emoji = SYMBOLS.find(s => s.id === key.split('-')[0])?.emoji || '★'
+            return (
+              <span key={key}>{emoji}{emoji}{emoji} = {payout.multiplier}x {payout.name.split(' ').slice(0, 2).join(' ')}</span>
+            )
+          })}
           <span>3 of kind = 10x</span>
           <span>Pair = 2x</span>
         </div>

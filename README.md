@@ -53,15 +53,24 @@ Then in [@BotFather](https://t.me/BotFather): `/newapp` → set Web App URL to y
 Copy `.env.example` to `.env` and edit:
 
 ```env
-VITE_BRAND_NAME=YOUR CASINO
-VITE_BRAND_TAGLINE=THE HOUSE ALWAYS WINS
-VITE_BRAND_FOOTER=POWERED BY YOU
+VITE_THEME=vegas             # built-in skins: memeseal | vegas | cyber
+VITE_BRAND_NAME=YOUR CASINO  # optional override
 VITE_STARTING_CHIPS=1000
 ```
 
-### Swap the game symbols
+### Built-in themes
 
-Edit `src/games/SlotsGame.jsx` — the `SYMBOLS` and `PAYOUTS` arrays are at the top. Same pattern in `RouletteGame.jsx` (`betOptions`).
+Three ready-to-use skins in `src/themes.js`:
+
+| Theme | Vibe | Symbols |
+| --- | --- | --- |
+| `memeseal` (default) | Matrix / crypto / meme | 🐸 🚀 💎 🔥 ⚡ 👑 💰 |
+| `vegas` | Classic slots | 7️⃣ 🍒 🔔 🅱️ 🍋 💎 🐴 |
+| `cyber` | Cyberpunk / netrunner | 🧠 👁️ 🔌 🤖 💀 🚀 ⚡ |
+
+### Add your own theme
+
+Open `src/themes.js`, add an entry under `THEMES`, set `VITE_THEME` to its key. The theme controls slot symbols, jackpot payouts, roulette bet options, and brand strings.
 
 ### Re-skin the colors
 
