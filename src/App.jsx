@@ -5,6 +5,11 @@ import FrogDealer from './components/FrogDealer'
 import LotteryCountdown from './components/LotteryCountdown'
 import PotDisplay from './components/PotDisplay'
 import LoyaltyCard from './components/LoyaltyCard'
+import DailyReward from './components/engagement/DailyReward'
+import StreakBadge from './components/engagement/StreakBadge'
+import EngagementHub from './components/engagement/EngagementHub'
+import WinCelebration from './components/engagement/WinCelebration'
+import { useEngagementStore } from './stores/engagementStore'
 import { DEMO_MODE, API_BASE, LOTTERY_CUT, BRAND, demoStorage } from './config'
 
 // Lazy load games - only loaded when user selects them
@@ -141,6 +146,13 @@ function App() {
   const [showBuyChips, setShowBuyChips] = useState(false)
   const [userId, setUserId] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [showDailyReward, setShowDailyReward] = useState(false)
+  const [showHub, setShowHub] = useState(false)
+  const [toast, setToast] = useState(null)
+  const canClaimDaily = useEngagementStore((s) => s.canClaimDaily)
+  const trackBet = useEngagementStore((s) => s.trackBet)
+  const bigWin = useEngagementStore((s) => s.lastBigWin)
+  const ensureReferralCode = useEngagementStore((s) => s.ensureReferralCode)
 
   // Get Telegram user ID on mount
   useEffect(() => {
@@ -201,8 +213,30 @@ function App() {
   useEffect(() => {
     if (userId) {
       fetchBalance()
+      ensureReferralCode(userId)
+      const seen = sessionStorage.getItem('seen_daily_modal')
+      if (!seen && canClaimDaily()) {
+        setShowDailyReward(true)
+        sessionStorage.setItem('seen_daily_modal', '1')
+      }
     }
-  }, [userId, fetchBalance])
+  }, [userId, fetchBalance, ensureReferralCode, canClaimDaily])
+
+  const showToast = useCallback((message) => {
+    setToast(message)
+    setTimeout(() => setToast(null), 2500)
+  }, [])
+
+  const handleEngagementReward = useCallback((chips) => {
+    if (!chips) return
+    if (DEMO_MODE) {
+      const newBalance = demoStorage.addBalance(chips)
+      setBalance(newBalance)
+    } else {
+      setBalance((prev) => prev + chips)
+    }
+    showToast(`+${chips.toLocaleString()} chips`)
+  }, [showToast])
 
   // Fetch pot size from API
   useEffect(() => {
@@ -240,6 +274,8 @@ function App() {
     }
 
     const potDelta = Math.floor(betAmount * LOTTERY_CUT)
+    const didWin = payout > 0
+    trackBet({ betAmount, gameId: gameType, didWin, payout })
 
     if (DEMO_MODE) {
       const newBalance = demoStorage.addBalance(payout - betAmount)
@@ -313,6 +349,56 @@ function App() {
         />
       )}
 
+      {/* Daily reward */}
+      {showDailyReward && (
+        <DailyReward
+          onClose={() => setShowDailyReward(false)}
+          onClaim={handleEngagementReward}
+        />
+      )}
+
+      {/* Rewards Hub */}
+      {showHub && (
+        <EngagementHub
+          onClose={() => setShowHub(false)}
+          onClaim={handleEngagementReward}
+          userId={userId}
+          brandName={BRAND.name}
+        />
+      )}
+
+      {/* Big-win celebration */}
+      {bigWin && (
+        <WinCelebration
+          multiplier={bigWin.multiplier}
+          payout={bigWin.payout}
+          onClose={() => useEngagementStore.getState().clearBigWin()}
+          onShare={() => {
+            const code = useEngagementStore.getState().referralCode || ''
+            const botUsername = import.meta.env.VITE_TG_BOT_USERNAME || 'your_bot'
+            const link = `https://t.me/${botUsername}?start=ref_${code}`
+            const text = `🎰 Just hit ${bigWin.multiplier.toFixed(1)}× on ${BRAND.name}! Get 750 free chips: ${link}`
+            const url = `https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent(text)}`
+            if (window.Telegram?.WebApp?.openTelegramLink) {
+              window.Telegram.WebApp.openTelegramLink(url)
+            } else {
+              window.open(url, '_blank', 'noopener')
+            }
+          }}
+        />
+      )}
+
+      {/* Toast */}
+      {toast && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed top-4 left-1/2 -translate-x-1/2 z-[70] game-card border-casino-gold px-4 py-2 font-casino text-casino-gold animate-pulse"
+        >
+          {toast}
+        </div>
+      )}
+
       {/* Main Content */}
       <div className="relative z-10 p-4 max-w-lg mx-auto">
 
@@ -332,6 +418,18 @@ function App() {
         <div className="mb-6 space-y-4">
           <PotDisplay potSize={potSize} />
           <LotteryCountdown />
+        </div>
+
+        {/* Engagement quick-access row */}
+        <div className="mb-4 flex gap-2 justify-center items-stretch flex-wrap">
+          <StreakBadge onClick={() => setShowDailyReward(true)} />
+          <button
+            onClick={() => setShowHub(true)}
+            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-neon-pink/60 bg-black/60 font-casino text-sm text-neon-pink hover:bg-neon-pink/10 min-h-[44px]"
+            aria-label="Open rewards hub: quests, achievements, leaderboard, and referrals"
+          >
+            <span aria-hidden="true">🎯</span> REWARDS
+          </button>
         </div>
 
         {/* Wallet Connection */}
