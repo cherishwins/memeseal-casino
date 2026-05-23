@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">MEMESEAL Casino — Free chips waiting</title>
+  <desc id="desc">Open Graph share image: Matrix neon casino with frog mascot and CTA for 750 free chips</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0d0d"/>
+      <stop offset="100%" stop-color="#001a05"/>
+    </linearGradient>
+    <linearGradient id="goldText" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe666"/>
+      <stop offset="100%" stop-color="#ffaa00"/>
+    </linearGradient>
+    <filter id="neon" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00ff41" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Matrix rain hint -->
+  <g font-family="monospace" font-size="14" fill="#00ff41" opacity="0.25">
+    <text x="40" y="90">01 10 11 00 1F</text>
+    <text x="40" y="540">$$ 7F 0A C3 EE</text>
+    <text x="1050" y="120">PEPE</text>
+    <text x="1080" y="500">MOON</text>
+  </g>
+
+  <!-- Frog mascot ring -->
+  <circle cx="200" cy="315" r="140" fill="none" stroke="#39ff14" stroke-width="3" opacity="0.7" filter="url(#neon)"/>
+  <text x="200" y="380" font-size="200" text-anchor="middle">🐸</text>
+
+  <!-- Headline -->
+  <text x="380" y="220" font-family="Orbitron, sans-serif" font-weight="900" font-size="84" fill="url(#goldText)" filter="url(#neon)">
+    MEMESEAL
+  </text>
+  <text x="380" y="290" font-family="Orbitron, sans-serif" font-weight="700" font-size="48" fill="#ff00ff" filter="url(#neon)">
+    CASINO
+  </text>
+
+  <!-- Body -->
+  <text x="380" y="360" font-family="Share Tech Mono, monospace" font-size="28" fill="#00ff41">
+    Telegram Mini App · TON · Stars
+  </text>
+
+  <!-- CTA pill -->
+  <rect x="380" y="400" width="420" height="80" rx="40" fill="#ffd700" filter="url(#neon)"/>
+  <text x="590" y="453" font-family="Orbitron, sans-serif" font-weight="900" font-size="34" text-anchor="middle" fill="#0d0d0d">
+    750 FREE CHIPS
+  </text>
+
+  <!-- Game icons -->
+  <g font-size="40">
+    <text x="380" y="555">🎰</text>
+    <text x="450" y="555">🚀</text>
+    <text x="520" y="555">🎯</text>
+    <text x="600" y="555" font-family="Share Tech Mono, monospace" font-size="22" fill="#00ffff">Slots · Crash · Roulette</text>
+  </g>
+</svg>

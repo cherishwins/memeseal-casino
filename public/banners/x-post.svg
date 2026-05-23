@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title">
+  <title id="title">MEMESEAL Casino — X / Twitter post</title>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0d0d"/>
+      <stop offset="50%" stop-color="#0a1a0a"/>
+      <stop offset="100%" stop-color="#1a0a1a"/>
+    </linearGradient>
+    <filter id="glow2"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg2)"/>
+
+  <!-- Diagonal slashes -->
+  <g stroke="#00ff41" stroke-width="3" opacity="0.4">
+    <line x1="-100" y1="800" x2="800" y2="-100"/>
+    <line x1="0" y1="900" x2="900" y2="0"/>
+    <line x1="800" y1="900" x2="1700" y2="0" stroke="#ff00ff"/>
+    <line x1="900" y1="900" x2="1800" y2="0" stroke="#ff00ff"/>
+  </g>
+
+  <!-- Frog -->
+  <text x="280" y="600" font-size="380">🐸</text>
+
+  <!-- Headline -->
+  <text x="650" y="350" font-family="Orbitron, sans-serif" font-weight="900" font-size="110" fill="#39ff14" filter="url(#glow2)">
+    BET. WIN.
+  </text>
+  <text x="650" y="470" font-family="Orbitron, sans-serif" font-weight="900" font-size="110" fill="#ffd700" filter="url(#glow2)">
+    TO THE MOON.
+  </text>
+
+  <text x="650" y="555" font-family="Share Tech Mono, monospace" font-size="32" fill="#00ffff">
+    Telegram-native casino · 3 games · 1 lottery pot
+  </text>
+
+  <!-- Stats -->
+  <g font-family="Orbitron, sans-serif" font-weight="700">
+    <rect x="650" y="600" width="260" height="100" rx="12" fill="none" stroke="#00ff41" stroke-width="2"/>
+    <text x="780" y="650" text-anchor="middle" font-size="42" fill="#ffd700">100×</text>
+    <text x="780" y="685" text-anchor="middle" font-size="16" fill="#00ff41">PEPE JACKPOT</text>
+
+    <rect x="930" y="600" width="260" height="100" rx="12" fill="none" stroke="#ff00ff" stroke-width="2"/>
+    <text x="1060" y="650" text-anchor="middle" font-size="42" fill="#ff00ff">7d</text>
+    <text x="1060" y="685" text-anchor="middle" font-size="16" fill="#ff00ff">STREAK REWARDS</text>
+
+    <rect x="1210" y="600" width="260" height="100" rx="12" fill="none" stroke="#ffd700" stroke-width="2"/>
+    <text x="1340" y="650" text-anchor="middle" font-size="42" fill="#ffd700">750</text>
+    <text x="1340" y="685" text-anchor="middle" font-size="16" fill="#ffd700">FREE CHIPS</text>
+  </g>
+
+  <text x="650" y="780" font-family="Share Tech Mono, monospace" font-size="22" fill="#00ff41" opacity="0.7">
+    → t.me/your_bot
+  </text>
+</svg>

@@ -16,6 +16,12 @@ A complete, ready-to-deploy Telegram Mini App casino built with React 18, Vite 5
 | Optional 3D crash variant (Three.js / React-Three-Fiber) | Working |
 | Global lottery pot (20% of bets auto-feed) | Working |
 | Loyalty card system (7-digit redemption codes) | Working |
+| Daily login rewards + 7-day streak ladder | Working |
+| Daily / weekly quests with progress bars | Working |
+| Lifetime achievements (7 badges) | Working |
+| Top-10 leaderboard (today / all-time / streaks) | Working |
+| Big-win celebration overlay + share-to-Telegram | Working |
+| Two-sided referral system | Working |
 | TON Connect wallet integration | Working |
 | Telegram Stars payment flow | Working |
 | Matrix rain background (Canvas + WebGL variants) | Working |
@@ -118,6 +124,14 @@ The authors take no responsibility for how you use it. Run it past a lawyer befo
 ## License
 
 See `LICENSE.md`. TL;DR: use it for your own projects (one or many), don't resell the source code itself.
+
+---
+
+## Engagement & retention
+
+The casino ships with a complete engagement loop: daily streak rewards, quests, achievements, leaderboard, big-win celebration, and a two-sided referral system. See `docs/ENGAGEMENT_STRATEGY.md` for the full playbook, target metrics, A/B test order, and monetization hooks.
+
+Marketing assets ready to use are in `public/banners/` (SVG — scale anywhere). Set `VITE_TG_BOT_USERNAME=your_bot` in your `.env` so the referral and share links point at your actual bot.
 
 ---
 
