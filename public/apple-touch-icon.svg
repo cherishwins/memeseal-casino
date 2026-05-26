@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <!-- Onyx base -->
+  <rect width="180" height="180" fill="#050505" rx="40"/>
+  <!-- Subtle gold radial glow -->
+  <radialGradient id="glow" cx="70%" cy="30%" r="60%">
+    <stop offset="0%" stop-color="#B8860B" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#B8860B" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="180" height="180" fill="url(#glow)" rx="40"/>
+  <!-- Gold border -->
+  <rect x="8" y="8" width="164" height="164" fill="none" stroke="#B8860B" stroke-width="1.5" rx="34" opacity="0.7"/>
+  <!-- TS Monogram -->
+  <text x="90" y="128" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="108" text-anchor="middle" fill="#E8E2D5">T<tspan font-style="italic" fill="#B8860B">S</tspan></text>
+  <!-- Bottom tagline -->
+  <text x="90" y="160" font-family="'Courier New', Courier, monospace" font-weight="700" font-size="10" text-anchor="middle" fill="#B8860B" letter-spacing="3" opacity="0.8">HOLDINGS</text>
+</svg>

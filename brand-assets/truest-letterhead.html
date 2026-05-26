@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truest Story Holdings · Letterhead Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --onyx: #050505; --bullion: #B8860B; --bullion-deep: #8B6914;
+    --ember: #C73E1D; --paper: #F0E9D8; --paper-deep: #E0D9C5; --mercury: #7A7A7A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #1a1a1a; padding: 32px 16px; min-height: 100vh; }
+
+  /* The actual letter — US Letter size, scaled */
+  .letter {
+    background: var(--paper);
+    color: var(--onyx);
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in;
+    aspect-ratio: 8.5 / 11;
+    font-family: "Fraunces", serif;
+    font-size: 14px;
+    line-height: 1.55;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+  }
+
+  /* Letterhead */
+  .lh-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 16px; border-bottom: 1.5px solid var(--bullion);
+    margin-bottom: 32px;
+  }
+  .lh-mark {
+    font-family: "Fraunces", serif; font-weight: 900;
+    font-size: 36px; line-height: 0.92; letter-spacing: -0.025em; color: var(--onyx);
+  }
+  .lh-mark em { font-style: italic; color: var(--bullion-deep); }
+  .lh-mark-sub {
+    font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 9px;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--onyx);
+    margin-top: 8px;
+  }
+  .lh-addr {
+    font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 500;
+    line-height: 1.7; letter-spacing: 0.06em; text-align: right; color: var(--onyx);
+  }
+  .lh-addr .gold { color: var(--bullion-deep); font-weight: 700; }
+
+  /* Letter body */
+  .lh-meta {
+    display: flex; justify-content: space-between; margin-bottom: 32px;
+    font-family: "IBM Plex Mono", monospace; font-size: 9px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+  }
+  .lh-meta .ref { color: var(--bullion-deep); font-weight: 700; }
+
+  .lh-recipient {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.04em; line-height: 1.7; margin-bottom: 28px;
+    color: var(--onyx);
+  }
+
+  .lh-subject {
+    font-family: "Fraunces", serif; font-weight: 700; font-style: italic;
+    font-size: 16px; margin-bottom: 18px; color: var(--bullion-deep);
+    padding-bottom: 8px; border-bottom: 1px dashed rgba(139, 105, 20, 0.4);
+  }
+
+  .lh-body p {
+    margin-bottom: 12px; font-size: 13px; line-height: 1.65; color: var(--onyx);
+  }
+  .lh-body p strong { color: var(--bullion-deep); font-weight: 700; }
+  .lh-body p em { font-style: italic; }
+
+  /* Signature block */
+  .lh-sig {
+    margin-top: 32px;
+  }
+  .lh-sig .salutation {
+    font-family: "Fraunces", serif; font-style: italic; font-size: 14px;
+    color: var(--onyx); margin-bottom: 48px;
+  }
+  .lh-sig .name {
+    font-family: "Fraunces", serif; font-weight: 700; font-size: 14px;
+    color: var(--onyx); border-top: 1px solid var(--bullion-deep); padding-top: 6px;
+    display: inline-block; min-width: 200px;
+  }
+  .lh-sig .title {
+    font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--bullion-deep);
+    margin-top: 4px;
+  }
+
+  /* Footer */
+  .lh-foot {
+    position: absolute; bottom: 0.5in; left: 0.75in; right: 0.75in;
+    border-top: 1px solid var(--bullion); padding-top: 12px;
+    display: flex; justify-content: space-between;
+    font-family: "IBM Plex Mono", monospace; font-size: 8px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+  }
+  .lh-foot .gold { color: var(--bullion-deep); font-weight: 700; }
+
+  /* Top instruction bar */
+  .preview-bar {
+    max-width: 8.5in; margin: 0 auto 24px;
+    padding: 16px 24px; background: var(--onyx); color: var(--paper);
+    border-left: 3px solid var(--bullion);
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .preview-bar .gold { color: var(--bullion); }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .preview-bar { display: none; }
+    .letter { box-shadow: none; max-width: 100%; aspect-ratio: auto; min-height: 11in; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-bar">
+  <span class="gold">▲ LETTERHEAD TEMPLATE · US LETTER 8.5×11"</span>
+  <span>PRESS CTRL/CMD+P TO PRINT</span>
+</div>
+
+<div class="letter">
+
+  <!-- Letterhead -->
+  <div class="lh-top">
+    <div>
+      <div class="lh-mark">Truest <em>Story</em></div>
+      <div class="lh-mark-sub">Holdings · Media · Gaming · Distribution</div>
+    </div>
+    <div class="lh-addr">
+      <div class="gold">TRUEST STORY HOLDINGS</div>
+      <div>Operating Company</div>
+      <div>Victoria · British Columbia</div>
+      <div>Canada · V8W 0E5</div>
+      <div style="margin-top: 8px;">truest.holdings</div>
+    </div>
+  </div>
+
+  <!-- Letter meta -->
+  <div class="lh-meta">
+    <span class="ref">REF · QTR-26-Q2-014</span>
+    <span>26 MAY MMXXVI</span>
+  </div>
+
+  <!-- Recipient -->
+  <div class="lh-recipient">
+    To the Operating Partners<br>
+    Truest Story Holdings<br>
+    Victoria, British Columbia
+  </div>
+
+  <!-- Subject -->
+  <div class="lh-subject">Re: Q2 capital reallocation · The Welch cycle, completed.</div>
+
+  <!-- Body -->
+  <div class="lh-body">
+    <p>This week, The Desk flagged <strong>fourteen positions</strong> for cut under Welch Law 01 — missed ROAS threshold for two consecutive cycles, no plausible recovery path under the current creative or channel configuration. The Treasury executed the reallocation on schedule. Capital cut from underperforming positions totaled <strong>$184,000</strong>, redirected to the top decile of identified winners.</p>
+
+    <p>The largest reallocation this cycle: <em>Studio · Hyperpop B-sides</em>, scaled to <strong>3×</strong> prior spend after sustained <strong>6.4× ROAS</strong> over four cycles. The largest cut: <em>Y2K Nostalgia Image Series</em>, terminated after sustained underperformance and a 24-point ROAS decline over the trailing six weeks.</p>
+
+    <p>Pipeline throughput continues to compound. The Wire shipped <strong>1,847 assets</strong> across the seven authorized channels in the trailing seven days — a <strong>20% lift</strong> over the prior period, driven entirely by automation efficiency gains in the n8n workflow refactor completed by the engineering team on the 14th.</p>
+
+    <p>The Desk has flagged a candidate experiment for the next cycle: <em>The House × TikTok-US</em> creative loop, where winning seals from the casino auto-generate short-form content for paid placement. Expected uplift: high. Expected risk: low. Recommended allocation: <strong>$48,000 over four cycles</strong>, with kill flag set at 2.4× ROAS minimum.</p>
+
+    <p>Per usual: nothing in this letter is sentimental. The math decided. The Treasury executed. The position adjusts.</p>
+  </div>
+
+  <!-- Signature -->
+  <div class="lh-sig">
+    <div class="salutation">For the operating partners,</div>
+    <div class="name">Jesse James</div>
+    <div class="title">Principal · The Treasury</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="lh-foot">
+    <span class="gold">▲ TRUEST STORY HOLDINGS</span>
+    <span>CONFIDENTIAL · PARTNERS ONLY</span>
+    <span>PAGE 01 / 01</span>
+  </div>
+
+</div>
+
+</body>
+</html>

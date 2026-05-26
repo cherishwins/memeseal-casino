@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truest Story Holdings · Operating Company Brand System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --onyx: #050505;
+    --carbon: #0d0d0d;
+    --steel: #161616;
+    --iron: #1f1f1f;
+    --bullion: #B8860B;
+    --bullion-bright: #D4A017;
+    --bullion-deep: #8B6914;
+    --ember: #C73E1D;
+    --ember-deep: #8B2A14;
+    --bone: #E8E2D5;
+    --bone-warm: #D4C9B5;
+    --paper: #F0E9D8;
+    --mercury: #7A7A7A;
+    --rule: rgba(232, 226, 213, 0.12);
+    --rule-gold: rgba(184, 134, 11, 0.4);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Fraunces", "Times New Roman", serif;
+    background: var(--onyx);
+    color: var(--bone);
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .masthead {
+    background: var(--carbon);
+    border-top: 1px solid var(--bullion);
+    border-bottom: 1px solid var(--bullion);
+    padding: 10px 0;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .mast-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: tick 70s linear infinite;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--bone);
+  }
+  .mast-track span { padding: 0 28px; }
+  .mast-track .gold { color: var(--bullion-bright); }
+  .mast-track .ember { color: var(--ember); }
+  .mast-track .up { color: var(--bullion-bright); }
+  .mast-track .down { color: var(--ember); }
+  @keyframes tick { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  .hero {
+    min-height: 95vh;
+    padding: 64px 32px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--onyx);
+    position: relative;
+    border-bottom: 2px solid var(--bullion);
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-corner {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mercury);
+    line-height: 1.8;
+  }
+  .hero-corner .gold { color: var(--bullion); }
+  .hero-corner .ember { color: var(--ember); }
+  .hero-corner.right { text-align: right; }
+
+  .hero-mark {
+    margin: 60px 0;
+    max-width: 1100px;
+  }
+  .hero-mark .pre {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bullion);
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--bullion);
+    display: inline-block;
+  }
+  .hero-mark .wordmark {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: clamp(72px, 16vw, 200px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: var(--bone);
+    font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+    margin: 0;
+  }
+  .hero-mark .wordmark .italic {
+    font-style: italic;
+    color: var(--bullion);
+  }
+  .hero-mark .sub {
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 600;
+    font-size: clamp(13px, 2.5vw, 18px);
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--bone);
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--bullion);
+  }
+  .hero-mark .sub .gold { color: var(--bullion); }
+  .hero-mark .sub .sep { color: var(--mercury); padding: 0 12px; }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--bullion);
+    border-bottom: 1px solid var(--bullion);
+  }
+  .hero-stats .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-stats .row:last-child { border-bottom: 0; }
+  .hero-stats .cell {
+    padding: 16px 20px;
+    border-right: 1px solid var(--rule);
+  }
+  .hero-stats .cell:last-child { border-right: 0; }
+  .hero-stats .lbl {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mercury);
+    margin-bottom: 6px;
+  }
+  .hero-stats .val {
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 800;
+    font-size: clamp(20px, 4vw, 32px);
+    color: var(--bone);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .hero-stats .val.gold { color: var(--bullion-bright); }
+  .hero-stats .val.ember { color: var(--ember); }
+  .hero-stats .delta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .hero-stats .delta.up { color: var(--bullion-bright); }
+  .hero-stats .delta.down { color: var(--ember); }
+
+  section {
+    padding: 96px 32px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  section.paper {
+    background: var(--paper);
+    color: var(--onyx);
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+
+  .section-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--bullion);
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .section-meta .lhs {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bullion);
+  }
+  .section-meta .rhs {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mercury);
+  }
+
+  section.paper .section-meta .lhs { color: var(--bullion-deep); }
+  section.paper .section-meta .rhs { color: var(--onyx); opacity: 0.5; }
+  section.paper .section-meta { border-bottom-color: var(--bullion-deep); }
+
+  h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: clamp(40px, 7vw, 64px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    color: var(--bone);
+    margin-bottom: 28px;
+    max-width: 900px;
+  }
+  h2 em { font-style: italic; color: var(--bullion); }
+  h2 .ember-c { color: var(--ember); }
+  section.paper h2 { color: var(--onyx); }
+  section.paper h2 em { color: var(--bullion-deep); }
+
+  h3 {
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bullion);
+    margin: 48px 0 16px;
+  }
+  section.paper h3 { color: var(--bullion-deep); }
+
+  p {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--bone);
+    max-width: 720px;
+  }
+  p.lede {
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--bone);
+    margin-bottom: 32px;
+    max-width: 800px;
+  }
+  section.paper p { color: var(--onyx); }
+  section.paper p.lede { color: var(--onyx); }
+
+  strong { color: var(--bullion-bright); font-weight: 700; }
+  section.paper strong { color: var(--bullion-deep); }
+
+  em.gold { color: var(--bullion); font-style: italic; }
+  em.ember { color: var(--ember); font-style: italic; }
+  section.paper em.gold { color: var(--bullion-deep); }
+
+  .thesis-block {
+    margin: 32px 0;
+    padding: 32px;
+    border: 1px solid var(--bullion);
+    background: var(--carbon);
+  }
+  .thesis-block .lbl {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bullion);
+    margin-bottom: 16px;
+  }
+  .thesis-block .statement {
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.25;
+    color: var(--bone);
+    letter-spacing: -0.01em;
+  }
+  .thesis-block .statement em { color: var(--bullion); font-style: italic; }
+
+  .divisions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 32px 0;
+    border-top: 2px solid var(--bullion);
+    border-bottom: 2px solid var(--bullion);
+  }
+  .division {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 0;
+  }
+  .division:last-child { border-bottom: 0; }
+  .division .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--bullion);
+    padding-top: 4px;
+  }
+  .division .meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  @media (min-width: 720px) {
+    .division .meta { grid-template-columns: 220px 1fr 120px; gap: 24px; align-items: baseline; }
+  }
+  .division .name {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--bone);
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  .division .name em { font-style: italic; color: var(--bullion); }
+  .division .desc {
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--bone);
+    opacity: 0.85;
+  }
+  .division .status {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .division .status.live { color: var(--bullion-bright); }
+  .division .status.scaling { color: var(--bone); }
+
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin: 28px 0;
+    background: var(--rule-gold);
+    border: 1px solid var(--bullion);
+  }
+  @media (min-width: 720px) {
+    .swatches { grid-template-columns: repeat(4, 1fr); }
+  }
+  .swatch {
+    aspect-ratio: 1 / 1.15;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .swatch .name { font-family: "Fraunces", serif; font-weight: 900; font-size: 22px; letter-spacing: -0.02em; line-height: 1; }
+  .swatch .hex { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; margin-top: 4px; }
+  .swatch .use { font-family: "Inter Tight", sans-serif; font-size: 12px; font-weight: 500; line-height: 1.4; }
+  .swatch.onyx-sw { background: var(--onyx); color: var(--bone); }
+  .swatch.carbon-sw { background: var(--carbon); color: var(--bone); }
+  .swatch.bullion-sw { background: var(--bullion); color: var(--onyx); }
+  .swatch.bullion-deep-sw { background: var(--bullion-deep); color: var(--bone); }
+  .swatch.ember-sw { background: var(--ember); color: var(--bone); }
+  .swatch.bone-sw { background: var(--bone); color: var(--onyx); }
+  .swatch.paper-sw { background: var(--paper); color: var(--onyx); }
+  .swatch.mercury-sw { background: var(--mercury); color: var(--bone); }
+
+  footer {
+    background: var(--carbon);
+    padding: 64px 32px;
+    border-top: 2px solid var(--bullion);
+    text-align: center;
+  }
+  .foot-mark {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: clamp(40px, 8vw, 64px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--bone);
+    margin-bottom: 24px;
+  }
+  .foot-mark em { font-style: italic; color: var(--bullion); }
+  .foot-meta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--mercury);
+    line-height: 2.4;
+    padding-top: 28px;
+    border-top: 1px solid var(--bullion);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .foot-meta .gold { color: var(--bullion); }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="mast-track">
+    <span class="gold">▲ TRUEST STORY HOLDINGS</span>
+    <span>OPERATING COMPANY BRAND SYSTEM v2.0</span>
+    <span class="gold">●</span>
+    <span>MEDIA · GAMING · DISTRIBUTION</span>
+    <span class="up">▲ THE HOUSE</span>
+    <span class="up">▲ THE WIRE</span>
+    <span class="up">▲ THE STUDIO</span>
+    <span class="down">▼ LEGACY CHANNELS · CUT</span>
+    <span class="gold">●</span>
+    <span>n8n PIPELINES · LLM FEEDBACK LOOP</span>
+    <span class="ember">★</span>
+    <span>INVEST IN WINNERS · CUT THE FAILURES</span>
+    <span class="gold">▲ TRUEST STORY HOLDINGS</span>
+    <span>OPERATING COMPANY BRAND SYSTEM v2.0</span>
+    <span class="gold">●</span>
+    <span>MEDIA · GAMING · DISTRIBUTION</span>
+    <span class="up">▲ THE HOUSE</span>
+    <span class="up">▲ THE WIRE</span>
+    <span class="up">▲ THE STUDIO</span>
+    <span class="down">▼ LEGACY CHANNELS · CUT</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-top">
+    <div class="hero-corner">
+      <div class="gold">VOL. II</div>
+      <div>MMXXVI</div>
+      <div>VICTORIA · BC</div>
+    </div>
+    <div class="hero-corner right">
+      <div class="gold">OPERATING COMPANY</div>
+      <div>BRAND SYSTEM</div>
+      <div class="ember">CONFIDENTIAL · PARTNERS ONLY</div>
+    </div>
+  </div>
+
+  <div class="hero-mark">
+    <div class="pre">▲ Operating Company · Brand System · Volume II</div>
+    <h1 class="wordmark">Truest<br><span class="italic">Story</span><br>Holdings</h1>
+    <div class="sub">
+      <span class="gold">Media</span><span class="sep">/</span><span class="gold">Gaming</span><span class="sep">/</span><span class="gold">Distribution</span>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="row">
+      <div class="cell">
+        <div class="lbl">Active Divisions</div>
+        <div class="val gold">05</div>
+        <div class="delta up">▲ 5 of 5 live</div>
+      </div>
+      <div class="cell">
+        <div class="lbl">Pipeline Throughput</div>
+        <div class="val">1,847</div>
+        <div class="delta up">▲ assets / week</div>
+      </div>
+      <div class="cell">
+        <div class="lbl">Allocation Cuts</div>
+        <div class="val ember">14</div>
+        <div class="delta down">▼ losers killed YTD</div>
+      </div>
+      <div class="cell">
+        <div class="lbl">Capital Reallocated</div>
+        <div class="val gold">$1.2M</div>
+        <div class="delta up">▲ from cut to scale</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 01 — The Operating Thesis</span>
+      <span class="rhs">Read time · 2 min</span>
+    </div>
+    <h2>An <em>AI-native</em> media operating company that ruthlessly reallocates capital from losers to winners.</h2>
+    <p class="lede">We do not run a media company in the legacy sense. We run an industrial machine that creates, distributes, measures, and reallocates — at a velocity legacy media cannot match — across five divisions that share one operating system.</p>
+    <p>Music gets generated. Images get generated. Both get chopped, formatted, and shipped simultaneously to every channel that matters: Spotify, SoundCloud, TikTok, Reels, Shorts, X. The pipeline is wired in n8n. The feedback loop is wired in LLMs. The capital is wired in a discipline borrowed from Welch and Buffett: <strong>winners get fed, losers get cut, no exceptions.</strong></p>
+    <div class="thesis-block">
+      <div class="lbl">▼ Operating Thesis</div>
+      <div class="statement">Truest Story Holdings is a <em>systematic media and gaming operation</em> that uses automated pipelines and LLM-driven feedback to identify what sells, scale what sells, and cut what does not — measured weekly, reallocated monthly, without sentiment.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 02 — The Divisions</span>
+      <span class="rhs">5 operating units</span>
+    </div>
+    <h2>Five rooms. <em>One operating system.</em></h2>
+    <div class="divisions">
+      <div class="division">
+        <div class="num">01 ·</div>
+        <div class="meta">
+          <div class="name">The <em>House</em></div>
+          <div class="desc">Telegram Mini App casino on TON. Provably-fair sealed gameplay. Slots, Roulette, Crash, Lottery. The front-end revenue engine.</div>
+          <div class="status live">▲ LIVE</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="num">02 ·</div>
+        <div class="meta">
+          <div class="name">The <em>Studio</em></div>
+          <div class="desc">AI music and image generation. Daily output of original tracks and visual assets. Built for distribution velocity.</div>
+          <div class="status scaling">▲ SCALING</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="num">03 ·</div>
+        <div class="meta">
+          <div class="name">The <em>Wire</em></div>
+          <div class="desc">Multi-channel distribution pipeline. Chops, formats, captions, and ships every asset to Spotify, SoundCloud, TikTok, Reels, Shorts, X — automatically. Wired in n8n.</div>
+          <div class="status live">▲ LIVE</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="num">04 ·</div>
+        <div class="meta">
+          <div class="name">The <em>Desk</em></div>
+          <div class="desc">Analytics + LLM feedback loop. Reads channel performance hourly, suggests messaging pivots, drafts the next round of creative. Self-improving.</div>
+          <div class="status live">▲ LIVE</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="num">05 ·</div>
+        <div class="meta">
+          <div class="name">The <em>Treasury</em></div>
+          <div class="desc">Capital allocation engine. Weekly P&amp;L by channel and creative. Monthly reallocation from losers to winners. The Welch discipline made automatic.</div>
+          <div class="status live">▲ LIVE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--carbon);">
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 03 — The Palette</span>
+      <span class="rhs">4 colors · hard rules</span>
+    </div>
+    <h2>Onyx. <em>Bullion.</em> <span class="ember-c">Ember.</span> Bone.</h2>
+    <div class="swatches">
+      <div class="swatch onyx-sw"><div><div class="name">Onyx</div><div class="hex">#050505</div></div><div class="use">Base field. All primary surfaces.</div></div>
+      <div class="swatch carbon-sw"><div><div class="name">Carbon</div><div class="hex">#0D0D0D</div></div><div class="use">Secondary surfaces. Cards, panels.</div></div>
+      <div class="swatch bullion-sw"><div><div class="name">Bullion</div><div class="hex">#B8860B</div></div><div class="use">The metal. Wordmark italic, rules, key data.</div></div>
+      <div class="swatch ember-sw"><div><div class="name">Ember</div><div class="hex">#C73E1D</div></div><div class="use">Heat. Cuts. Losses. Alerts. Used sparingly.</div></div>
+      <div class="swatch bone-sw"><div><div class="name">Bone</div><div class="hex">#E8E2D5</div></div><div class="use">Type on dark. Dominant reading color.</div></div>
+      <div class="swatch paper-sw"><div><div class="name">Paper</div><div class="hex">#F0E9D8</div></div><div class="use">Cream sections. Ledger pages.</div></div>
+      <div class="swatch bullion-deep-sw"><div><div class="name">Bullion Deep</div><div class="hex">#8B6914</div></div><div class="use">Bullion on paper surfaces.</div></div>
+      <div class="swatch mercury-sw"><div><div class="name">Mercury</div><div class="hex">#7A7A7A</div></div><div class="use">Secondary text. Labels, metadata.</div></div>
+    </div>
+    <p>No purple. No green. No pink. No lime. Ever. Ember appears only on cuts and alerts. Bone is type-only — never a field.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-mark">Truest <em>Story</em> Holdings</div>
+  <div class="foot-meta">
+    <span class="gold">Media · Gaming · Distribution</span><br>
+    Victoria, BC · MMXXVI<br>
+    Operating Company Brand System · Vol. II<br>
+    <span class="gold">Invest in winners. Cut the failures. No sentiment.</span>
+  </div>
+</footer>
+
+</body>
+</html>

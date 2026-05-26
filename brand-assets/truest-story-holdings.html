@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truest Story Holdings · Operating Company Brand System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --onyx: #050505;
+    --carbon: #0d0d0d;
+    --steel: #161616;
+    --iron: #1f1f1f;
+    --bullion: #B8860B;
+    --bullion-bright: #D4A017;
+    --bullion-deep: #8B6914;
+    --ember: #C73E1D;
+    --ember-deep: #8B2A14;
+    --bone: #E8E2D5;
+    --bone-warm: #D4C9B5;
+    --paper: #F0E9D8;
+    --mercury: #7A7A7A;
+    --rule: rgba(232, 226, 213, 0.12);
+    --rule-gold: rgba(184, 134, 11, 0.4);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Fraunces", "Times New Roman", serif;
+    background: var(--onyx);
+    color: var(--bone);
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ============ MASTHEAD TICKER ============ */
+  .masthead {
+    background: var(--carbon);
+    border-top: 1px solid var(--bullion);
+    border-bottom: 1px solid var(--bullion);
+    padding: 10px 0;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .mast-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: tick 70s linear infinite;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--bone);
+  }
+  .mast-track span { padding: 0 28px; }
+  .mast-track .gold { color: var(--bullion-bright); }
+  .mast-track .ember { color: var(--ember); }
+  .mast-track .up { color: var(--bullion-bright); }
+  .mast-track .down { color: var(--ember); }
+  @keyframes tick { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 95vh;
+    padding: 64px 32px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--onyx);
+    position: relative;
+    border-bottom: 2px solid var(--bullion);
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-corner {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mercury);
+    line-height: 1.8;
+  }
+  .hero-corner .gold { color: var(--bullion); }
+  .hero-corner .ember { color: var(--ember); }
+  .hero-corner.right { text-align: right; }
+
+  .hero-mark {
+    margin: 60px 0;
+    max-width: 1100px;
+  }
+  .hero-mark .pre {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bullion);
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--bullion);
+    display: inline-block;
+  }
+  .hero-mark .wordmark {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: clamp(72px, 16vw, 200px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: var(--bone);
+    font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+    margin: 0;
+  }
+  .hero-mark .wordmark .italic {
+    font-style: italic;
+    color: var(--bullion);
+  }
+  .hero-mark .sub {
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 600;
+    font-size: clamp(13px, 2.5vw, 18px);
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--bone);
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--bullion);
+  }
+  .hero-mark .sub .gold { color: var(--bullion); }
+  .hero-mark .sub .sep { color: var(--mercury); padding: 0 12px; }
+
+  /* hero stats — Bloomberg style */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--bullion);
+    border-bottom: 1px solid var(--bullion);
+  }
+  .hero-stats .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-stats .row:last-child { border-bottom: 0; }
+  .hero-stats .cell {
+    padding: 16px 20px;
+    border-right: 1px solid var(--rule);
+  }
+  .hero-stats .cell:last-child { border-right: 0; }
+  .hero-stats .lbl {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mercury);
+    margin-bottom: 6px;
+  }
+  .hero-stats .val {
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 800;
+    font-size: clamp(20px, 4vw, 32px);
+    color: var(--bone);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .hero-stats .val.gold { color: var(--bullion-bright); }
+  .hero-stats .val.ember { color: var(--ember); }
+  .hero-stats .delta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .hero-stats .delta.up { color: var(--bullion-bright); }
+  .hero-stats .delta.down { color: var(--ember); }
+
+  /* ============ SECTIONS ============ */
+  section {
+    padding: 96px 32px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  section.paper {
+    background: var(--paper);
+    color: var(--onyx);
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+
+  .section-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--bullion);
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .section-meta .lhs {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bullion);
+  }
+  .section-meta .rhs {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mercury);
+  }
+
+  section.paper .section-meta .lhs { color: var(--bullion-deep); }
+  section.paper .section-meta .rhs { color: var(--onyx); opacity: 0.5; }
+  section.paper .section-meta { border-bottom-color: var(--bullion-deep); }
+
+  h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: clamp(40px, 7vw, 64px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    color: var(--bone);
+    margin-bottom: 28px;
+    max-width: 900px;
+  }
+  h2 em {
+    font-style: italic;
+    color: var(--bullion);
+  }
+  h2 .ember-c { color: var(--ember); }
+  section.paper h2 { color: var(--onyx); }
+  section.paper h2 em { color: var(--bullion-deep); }
+
+  h3 {
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bullion);
+    margin: 48px 0 16px;
+  }
+  section.paper h3 { color: var(--bullion-deep); }
+
+  p {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--bone);
+    max-width: 720px;
+  }
+  p.lede {
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--bone);
+    margin-bottom: 32px;
+    max-width: 800px;
+  }
+  section.paper p { color: var(--onyx); }
+  section.paper p.lede { color: var(--onyx); }
+
+  strong { color: var(--bullion-bright); font-weight: 700; }
+  section.paper strong { color: var(--bullion-deep); }
+
+  em.gold { color: var(--bullion); font-style: italic; }
+  em.ember { color: var(--ember); font-style: italic; }
+  section.paper em.gold { color: var(--bullion-deep); }
+
+  /* ============ THESIS / OPERATING THESIS ============ */
+  .thesis-block {
+    margin: 32px 0;
+    padding: 32px;
+    border: 1px solid var(--bullion);
+    background: var(--carbon);
+  }
+  .thesis-block .lbl {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bullion);
+    margin-bottom: 16px;
+  }
+  .thesis-block .statement {
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.25;
+    color: var(--bone);
+    letter-spacing: -0.01em;
+  }
+  .thesis-block .statement em {
+    color: var(--bullion);
+    font-style: italic;
+  }
+
+  /* ============ DIVISIONS / PORTFOLIO ============ */
+  .divisions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 32px 0;
+    border-top: 2px solid var(--bullion);
+    border-bottom: 2px solid var(--bullion);
+  }
+  .division {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 0;
+  }
+  .division:last-child { border-bottom: 0; }
+  .division .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--bullion);
+    padding-top: 4px;
+  }
+  .division .meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  @media (min-width: 720px) {
+    .division .meta { grid-template-columns: 220px 1fr 120px; gap: 24px; align-items: baseline; }
+  }
+  .division .name {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--bone);
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  .division .name em { font-style: italic; color: var(--bullion); }
+  .division .desc {
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--bone);
+    opacity: 0.85;
+  }
+  .division .status {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--bullion-bright);
+  }
+  .division .status.dev { color: var(--ember); }
+  .division .status.live { color: var(--bullion-bright); }
+  .division .status.scaling { color: var(--bone); }
+
+  /* ============ OPERATING SYSTEM (flow) ============ */
+  .os-flow {
+    margin: 36px 0;
+    padding: 32px 24px;
+    border: 1px solid var(--bullion);
+    background: var(--carbon);
+  }
+  .os-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  @media (min-width: 720px) {
+    .os-row { grid-template-columns: repeat(5, 1fr); align-items: stretch; }
+  }
+  .os-node {
+    padding: 18px 14px;
+    border: 1px solid var(--bullion);
+    background: var(--onyx);
+    text-align: center;
+    position: relative;
+  }
+  .os-node .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--bullion);
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+  .os-node .label {
+    font-family: "Fraunces", serif;
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--bone);
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .os-node .label em { color: var(--bullion); font-style: italic; }
+  .os-node .tool {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--mercury);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .os-arrow {
+    display: none;
+    text-align: center;
+    color: var(--bullion);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 8px 0;
+  }
+  .os-loopback {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ember);
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--rule-gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .os-loopback .arrow { color: var(--bullion); }
+
+  /* ============ LEDGER (capital allocation) ============ */
+  .ledger-table {
+    margin: 32px 0;
+    border: 1px solid var(--bullion-deep);
+    background: var(--paper);
+  }
+  .ledger-header {
+    display: grid;
+    grid-template-columns: 1fr 100px 100px 100px;
+    background: var(--onyx);
+    color: var(--bone);
+    padding: 16px 20px;
+    gap: 12px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .ledger-header .col { color: var(--bullion-bright); }
+  .ledger-row {
+    display: grid;
+    grid-template-columns: 1fr 100px 100px 100px;
+    padding: 16px 20px;
+    gap: 12px;
+    border-bottom: 1px solid var(--bullion-deep);
+    align-items: baseline;
+  }
+  .ledger-row:last-child { border-bottom: 0; }
+  .ledger-row .item {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--onyx);
+  }
+  .ledger-row .item em { font-style: italic; color: var(--bullion-deep); }
+  .ledger-row .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--onyx);
+    text-align: right;
+    letter-spacing: -0.01em;
+  }
+  .ledger-row .verdict {
+    font-family: "Inter Tight", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .ledger-row .verdict.invest { color: #0a5c2e; }
+  .ledger-row .verdict.hold { color: var(--bullion-deep); }
+  .ledger-row .verdict.cut { color: var(--ember-deep); }
+
+  /* ============ MARK SHOWCASE ============ */
+  .mark-display {
+    margin: 32px 0;
+    padding: 64px 32px;
+    border: 1px solid var(--bullion);
+    background: var(--carbon);
+    text-align: center;
+  }
+  .mark-display .primary {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: clamp(48px, 12vw, 120px);
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    color: var(--bone);
+  }
+  .mark-display .primary em {
+    font-style: italic;
+    color: var(--bullion);
+  }
+  .mark-display .caption {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mercury);
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule-gold);
+  }
+
+  .lockup-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  @media (min-width: 720px) {
+    .lockup-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .lockup {
+    padding: 36px 28px;
+    border: 1px solid var(--rule-gold);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .lockup .mark-text {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: 38px;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .lockup .mark-text em { font-style: italic; }
+  .lockup .lbl {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 14px;
+    color: var(--mercury);
+  }
+  .lockup.dark { background: var(--onyx); color: var(--bone); }
+  .lockup.dark em { color: var(--bullion); }
+  .lockup.paper { background: var(--paper); color: var(--onyx); }
+  .lockup.paper em { color: var(--bullion-deep); }
+  .lockup.paper .lbl { color: var(--onyx); opacity: 0.5; }
+  .lockup.gold { background: var(--bullion); color: var(--onyx); }
+  .lockup.gold em { color: var(--onyx); font-weight: 900; }
+  .lockup.gold .lbl { color: var(--onyx); opacity: 0.6; }
+  .lockup.ember { background: var(--ember); color: var(--bone); }
+  .lockup.ember em { color: var(--bone); }
+  .lockup.ember .lbl { color: var(--bone); opacity: 0.7; }
+
+  /* Division marks */
+  .div-marks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  @media (min-width: 720px) {
+    .div-marks { grid-template-columns: repeat(5, 1fr); }
+  }
+  .div-mark {
+    padding: 28px 16px;
+    border: 1px solid var(--rule-gold);
+    background: var(--onyx);
+    text-align: center;
+  }
+  .div-mark .pre {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bullion);
+    margin-bottom: 10px;
+  }
+  .div-mark .name {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--bone);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  /* ============ PALETTE ============ */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin: 28px 0;
+    background: var(--rule-gold);
+    border: 1px solid var(--bullion);
+  }
+  @media (min-width: 720px) {
+    .swatches { grid-template-columns: repeat(4, 1fr); }
+  }
+  .swatch {
+    aspect-ratio: 1 / 1.15;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .swatch .name {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .swatch .hex {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+  .swatch .use {
+    font-family: "Inter Tight", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .swatch.onyx-sw { background: var(--onyx); color: var(--bone); }
+  .swatch.carbon-sw { background: var(--carbon); color: var(--bone); }
+  .swatch.bullion-sw { background: var(--bullion); color: var(--onyx); }
+  .swatch.bullion-deep-sw { background: var(--bullion-deep); color: var(--bone); }
+  .swatch.ember-sw { background: var(--ember); color: var(--bone); }
+  .swatch.bone-sw { background: var(--bone); color: var(--onyx); }
+  .swatch.paper-sw { background: var(--paper); color: var(--onyx); }
+  .swatch.mercury-sw { background: var(--mercury); color: var(--bone); }
+
+  /* ============ TYPE ============ */
+  .type-spec {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .type-spec:last-child { border-bottom: 0; }
+  .type-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .type-meta .role {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mercury);
+  }
+  .type-meta .font {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bullion);
+  }
+  .type-fraunces-display {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--bone);
+  }
+  .type-fraunces-italic {
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 32px;
+    line-height: 1.05;
+    color: var(--bullion);
+  }
+  .type-inter-tight {
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 1.05;
+    color: var(--bone);
+    letter-spacing: -0.02em;
+  }
+  .type-inter-label {
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bullion);
+  }
+  .type-plex {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--bullion-bright);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ VOICE SAMPLES ============ */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 24px 0;
+  }
+  @media (min-width: 720px) {
+    .voice-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .voice-card {
+    padding: 24px;
+    border: 1px solid var(--rule-gold);
+    background: var(--carbon);
+  }
+  .voice-card .ctx {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bullion);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule-gold);
+  }
+  .voice-card .msg {
+    font-family: "Fraunces", serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--bone);
+    font-weight: 400;
+  }
+  .voice-card .msg strong { color: var(--bullion-bright); font-weight: 700; }
+  .voice-card .msg em { color: var(--ember); font-style: italic; }
+
+  /* ============ DASHBOARD MOCKUP ============ */
+  .dashboard {
+    border: 1px solid var(--bullion);
+    background: var(--onyx);
+    overflow: hidden;
+    margin: 32px 0;
+  }
+  .dash-header {
+    background: var(--carbon);
+    border-bottom: 1px solid var(--bullion);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .dash-header .title {
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--bone);
+    letter-spacing: -0.01em;
+  }
+  .dash-header .title em { font-style: italic; color: var(--bullion); }
+  .dash-header .timestamp {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--mercury);
+    text-transform: uppercase;
+  }
+  .dash-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) {
+    .dash-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .dash-cell {
+    padding: 20px;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+  }
+  .dash-cell .lbl {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mercury);
+    margin-bottom: 8px;
+  }
+  .dash-cell .val {
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    color: var(--bullion-bright);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .dash-cell .val.ember { color: var(--ember); }
+  .dash-cell .val.bone { color: var(--bone); }
+  .dash-cell .sub {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--bone);
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+  }
+  .dash-cell .sub.up { color: var(--bullion-bright); }
+  .dash-cell .sub.down { color: var(--ember); }
+
+  /* Pipeline events row */
+  .pipeline-events {
+    border-top: 1px solid var(--bullion);
+  }
+  .pipe-event {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    padding: 12px 20px;
+    gap: 16px;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+    font-size: 13px;
+  }
+  .pipe-event:last-child { border-bottom: 0; }
+  .pipe-event .ts {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    color: var(--mercury);
+    letter-spacing: 0.05em;
+  }
+  .pipe-event .msg {
+    font-family: "Fraunces", serif;
+    color: var(--bone);
+    font-weight: 400;
+  }
+  .pipe-event .msg em { color: var(--bullion); font-style: italic; font-weight: 500; }
+  .pipe-event .msg strong { color: var(--ember); font-weight: 700; }
+  .pipe-event .verdict {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .pipe-event .verdict.invest { color: var(--bullion-bright); }
+  .pipe-event .verdict.cut { color: var(--ember); }
+
+  /* ============ RULES ============ */
+  .rules-list {
+    list-style: none;
+    counter-reset: rule;
+    margin: 24px 0;
+  }
+  .rules-list li {
+    counter-increment: rule;
+    padding: 20px 0 20px 70px;
+    border-bottom: 1px solid var(--rule);
+    font-family: "Fraunces", serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--bone);
+    position: relative;
+    font-weight: 400;
+  }
+  .rules-list li::before {
+    content: "§ " counter(rule, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 22px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--bullion);
+    font-weight: 700;
+  }
+  .rules-list li em { color: var(--bullion); font-style: italic; }
+  .rules-list li strong { color: var(--bullion-bright); }
+  .rules-list li:last-child { border-bottom: 0; }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--carbon);
+    padding: 64px 32px;
+    border-top: 2px solid var(--bullion);
+    text-align: center;
+  }
+  .foot-mark {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    font-size: clamp(40px, 8vw, 64px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--bone);
+    margin-bottom: 24px;
+  }
+  .foot-mark em { font-style: italic; color: var(--bullion); }
+  .foot-meta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--mercury);
+    line-height: 2.4;
+    padding-top: 28px;
+    border-top: 1px solid var(--bullion);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .foot-meta .gold { color: var(--bullion); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  @media print {
+    body { background: white; color: black; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== MASTHEAD ========== -->
+<div class="masthead">
+  <div class="mast-track">
+    <span class="gold">▲ TRUEST STORY HOLDINGS</span>
+    <span>OPERATING COMPANY BRAND SYSTEM v2.0</span>
+    <span class="gold">●</span>
+    <span>MEDIA · GAMING · DISTRIBUTION</span>
+    <span class="up">▲ THE HOUSE</span>
+    <span class="up">▲ THE WIRE</span>
+    <span class="up">▲ THE STUDIO</span>
+    <span class="down">▼ LEGACY CHANNELS · CUT</span>
+    <span class="gold">●</span>
+    <span>n8n PIPELINES · LLM FEEDBACK LOOP</span>
+    <span class="ember">★</span>
+    <span>INVEST IN WINNERS · CUT THE FAILURES</span>
+    <span class="gold">▲ TRUEST STORY HOLDINGS</span>
+    <span>OPERATING COMPANY BRAND SYSTEM v2.0</span>
+    <span class="gold">●</span>
+    <span>MEDIA · GAMING · DISTRIBUTION</span>
+    <span class="up">▲ THE HOUSE</span>
+    <span class="up">▲ THE WIRE</span>
+    <span class="up">▲ THE STUDIO</span>
+    <span class="down">▼ LEGACY CHANNELS · CUT</span>
+  </div>
+</div>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="hero-top">
+    <div class="hero-corner">
+      <div class="gold">VOL. II</div>
+      <div>MMXXVI</div>
+      <div>VICTORIA · BC</div>
+    </div>
+    <div class="hero-corner right">
+      <div class="gold">OPERATING COMPANY</div>
+      <div>BRAND SYSTEM</div>
+      <div class="ember">CONFIDENTIAL · PARTNERS ONLY</div>
+    </div>
+  </div>
+
+  <div class="hero-mark">
+    <div class="pre">▲ Operating Company · Brand System · Volume II</div>
+    <h1 class="wordmark">Truest<br><span class="italic">Story</span><br>Holdings</h1>
+    <div class="sub">
+      <span class="gold">Media</span><span class="sep">/</span><span class="gold">Gaming</span><span class="sep">/</span><span class="gold">Distribution</span>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="row">
+      <div class="cell">
+        <div class="lbl">Active Divisions</div>
+        <div class="val gold">05</div>
+        <div class="delta up">▲ 5 of 5 live</div>
+      </div>
+      <div class="cell">
+        <div class="lbl">Pipeline Throughput</div>
+        <div class="val">1,847</div>
+        <div class="delta up">▲ assets / week</div>
+      </div>
+      <div class="cell">
+        <div class="lbl">Allocation Cuts</div>
+        <div class="val ember">14</div>
+        <div class="delta down">▼ losers killed YTD</div>
+      </div>
+      <div class="cell">
+        <div class="lbl">Capital Reallocated</div>
+        <div class="val gold">$1.2M</div>
+        <div class="delta up">▲ from cut to scale</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ========== THE HOLDING COMPANY ========== -->
+<section>
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 01 — The Operating Thesis</span>
+      <span class="rhs">Read time · 2 min</span>
+    </div>
+
+    <h2>An <em>AI-native</em> media operating company that ruthlessly reallocates capital from losers to winners.</h2>
+
+    <p class="lede">We do not run a media company in the legacy sense. We run an industrial machine that creates, distributes, measures, and reallocates — at a velocity legacy media cannot match — across five divisions that share one operating system.</p>
+
+    <p>Music gets generated. Images get generated. Both get chopped, formatted, and shipped simultaneously to every channel that matters: Spotify, SoundCloud, TikTok, Reels, Shorts, X. The pipeline is wired in n8n. The feedback loop is wired in LLMs. The capital is wired in a discipline borrowed from Welch and Buffett: <strong>winners get fed, losers get cut, no exceptions.</strong></p>
+
+    <p>The casino is a division. The studio is a division. The distribution wire is a division. The analytics desk is a division. The treasury is the soul. Each one feeds the others. Each one is audited weekly. Each one has a kill clause.</p>
+
+    <div class="thesis-block">
+      <div class="lbl">▼ Operating Thesis</div>
+      <div class="statement">Truest Story Holdings is a <em>systematic media and gaming operation</em> that uses automated pipelines and LLM-driven feedback to identify what sells, scale what sells, and cut what does not — measured weekly, reallocated monthly, without sentiment.</div>
+    </div>
+
+    <h3>The Five Disciplines</h3>
+    <p>Every output ships through five disciplines, in order, without exception: <strong>generate</strong> (creator studio), <strong>format</strong> (multi-channel chop), <strong>distribute</strong> (the wire), <strong>measure</strong> (the desk), <strong>reallocate</strong> (the treasury). The loop closes weekly. The portfolio rebalances monthly. Nothing survives that doesn't earn its keep.</p>
+  </div>
+</section>
+
+<!-- ========== DIVISIONS / PORTFOLIO ========== -->
+<section>
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 02 — The Divisions</span>
+      <span class="rhs">5 operating units</span>
+    </div>
+
+    <h2>Five rooms. <em>One operating system.</em></h2>
+
+    <p class="lede">Each division has a function, a P&amp;L, and a kill clause. Each one runs on the same pipeline backbone. Each one reports to the Treasury.</p>
+
+    <div class="divisions">
+      <div class="division">
+        <div class="num">01 ·</div>
+        <div class="meta">
+          <div class="name">The <em>House</em></div>
+          <div class="desc">Telegram Mini App casino on TON. Provably-fair sealed gameplay. Slots, Roulette, Crash, Lottery. The front-end revenue engine.</div>
+          <div class="status live">▲ LIVE</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="num">02 ·</div>
+        <div class="meta">
+          <div class="name">The <em>Studio</em></div>
+          <div class="desc">AI music and image generation. Daily output of original tracks and visual assets, branded and unbranded. Built for distribution velocity.</div>
+          <div class="status scaling">▲ SCALING</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="num">03 ·</div>
+        <div class="meta">
+          <div class="name">The <em>Wire</em></div>
+          <div class="desc">Multi-channel distribution pipeline. Chops, formats, captions, and ships every asset to Spotify, SoundCloud, TikTok, Reels, Shorts, X — automatically. Wired in n8n.</div>
+          <div class="status live">▲ LIVE</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="num">04 ·</div>
+        <div class="meta">
+          <div class="name">The <em>Desk</em></div>
+          <div class="desc">Analytics + LLM feedback loop. Reads channel performance hourly, suggests messaging pivots, drafts the next round of creative. Self-improving.</div>
+          <div class="status live">▲ LIVE</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="num">05 ·</div>
+        <div class="meta">
+          <div class="name">The <em>Treasury</em></div>
+          <div class="desc">Capital allocation engine. Weekly P&amp;L by channel and creative. Monthly reallocation from losers to winners. The Welch discipline made automatic.</div>
+          <div class="status live">▲ LIVE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== OPERATING SYSTEM ========== -->
+<section style="background: var(--carbon);">
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 03 — The Operating System</span>
+      <span class="rhs">n8n · LLM · Analytics</span>
+    </div>
+
+    <h2>The loop closes <em>every week.</em></h2>
+
+    <p class="lede">Five stages. n8n wires the plumbing. LLMs read the signals. The treasury pulls the trigger. No human approves a routine reallocation under the kill threshold.</p>
+
+    <div class="os-flow">
+      <div class="os-row">
+        <div class="os-node">
+          <div class="num">STAGE 01</div>
+          <div class="label"><em>Generate</em></div>
+          <div class="tool">The Studio</div>
+        </div>
+        <div class="os-node">
+          <div class="num">STAGE 02</div>
+          <div class="label"><em>Format</em></div>
+          <div class="tool">FFmpeg · Cloudinary</div>
+        </div>
+        <div class="os-node">
+          <div class="num">STAGE 03</div>
+          <div class="label"><em>Distribute</em></div>
+          <div class="tool">The Wire · n8n</div>
+        </div>
+        <div class="os-node">
+          <div class="num">STAGE 04</div>
+          <div class="label"><em>Measure</em></div>
+          <div class="tool">The Desk · LLM</div>
+        </div>
+        <div class="os-node">
+          <div class="num">STAGE 05</div>
+          <div class="label"><em>Reallocate</em></div>
+          <div class="tool">The Treasury</div>
+        </div>
+      </div>
+
+      <div class="os-loopback">
+        <span class="arrow">↺</span> Loop closes weekly · Capital reallocates monthly · Failures cut without sentiment
+      </div>
+    </div>
+
+    <h3>What the LLM Actually Decides</h3>
+    <p>The Desk's LLM reads channel-level engagement, retention, and ROAS every six hours. It generates three outputs: a <strong>messaging variant</strong> (what to test next), an <strong>allocation recommendation</strong> (which channel gets more spend, which gets less), and a <strong>kill flag</strong> for creatives or channels that have missed performance thresholds for two consecutive cycles. The kill flag is automatic. The reallocation recommendation routes to the Treasury for sign-off above the threshold and executes automatically below it.</p>
+
+    <h3>Why n8n</h3>
+    <p>n8n is open-source, self-hostable, and wires every step of the pipeline without lock-in. Spotify ingestion, SoundCloud upload, TikTok scheduling, Reels formatting, Shorts captioning, X posting, Telegram channel cross-posting, Discord syndication, and the LLM call to The Desk — all chained in n8n workflows that the operating team can inspect, fork, and modify without writing application code. <strong>The pipeline is the product.</strong></p>
+  </div>
+</section>
+
+<!-- ========== THE LEDGER (capital allocation) ========== -->
+<section class="paper">
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 04 — The Welch Ledger</span>
+      <span class="rhs">Weekly Capital Allocation</span>
+    </div>
+
+    <h2>Invest in winners. <em>Cut the failures.</em> No sentiment.</h2>
+
+    <p class="lede">The capital allocation discipline is borrowed wholesale from Welch's GE and Buffett's Berkshire. If a channel, a creative, or an experiment is in the bottom decile of performance for two weeks running, it is cut. Capital flows to the top decile. The Treasury does not deliberate. The math decides.</p>
+
+    <div class="ledger-table">
+      <div class="ledger-header">
+        <div>▼ Asset · Channel · Experiment</div>
+        <div class="col">ROAS</div>
+        <div class="col">Trend</div>
+        <div class="col">Verdict</div>
+      </div>
+      <div class="ledger-row">
+        <div class="item"><em>The House</em> · TikTok ads (US)</div>
+        <div class="num">4.7×</div>
+        <div class="num">▲ +18%</div>
+        <div class="verdict invest">Invest 2×</div>
+      </div>
+      <div class="ledger-row">
+        <div class="item"><em>The Studio</em> · Music · "Lo-fi Mondays"</div>
+        <div class="num">3.2×</div>
+        <div class="num">▲ +11%</div>
+        <div class="verdict invest">Invest</div>
+      </div>
+      <div class="ledger-row">
+        <div class="item"><em>The Wire</em> · Reels (food vertical)</div>
+        <div class="num">2.1×</div>
+        <div class="num">— flat</div>
+        <div class="verdict hold">Hold</div>
+      </div>
+      <div class="ledger-row">
+        <div class="item"><em>The Studio</em> · Image · "Y2K nostalgia"</div>
+        <div class="num">0.9×</div>
+        <div class="num">▼ −24%</div>
+        <div class="verdict cut">Cut</div>
+      </div>
+      <div class="ledger-row">
+        <div class="item"><em>The Wire</em> · X (long-form text)</div>
+        <div class="num">0.4×</div>
+        <div class="num">▼ −47%</div>
+        <div class="verdict cut">Cut</div>
+      </div>
+      <div class="ledger-row">
+        <div class="item"><em>The House</em> · Discord acquisition</div>
+        <div class="num">1.8×</div>
+        <div class="num">▲ +6%</div>
+        <div class="verdict hold">Hold</div>
+      </div>
+      <div class="ledger-row">
+        <div class="item"><em>The Studio</em> · Music · "Hyperpop B-sides"</div>
+        <div class="num">6.4×</div>
+        <div class="num">▲ +43%</div>
+        <div class="verdict invest">Invest 3×</div>
+      </div>
+    </div>
+
+    <h3>The Three Welch Laws</h3>
+    <p><strong>Law 01 —</strong> Every creative, channel, and experiment has a ROAS threshold and a trend threshold. Miss either for two cycles and you are cut. <em>No exceptions.</em></p>
+    <p><strong>Law 02 —</strong> Capital cut from losers flows to the top decile automatically. The Treasury does not save underperformers for sentimental reasons. <em>No favorites.</em></p>
+    <p><strong>Law 03 —</strong> Performance is measured at the level the LLM can actually optimize: channel × creative × geography × time. Higher abstractions are vanity. <em>No vanity metrics.</em></p>
+  </div>
+</section>
+
+<!-- ========== THE MARK ========== -->
+<section>
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 05 — The Mark</span>
+      <span class="rhs">Wordmark · Division Marks · Lockups</span>
+    </div>
+
+    <h2>The wordmark is the <em>masthead.</em></h2>
+
+    <p class="lede">Set in Fraunces 900 with the second word italic in bullion gold. Holdings reads in tracked caps beneath. Stacked, monumental, designed for a letterhead — not a startup deck.</p>
+
+    <div class="mark-display">
+      <div class="primary">Truest<br><em>Story</em><br>Holdings</div>
+      <div class="caption">Primary Mark · Fraunces 900 / 900 italic · Bullion #B8860B</div>
+    </div>
+
+    <h3>Approved Lockups</h3>
+    <div class="lockup-grid">
+      <div class="lockup dark">
+        <div class="mark-text">Truest <em>Story</em></div>
+        <div class="lbl">Primary · Dark Field · Bullion italic</div>
+      </div>
+      <div class="lockup paper">
+        <div class="mark-text">Truest <em>Story</em></div>
+        <div class="lbl">Primary · Paper Field · Bullion Deep italic</div>
+      </div>
+      <div class="lockup gold">
+        <div class="mark-text">Truest <em>Story</em></div>
+        <div class="lbl">Mono · Bullion Field · Onyx italic</div>
+      </div>
+      <div class="lockup ember">
+        <div class="mark-text">Truest <em>Story</em></div>
+        <div class="lbl">Alert · Ember Field · Bone italic</div>
+      </div>
+    </div>
+
+    <h3>Division Marks</h3>
+    <p>Each division gets a single italic word treatment. Always preceded by "The," always italic, always Fraunces. The italic is the signature.</p>
+
+    <div class="div-marks">
+      <div class="div-mark">
+        <div class="pre">▼ 01</div>
+        <div class="name">House</div>
+      </div>
+      <div class="div-mark">
+        <div class="pre">▼ 02</div>
+        <div class="name">Studio</div>
+      </div>
+      <div class="div-mark">
+        <div class="pre">▼ 03</div>
+        <div class="name">Wire</div>
+      </div>
+      <div class="div-mark">
+        <div class="pre">▼ 04</div>
+        <div class="name">Desk</div>
+      </div>
+      <div class="div-mark">
+        <div class="pre">▼ 05</div>
+        <div class="name">Treasury</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PALETTE ========== -->
+<section style="background: var(--carbon);">
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 06 — The Palette</span>
+      <span class="rhs">4 colors · hard rules</span>
+    </div>
+
+    <h2>Onyx. <em>Bullion.</em> <span class="ember-c">Ember.</span> Bone.</h2>
+
+    <p class="lede">Four colors. No tints. No gradients. No decoration. The discipline is the brand.</p>
+
+    <div class="swatches">
+      <div class="swatch onyx-sw">
+        <div>
+          <div class="name">Onyx</div>
+          <div class="hex">#050505</div>
+        </div>
+        <div class="use">Base field. All primary surfaces. The vault floor.</div>
+      </div>
+      <div class="swatch carbon-sw">
+        <div>
+          <div class="name">Carbon</div>
+          <div class="hex">#0D0D0D</div>
+        </div>
+        <div class="use">Secondary surfaces. Cards, panels, ticker.</div>
+      </div>
+      <div class="swatch bullion-sw">
+        <div>
+          <div class="name">Bullion</div>
+          <div class="hex">#B8860B</div>
+        </div>
+        <div class="use">The metal. Wordmark italic, rules, key data. Institutional gold — not party gold.</div>
+      </div>
+      <div class="swatch bullion-deep-sw">
+        <div>
+          <div class="name">Bullion Deep</div>
+          <div class="hex">#8B6914</div>
+        </div>
+        <div class="use">Bullion on paper. Type on cream surfaces.</div>
+      </div>
+      <div class="swatch ember-sw">
+        <div>
+          <div class="name">Ember</div>
+          <div class="hex">#C73E1D</div>
+        </div>
+        <div class="use">Heat. Cuts. Losses. Alerts. Used sparingly — the alarm color.</div>
+      </div>
+      <div class="swatch bone-sw">
+        <div>
+          <div class="name">Bone</div>
+          <div class="hex">#E8E2D5</div>
+        </div>
+        <div class="use">Type on dark. The dominant reading color.</div>
+      </div>
+      <div class="swatch paper-sw">
+        <div>
+          <div class="name">Paper</div>
+          <div class="hex">#F0E9D8</div>
+        </div>
+        <div class="use">Cream sections. Ledger pages, annual report blocks. FT-salmon adjacent.</div>
+      </div>
+      <div class="swatch mercury-sw">
+        <div>
+          <div class="name">Mercury</div>
+          <div class="hex">#7A7A7A</div>
+        </div>
+        <div class="use">Secondary text. Labels, metadata, captions.</div>
+      </div>
+    </div>
+
+    <h3>Combination Rules</h3>
+    <p>Bullion never sits on Paper without darkening to Bullion Deep — it reads gray on cream otherwise. Ember appears only on cuts, alerts, and the kill column in the ledger. Bone is type-only — never a field. Paper sections appear sparingly, as a deliberate tonal break, like a quarterly report's letter from the CEO. Onyx is the default. <strong>No purple. No green. No pink. No lime.</strong> Ever.</p>
+  </div>
+</section>
+
+<!-- ========== TYPOGRAPHY ========== -->
+<section>
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 07 — Typography</span>
+      <span class="rhs">3 faces · max discipline</span>
+    </div>
+
+    <h2>Three faces. <em>One voice.</em></h2>
+
+    <p class="lede">Fraunces does the editorial work. Inter Tight does the brutal stat work. IBM Plex Mono does the ledger work. That is the entire system.</p>
+
+    <div class="type-spec">
+      <div class="type-meta">
+        <span class="role">Display · Wordmark · Headlines</span>
+        <span class="font">Fraunces 900 / 900 italic</span>
+      </div>
+      <div class="type-fraunces-display">Truest Story Holdings</div>
+    </div>
+
+    <div class="type-spec">
+      <div class="type-meta">
+        <span class="role">Editorial · Pull statements</span>
+        <span class="font">Fraunces 700 italic</span>
+      </div>
+      <div class="type-fraunces-italic">Invest in winners. Cut the failures. No sentiment.</div>
+    </div>
+
+    <div class="type-spec">
+      <div class="type-meta">
+        <span class="role">Stat numbers · Big claims</span>
+        <span class="font">Inter Tight 800</span>
+      </div>
+      <div class="type-inter-tight">$1.2M reallocated</div>
+    </div>
+
+    <div class="type-spec">
+      <div class="type-meta">
+        <span class="role">Labels · Section meta</span>
+        <span class="font">Inter Tight 700 tracked</span>
+      </div>
+      <div class="type-inter-label">Section 04 · The Welch Ledger</div>
+    </div>
+
+    <div class="type-spec">
+      <div class="type-meta">
+        <span class="role">Data · Tickers · Code</span>
+        <span class="font">IBM Plex Mono 700</span>
+      </div>
+      <div class="type-plex">ROAS · 4.7× · ▲ +18% · INVEST 2×</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VOICE ========== -->
+<section style="background: var(--carbon);">
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 08 — Voice &amp; Tone</span>
+      <span class="rhs">Six registers</span>
+    </div>
+
+    <h2>The voice of an <em>operating company.</em></h2>
+
+    <p class="lede">Confident. Direct. Numbers up front. No filler. Reads like a quarterly letter, not a Twitter thread. No emoji in operating communications.</p>
+
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="ctx">▼ Quarterly Letter · Opening</div>
+        <div class="msg">In the quarter ending March 2026, Truest Story Holdings reallocated <strong>$840,000</strong> from underperforming creative and channel positions into the top-decile assets identified by The Desk. Revenue per division increased <strong>34%</strong>. <em>Fourteen positions were cut without exception.</em></div>
+      </div>
+      <div class="voice-card">
+        <div class="ctx">▼ Internal Memo · Cut Notice</div>
+        <div class="msg">Per Welch Law 01, the following assets have missed ROAS threshold for two consecutive cycles and are cut effective immediately: <strong>X long-form text channel</strong>, <strong>Y2K nostalgia image series</strong>, <strong>SoundCloud generic playlist drop #14</strong>. Capital reallocated to The Studio · Hyperpop and The House · TikTok-US.</div>
+      </div>
+      <div class="voice-card">
+        <div class="ctx">▼ Press · Trade Publication</div>
+        <div class="msg">Truest Story Holdings operates a closed-loop media and gaming pipeline that generates, distributes, measures, and reallocates capital across <strong>five divisions</strong> on a weekly cycle. The system is wired in <strong>n8n</strong> and supervised by <strong>LLM-driven analytics</strong>.</div>
+      </div>
+      <div class="voice-card">
+        <div class="ctx">▼ Investor One-Pager · Lede</div>
+        <div class="msg">We do not run a media company. We run an industrial machine that makes content, ships it, measures it, and reallocates capital ruthlessly. <em>Welch discipline. Berkshire patience. AI velocity.</em></div>
+      </div>
+      <div class="voice-card">
+        <div class="ctx">▼ The House · Player Comm</div>
+        <div class="msg">Every spin sealed on TON. Every win paid in Stars or TON. <strong>Provably fair by default.</strong> The transparency is the product.</div>
+      </div>
+      <div class="voice-card">
+        <div class="ctx">▼ Hiring · Job Post Headline</div>
+        <div class="msg">We are hiring operators, not creatives. <em>If you need to be told what to do, we are not the right room.</em></div>
+      </div>
+    </div>
+
+    <h3>Anti-Patterns · Never Do This</h3>
+    <p>No <em>"we believe"</em>, no <em>"our mission"</em>, no <em>"passionate about"</em>, no <em>"unleashing"</em>, no <em>"transforming"</em>, no <em>"democratizing"</em>, no startup-deck verbs, no emoji in operating documents, no exclamation marks anywhere, no rhetorical questions, no <em>"join us on this journey,"</em> no hedging. State the position. Show the math. Sign the letter.</p>
+  </div>
+</section>
+
+<!-- ========== DASHBOARD MOCKUP ========== -->
+<section>
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 09 — The Operations Dashboard</span>
+      <span class="rhs">Internal · The Desk</span>
+    </div>
+
+    <h2>The dashboard is the <em>brand made operational.</em></h2>
+
+    <p class="lede">Bloomberg terminal grammar applied to creator media operations. Black field. Bullion data. Ember alerts. Bone labels. No charts that don't drive a decision.</p>
+
+    <div class="dashboard">
+      <div class="dash-header">
+        <div class="title">The <em>Desk</em> · Live Operations</div>
+        <div class="timestamp">2026.05.26 · 14:32:08 PST</div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="dash-cell">
+          <div class="lbl">Weekly Revenue · All Divisions</div>
+          <div class="val">$284,420</div>
+          <div class="sub up">▲ +18.4% vs prior week</div>
+        </div>
+        <div class="dash-cell">
+          <div class="lbl">Pipeline Assets Shipped (7d)</div>
+          <div class="val bone">1,847</div>
+          <div class="sub up">▲ +312 vs prior week</div>
+        </div>
+        <div class="dash-cell">
+          <div class="lbl">Top Performing Creative</div>
+          <div class="val">6.4×</div>
+          <div class="sub up">Studio · Hyperpop B-sides · ROAS</div>
+        </div>
+        <div class="dash-cell">
+          <div class="lbl">Bottom Decile · Kill Queue</div>
+          <div class="val ember">04</div>
+          <div class="sub down">Auto-cut at next cycle close</div>
+        </div>
+        <div class="dash-cell">
+          <div class="lbl">LLM Decisions Today</div>
+          <div class="val">247</div>
+          <div class="sub up">▲ 89 reallocations · 14 kills</div>
+        </div>
+        <div class="dash-cell">
+          <div class="lbl">Capital Reallocated (MTD)</div>
+          <div class="val">$184K</div>
+          <div class="sub up">▲ Losers to winners</div>
+        </div>
+      </div>
+
+      <div class="pipeline-events">
+        <div class="pipe-event">
+          <div class="ts">14:31:42</div>
+          <div class="msg">The Desk flags <em>X long-form channel</em> below ROAS threshold · cycle 2 of 2</div>
+          <div class="verdict cut">AUTO-CUT</div>
+        </div>
+        <div class="pipe-event">
+          <div class="ts">14:28:17</div>
+          <div class="msg">The Wire ships <em>247 assets</em> to TikTok-US · <em>134 to Reels</em> · <em>89 to Shorts</em></div>
+          <div class="verdict invest">SHIPPED</div>
+        </div>
+        <div class="pipe-event">
+          <div class="ts">14:15:03</div>
+          <div class="msg">The Treasury reallocates <strong>$24K</strong> from <em>Y2K nostalgia</em> to <em>Hyperpop · scale 3×</em></div>
+          <div class="verdict invest">EXECUTED</div>
+        </div>
+        <div class="pipe-event">
+          <div class="ts">14:02:41</div>
+          <div class="msg">The Studio generates <em>89 tracks</em> · <em>340 image variants</em> · queued for The Wire</div>
+          <div class="verdict invest">GENERATED</div>
+        </div>
+        <div class="pipe-event">
+          <div class="ts">13:47:09</div>
+          <div class="msg">The House logs <em>$18,400 winnings</em> · sealed at block 18,402,991 · settled T+0</div>
+          <div class="verdict invest">SETTLED</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== THE RULES ========== -->
+<section class="paper">
+  <div class="wrap">
+    <div class="section-meta">
+      <span class="lhs">▲ Section 10 — Operating Discipline</span>
+      <span class="rhs">House Rules</span>
+    </div>
+
+    <h2>What this <em>operating company</em> will not do.</h2>
+
+    <p class="lede">Short list. Each rule is commercially load-bearing. Break any one and the discipline collapses. The discipline is what makes the rest of the operation possible.</p>
+
+    <ol class="rules-list">
+      <li>No sentimental holdouts. If a creative, channel, or division misses ROAS threshold for two cycles, it is cut. <em>No exceptions, no extensions, no second chances based on potential.</em></li>
+      <li>No vanity metrics. Followers, impressions, and reach do not appear in the dashboard. Only revenue, ROAS, retention, and conversion drive decisions. <em>Vanity is a refusal.</em></li>
+      <li>No human approval for routine reallocations. The LLM and the Treasury execute below the kill threshold automatically. Human review is for exception cases only.</li>
+      <li>No legacy media partnerships that don't audit against the same threshold. <strong>Welch Law 01 applies to vendors as much as creatives.</strong></li>
+      <li>No "responsible gambling" lip service from The House. Player loss caps are a built-in feature, surfaced in onboarding, not a regulatory disclaimer.</li>
+      <li>No purple. No lime. No magenta. No pastels. No gradients. <em>The palette is four colors.</em> The discipline is the brand.</li>
+      <li>No Inter at headline size. Fraunces holds the display register or nothing does.</li>
+      <li>No emoji in operating documents. No exclamation marks. <em>If a sentence needs an exclamation mark, the sentence is weak.</em></li>
+      <li>No filler verbs. No "leverage." No "unlock." No "transform." Verbs do work. Verbs that don't work get cut.</li>
+      <li>No celebrity endorsements that don't audit on the Treasury ledger. If a partnership doesn't show ROAS, it's a vanity expense and it gets cut at the next cycle.</li>
+      <li>No competitor disparagement. The competitive position is the math. <strong>If the math is right, the market sorts itself.</strong></li>
+      <li>No apology for the Welch discipline. <em>Cutting losers is not cruelty. It is capital allocation.</em> The brand never softens this position for comfort.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="foot-mark">
+    Truest <em>Story</em> Holdings
+  </div>
+  <div class="foot-meta">
+    Operating Company Brand System · Volume II<br>
+    <span class="gold">▲</span> Anno Domini MMXXVI · May <span class="gold">▲</span><br>
+    Victoria · British Columbia · Canada<br>
+    Media · Gaming · Distribution<br>
+    <span class="gold">Confidential · Partners Only</span>
+  </div>
+</footer>
+
+</body>
+</html>

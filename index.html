@@ -1,34 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="theme-color" content="#0d0d0d" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <title>MemeSeal Casino — Telegram Mini App Starter Kit</title>
-    <meta name="description" content="Production-ready Telegram Mini App casino. React + Vite + TON Connect + Telegram Stars. Slots, Roulette, Crash, Lottery. Runs in demo mode with no backend." />
-    <meta name="keywords" content="telegram mini app, ton connect, react casino template, telegram stars, crash game, slot machine, web3 casino, tailwind, vite" />
+<head>
+  <meta charset="UTF-8" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="MemeSeal Casino — Telegram Mini App Starter Kit" />
-    <meta property="og:description" content="3 working games, TON Connect, Telegram Stars, lottery system. Deploys to Vercel in 5 minutes. Live demo + source." />
-    <meta property="og:image" content="/apple-touch-icon.png" />
+  <!-- ═══════════════════════════════════════
+       VIEWPORT — no zoom lock for mini app
+  ═══════════════════════════════════════ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="MemeSeal Casino — Telegram Mini App Starter Kit" />
-    <meta name="twitter:description" content="Slots, Roulette, Crash. TON + Telegram Stars. Demo mode = no backend needed." />
-    <meta name="twitter:image" content="/apple-touch-icon.png" />
+  <!-- ═══════════════════════════════════════
+       FAVICON SUITE — favicon to 512px
+       Run scripts/generate-brand-icons.mjs
+       to build PNG versions from SVG source
+  ═══════════════════════════════════════ -->
+  <!-- SVG favicon — Chrome, Firefox, Edge, Safari 12+ -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- PNG fallbacks -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <!-- Apple devices -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <!-- PWA manifest -->
+  <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <!-- ═══════════════════════════════════════
+       THEME COLORS
+  ═══════════════════════════════════════ -->
+  <!-- Chrome / Android -->
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#050505" />
+  <!-- Windows tiles -->
+  <meta name="msapplication-TileColor" content="#050505" />
+  <meta name="msapplication-TileImage" content="/icon-192x192.png" />
+
+  <!-- ═══════════════════════════════════════
+       PRIMARY META
+  ═══════════════════════════════════════ -->
+  <title>The House · Truest Story Holdings</title>
+  <meta name="description" content="Telegram Mini App casino on TON. Slots, Roulette, Crash. TON Connect wallets. Telegram Stars. The front-end revenue engine of Truest Story Holdings." />
+  <meta name="keywords" content="telegram mini app, ton connect, telegram stars, casino, slots, roulette, crash, web3, truest story holdings" />
+  <meta name="author" content="Truest Story Holdings" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://the-house.trueststory.com" />
+
+  <!-- ═══════════════════════════════════════
+       OPEN GRAPH — iMessage, Slack, Discord,
+       LinkedIn, Facebook, WhatsApp, Telegram
+  ═══════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Truest Story Holdings" />
+  <meta property="og:title" content="The House · Truest Story Holdings" />
+  <meta property="og:description" content="Telegram Mini App casino on TON. Slots, Roulette, Crash. The front-end revenue engine. TON Connect + Telegram Stars." />
+  <meta property="og:url" content="https://the-house.trueststory.com" />
+  <meta property="og:image" content="https://the-house.trueststory.com/og-image-the-house.png" />
+  <meta property="og:image:secure_url" content="https://the-house.trueststory.com/og-image-the-house.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The House — Truest Story Holdings casino division on Telegram TON" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- ═══════════════════════════════════════
+       TWITTER / X CARD
+       summary_large_image = full-width card
+  ═══════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@trueststory" />
+  <meta name="twitter:creator" content="@trueststory" />
+  <meta name="twitter:title" content="The House · Truest Story Holdings" />
+  <meta name="twitter:description" content="Telegram Mini App casino on TON. Slots, Roulette, Crash. TON Connect + Telegram Stars." />
+  <meta name="twitter:image" content="https://the-house.trueststory.com/og-image-the-house.png" />
+  <meta name="twitter:image:alt" content="The House — Truest Story Holdings" />
+
+  <!-- ═══════════════════════════════════════
+       PWA / MOBILE SHELL
+  ═══════════════════════════════════════ -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="The House" />
+  <meta name="application-name" content="The House" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- ═══════════════════════════════════════
+       FONTS — preconnect first, then load
+       Fraunces: editorial display
+       Inter Tight: labels + stats
+       IBM Plex Mono: data + tickers
+  ═══════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Telegram Mini App SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- ═══════════════════════════════════════
+       CRITICAL CSS — prevents FOUC
+       Onyx base before React mounts
+  ═══════════════════════════════════════ -->
+  <style>
+    :root {
+      --onyx: #050505;
+      --carbon: #0d0d0d;
+      --bullion: #B8860B;
+      --bullion-bright: #D4A017;
+      --bullion-deep: #8B6914;
+      --ember: #C73E1D;
+      --bone: #E8E2D5;
+      --paper: #F0E9D8;
+      --mercury: #7A7A7A;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      background: var(--onyx);
+      color: var(--bone);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    body {
+      margin: 0;
+      background: var(--onyx);
+      color: var(--bone);
+      font-family: "Fraunces", "Times New Roman", Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overscroll-behavior: none;
+      min-height: 100dvh;
+    }
+    #root { min-height: 100dvh; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

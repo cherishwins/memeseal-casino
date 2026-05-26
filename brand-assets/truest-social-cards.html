@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truest Story Holdings · Social Card Templates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --onyx: #050505; --carbon: #0d0d0d; --bullion: #B8860B; --bullion-bright: #D4A017;
+    --bullion-deep: #8B6914; --ember: #C73E1D; --bone: #E8E2D5; --paper: #F0E9D8;
+    --mercury: #7A7A7A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #1a1a1a; padding: 24px 16px; min-height: 100vh;
+    font-family: "Fraunces", serif; color: var(--bone);
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+
+  .preview-bar {
+    padding: 14px 24px; background: var(--onyx); color: var(--bone);
+    border-left: 3px solid var(--bullion); margin-bottom: 32px;
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .preview-bar .gold { color: var(--bullion); }
+
+  .card-grid {
+    display: grid; grid-template-columns: 1fr; gap: 24px; margin: 24px 0;
+  }
+  @media (min-width: 820px) { .card-grid { grid-template-columns: 1fr 1fr; } }
+
+  .label {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion);
+    margin: 24px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--bullion);
+  }
+
+  /* SOCIAL CARD — 1080x1080 displayed at max 540 */
+  .social {
+    aspect-ratio: 1 / 1; width: 100%; max-width: 540px; margin: 0 auto;
+    padding: 48px; position: relative; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+
+  /* Variants by purpose */
+  .social.onyx {
+    background: var(--onyx); color: var(--bone);
+  }
+  .social.onyx::before {
+    content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 60%;
+    background: radial-gradient(circle at 50% 100%, rgba(184, 134, 11, 0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .social.paper {
+    background: var(--paper); color: var(--onyx);
+  }
+  .social.gold {
+    background: var(--bullion); color: var(--onyx);
+  }
+  .social.ember {
+    background: var(--ember); color: var(--bone);
+  }
+
+  /* Top frame */
+  .social .top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 12px;
+  }
+  .social.onyx .top { border-bottom: 1px solid var(--bullion); }
+  .social.paper .top { border-bottom: 1px solid var(--bullion-deep); }
+  .social.gold .top { border-bottom: 1px solid var(--onyx); }
+  .social.ember .top { border-bottom: 1px solid var(--bone); }
+
+  .social .pre {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase;
+  }
+  .social.onyx .pre { color: var(--bullion); }
+  .social.paper .pre { color: var(--bullion-deep); }
+  .social.gold .pre { color: var(--onyx); }
+  .social.ember .pre { color: var(--bone); }
+
+  .social .meta {
+    font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    text-align: right; line-height: 1.7;
+  }
+  .social.onyx .meta { color: var(--mercury); }
+  .social.paper .meta { color: var(--mercury); }
+  .social.gold .meta { color: var(--onyx); opacity: 0.65; }
+  .social.ember .meta { color: var(--bone); opacity: 0.7; }
+
+  /* Center */
+  .social .center {
+    flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px;
+  }
+  .social .center.start { justify-content: flex-start; padding-top: 32px; }
+
+  .social .headline {
+    font-family: "Fraunces", serif; font-weight: 900;
+    font-size: 56px; line-height: 0.95; letter-spacing: -0.025em;
+  }
+  .social .headline em { font-style: italic; }
+  .social.onyx .headline em { color: var(--bullion); }
+  .social.paper .headline em { color: var(--bullion-deep); }
+  .social.gold .headline em { color: var(--onyx); }
+  .social.ember .headline em { color: var(--bone); }
+
+  .social .sub {
+    font-family: "Fraunces", serif; font-weight: 400; font-style: italic;
+    font-size: 17px; line-height: 1.4; max-width: 380px;
+  }
+  .social.onyx .sub { color: var(--bone); opacity: 0.85; }
+  .social.paper .sub { color: var(--onyx); opacity: 0.85; }
+  .social.gold .sub { color: var(--onyx); opacity: 0.8; }
+  .social.ember .sub { color: var(--bone); opacity: 0.85; }
+
+  .social .big-num {
+    font-family: "Inter Tight", sans-serif; font-weight: 900;
+    font-size: 96px; line-height: 0.9; letter-spacing: -0.04em;
+  }
+  .social.onyx .big-num { color: var(--bullion-bright); }
+  .social.paper .big-num { color: var(--bullion-deep); }
+  .social.gold .big-num { color: var(--onyx); }
+  .social.ember .big-num { color: var(--bone); }
+
+  /* Bottom mark */
+  .social .bottom {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-top: 16px;
+  }
+  .social.onyx .bottom { border-top: 1px solid var(--bullion); }
+  .social.paper .bottom { border-top: 1px solid var(--bullion-deep); }
+  .social.gold .bottom { border-top: 1px solid var(--onyx); }
+  .social.ember .bottom { border-top: 1px solid var(--bone); }
+
+  .social .mark {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: 22px;
+    line-height: 0.92; letter-spacing: -0.02em;
+  }
+  .social .mark em { font-style: italic; }
+  .social.onyx .mark em { color: var(--bullion); }
+  .social.paper .mark em { color: var(--bullion-deep); }
+  .social.gold .mark em { color: var(--onyx); }
+  .social.ember .mark em { color: var(--bone); }
+
+  .social .url {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+  .social.onyx .url { color: var(--bullion); }
+  .social.paper .url { color: var(--bullion-deep); }
+  .social.gold .url { color: var(--onyx); }
+  .social.ember .url { color: var(--bone); }
+
+  .specs {
+    border: 1px solid rgba(184, 134, 11, 0.4); background: var(--carbon);
+    padding: 20px 24px; margin: 24px 0;
+  }
+  .specs h3 {
+    font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion);
+    margin-bottom: 12px;
+  }
+  .specs p {
+    font-size: 14px; line-height: 1.6; color: var(--bone); opacity: 0.85;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .preview-bar, .label, .specs { display: none; }
+    .social { box-shadow: none; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="preview-bar">
+    <span class="gold">▲ SOCIAL CARDS · 1080 × 1080 · 1:1</span>
+    <span>FOR IG, LINKEDIN, X, REPOSTS</span>
+  </div>
+
+  <div class="label">▼ Four card systems for the most common posts</div>
+
+  <div class="card-grid">
+
+    <!-- 01 — Announcement -->
+    <div class="social onyx">
+      <div class="top">
+        <div class="pre">▲ Announcement</div>
+        <div class="meta">26 MAY MMXXVI<br>Vol. II</div>
+      </div>
+      <div class="center">
+        <h2 class="headline">A new operating <em>company.</em></h2>
+        <div class="sub">Five divisions. One operating system. Welch discipline applied to creator media at AI velocity.</div>
+      </div>
+      <div class="bottom">
+        <div class="mark">Truest <em>Story</em></div>
+        <div class="url">truest.holdings</div>
+      </div>
+    </div>
+
+    <!-- 02 — Stat callout -->
+    <div class="social paper">
+      <div class="top">
+        <div class="pre">▲ Welch Cycle 26-W21</div>
+        <div class="meta">Auto-Executed<br>The Treasury</div>
+      </div>
+      <div class="center">
+        <div class="big-num">$184K</div>
+        <div class="sub" style="font-style: normal; font-weight: 500;">Reallocated from underperformers into the top decile. 14 positions cut. No sentiment.</div>
+      </div>
+      <div class="bottom">
+        <div class="mark">Truest <em>Story</em></div>
+        <div class="url">truest.holdings</div>
+      </div>
+    </div>
+
+    <!-- 03 — Cut notice (ember) -->
+    <div class="social ember">
+      <div class="top">
+        <div class="pre">▲ Cut Notice</div>
+        <div class="meta">Welch Law 01<br>Cycle 26-W21</div>
+      </div>
+      <div class="center">
+        <h2 class="headline">Fourteen positions <em>cut.</em></h2>
+        <div class="sub">Bottom decile ROAS. Two cycles missed. The math decided.</div>
+      </div>
+      <div class="bottom">
+        <div class="mark">Truest <em>Story</em></div>
+        <div class="url">truest.holdings</div>
+      </div>
+    </div>
+
+    <!-- 04 — Quote/principle (gold) -->
+    <div class="social gold">
+      <div class="top">
+        <div class="pre">▲ Operating Principle</div>
+        <div class="meta">No. 01<br>The Treasury</div>
+      </div>
+      <div class="center">
+        <h2 class="headline">Invest in <em>winners.</em><br>Cut the failures.</h2>
+        <div class="sub" style="font-weight: 500;">No sentiment. No exceptions. The position adjusts.</div>
+      </div>
+      <div class="bottom">
+        <div class="mark">Truest <em>Story</em></div>
+        <div class="url">truest.holdings</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="specs">
+    <h3>▼ How to use</h3>
+    <p><strong style="color: var(--bullion-bright);">Onyx</strong> — default for company posts, product news, fundraise announcements.<br>
+    <strong style="color: var(--bullion-bright);">Paper</strong> — for quarterly numbers, stat callouts, annual report excerpts. The cream signals "official report."<br>
+    <strong style="color: var(--bullion-bright);">Ember</strong> — for cut notices, kill announcements, urgent allocation moves. Used rarely. When ember appears, the audience pays attention.<br>
+    <strong style="color: var(--bullion-bright);">Gold</strong> — for principles, operating laws, major announcements. The flagship visual.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

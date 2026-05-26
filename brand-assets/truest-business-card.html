@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truest Story Holdings · Business Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --onyx: #050505; --carbon: #0d0d0d; --bullion: #B8860B; --bullion-bright: #D4A017;
+    --bullion-deep: #8B6914; --ember: #C73E1D; --bone: #E8E2D5; --paper: #F0E9D8;
+    --mercury: #7A7A7A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #1a1a1a; padding: 32px 16px; min-height: 100vh; font-family: "Fraunces", serif;
+    color: var(--bone);
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+
+  .preview-bar {
+    padding: 16px 24px; background: var(--onyx); color: var(--bone);
+    border-left: 3px solid var(--bullion); margin-bottom: 32px;
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .preview-bar .gold { color: var(--bullion); }
+
+  .label {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion);
+    margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--bullion);
+  }
+
+  .card-pair {
+    display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px;
+    justify-items: center;
+  }
+  @media (min-width: 720px) {
+    .card-pair { grid-template-columns: 1fr 1fr; gap: 24px; justify-items: stretch; }
+  }
+
+  /* Business card — 3.5 x 2 inches, standard US */
+  .card {
+    width: 3.5in; height: 2in;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(184, 134, 11, 0.2);
+    position: relative; overflow: hidden;
+    padding: 0.2in;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+
+  /* FRONT */
+  .card.front {
+    background: var(--onyx); color: var(--bone);
+  }
+  .card.front .top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .card.front .pre {
+    font-family: "IBM Plex Mono", monospace; font-size: 6px; font-weight: 700;
+    letter-spacing: 0.32em; text-transform: uppercase; color: var(--bullion);
+  }
+  .card.front .ref {
+    font-family: "IBM Plex Mono", monospace; font-size: 6px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--mercury);
+    text-align: right;
+  }
+  .card.front .mark {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: 32px;
+    line-height: 0.92; letter-spacing: -0.025em; color: var(--bone);
+  }
+  .card.front .mark em { font-style: italic; color: var(--bullion); }
+  .card.front .sub {
+    font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 7px;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bone);
+    margin-top: 4px; padding-top: 4px; border-top: 0.5px solid var(--bullion);
+  }
+  .card.front .sub .gold { color: var(--bullion); }
+
+  /* BACK — person details */
+  .card.back {
+    background: var(--paper); color: var(--onyx);
+    border-top: 3px solid var(--bullion-deep);
+  }
+  .card.back .top {
+    font-family: "IBM Plex Mono", monospace; font-size: 6px; font-weight: 700;
+    letter-spacing: 0.32em; text-transform: uppercase; color: var(--bullion-deep);
+    padding-bottom: 4px; border-bottom: 0.5px solid var(--bullion-deep);
+  }
+  .card.back .person-name {
+    font-family: "Fraunces", serif; font-weight: 700; font-size: 18px;
+    color: var(--onyx); line-height: 1.1; letter-spacing: -0.01em;
+    margin-top: 8px;
+  }
+  .card.back .person-title {
+    font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 8px;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--bullion-deep);
+    margin-top: 4px;
+  }
+  .card.back .bottom {
+    font-family: "IBM Plex Mono", monospace; font-size: 7px; font-weight: 500;
+    line-height: 1.7; color: var(--onyx); letter-spacing: 0.04em;
+  }
+  .card.back .bottom .gold { color: var(--bullion-deep); font-weight: 700; }
+
+  /* GOLD VARIANT (for principals only) */
+  .card.gold-front {
+    background: var(--bullion); color: var(--onyx);
+  }
+  .card.gold-front .pre { color: var(--onyx); }
+  .card.gold-front .ref { color: var(--onyx); opacity: 0.6; }
+  .card.gold-front .mark { color: var(--onyx); }
+  .card.gold-front .mark em { color: var(--onyx); font-weight: 900; }
+  .card.gold-front .sub { color: var(--onyx); border-top-color: var(--onyx); }
+  .card.gold-front .sub .gold { color: var(--onyx); }
+
+  .meta-note {
+    font-family: "Fraunces", serif; font-size: 14px; line-height: 1.6;
+    color: var(--bone); opacity: 0.85; margin: 16px 0; max-width: 760px;
+  }
+  .meta-note strong { color: var(--bullion-bright); }
+
+  /* Specs box */
+  .specs {
+    border: 1px solid rgba(184, 134, 11, 0.4); background: var(--carbon);
+    padding: 20px 24px; margin: 24px 0;
+  }
+  .specs h3 {
+    font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion);
+    margin-bottom: 12px;
+  }
+  .specs ul { list-style: none; }
+  .specs li {
+    padding: 6px 0 6px 20px; position: relative; font-size: 14px;
+    color: var(--bone); line-height: 1.5;
+  }
+  .specs li::before {
+    content: "▼"; position: absolute; left: 0; top: 8px; color: var(--bullion); font-size: 9px;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .preview-bar, .label, .meta-note, .specs { display: none; }
+    .card { box-shadow: none; page-break-inside: avoid; }
+    .card-pair { gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="preview-bar">
+    <span class="gold">▲ BUSINESS CARDS · 3.5 × 2 INCHES · US STANDARD</span>
+    <span>BLEED 0.125" / SAFE 0.125"</span>
+  </div>
+
+  <p class="meta-note">
+    Two finishes available. <strong>Standard card</strong> for staff and operators (onyx front, paper back). <strong>Gold variant</strong> reserved for the five operating partners — a small dignity that signals seniority without announcing it. Recommended stock: <strong>32pt cotton with gold foil debossing</strong> on the italic <em>Story</em>. Edge painted in bullion gold on the gold variant.
+  </p>
+
+  <!-- STANDARD VARIANT -->
+  <div class="label">▼ Standard · Staff &amp; Operators</div>
+  <div class="card-pair">
+    <div class="card front">
+      <div class="top">
+        <div class="pre">▲ TRUEST STORY HOLDINGS</div>
+        <div class="ref">REF · TS-OP-014</div>
+      </div>
+      <div>
+        <div class="mark">Truest <em>Story</em></div>
+        <div class="sub"><span class="gold">HOLDINGS</span> &nbsp;·&nbsp; MEDIA · GAMING · DISTRIBUTION</div>
+      </div>
+    </div>
+
+    <div class="card back">
+      <div class="top">▼ OPERATING PARTNER · MMXXVI</div>
+      <div>
+        <div class="person-name">Jesse James</div>
+        <div class="person-title">Principal · The Treasury</div>
+      </div>
+      <div class="bottom">
+        <span class="gold">jesse@truest.holdings</span><br>
+        +1 250 415 5678<br>
+        Victoria · British Columbia<br>
+        <span class="gold">truest.holdings</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOLD VARIANT -->
+  <div class="label">▼ Gold Variant · Operating Partners Only</div>
+  <div class="card-pair">
+    <div class="card gold-front">
+      <div class="top">
+        <div class="pre">▲ TRUEST STORY HOLDINGS</div>
+        <div class="ref">REF · TS-PP-001</div>
+      </div>
+      <div>
+        <div class="mark">Truest <em>Story</em></div>
+        <div class="sub"><span class="gold">HOLDINGS</span> &nbsp;·&nbsp; OPERATING PARTNER</div>
+      </div>
+    </div>
+
+    <div class="card back">
+      <div class="top">▼ OPERATING PARTNER · MMXXVI</div>
+      <div>
+        <div class="person-name">Parveen Parmar</div>
+        <div class="person-title">Principal · The Studio</div>
+      </div>
+      <div class="bottom">
+        <span class="gold">parveen@truest.holdings</span><br>
+        +1 250 — — —<br>
+        Victoria · British Columbia<br>
+        <span class="gold">truest.holdings</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPECS -->
+  <div class="specs">
+    <h3>▼ Production Specs</h3>
+    <ul>
+      <li><strong>Dimensions:</strong> 3.5 × 2 inches (US standard) · bleed 0.125" all sides</li>
+      <li><strong>Stock:</strong> 32pt cotton, uncoated, soft hand-feel</li>
+      <li><strong>Finish:</strong> Gold foil debossing on italic Story · matte everywhere else</li>
+      <li><strong>Standard variant:</strong> Onyx front (#050505) · Paper back (#F0E9D8)</li>
+      <li><strong>Gold variant:</strong> Bullion front (#B8860B) · Paper back with edge-painted gold (operating partners only)</li>
+      <li><strong>Typography embedded:</strong> Fraunces (display), Inter Tight (labels), IBM Plex Mono (details)</li>
+      <li><strong>Print vendor recommendation:</strong> Mama's Sauce, Moo Luxe, or local letterpress with gold foil capability</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>

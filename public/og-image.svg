@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bgGlow" cx="85%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#B8860B" stop-opacity="0.09"/>
+      <stop offset="100%" stop-color="#B8860B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#050505"/>
+  <rect width="1200" height="630" fill="url(#bgGlow)"/>
+
+  <!-- Top gold border rule -->
+  <rect width="1200" height="4" fill="#B8860B"/>
+
+  <!-- Top bar -->
+  <line x1="64" y1="72" x2="1136" y2="72" stroke="#B8860B" stroke-width="1" opacity="0.4"/>
+  <text x="64" y="56" font-family="'Courier New', Courier, monospace" font-weight="700" font-size="13" fill="#B8860B" letter-spacing="5">▲ TRUEST STORY HOLDINGS</text>
+  <text x="1136" y="56" font-family="'Courier New', Courier, monospace" font-weight="600" font-size="12" fill="#7A7A7A" letter-spacing="3" text-anchor="end">MEDIA · GAMING · DISTRIBUTION</text>
+
+  <!-- Main wordmark -->
+  <text x="64" y="280" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="198" fill="#E8E2D5" letter-spacing="-6">Truest</text>
+  <text x="64" y="460" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="198" fill="#B8860B" letter-spacing="-6">Story.</text>
+
+  <!-- Tagline -->
+  <text x="64" y="520" font-family="Georgia, 'Times New Roman', serif" font-weight="400" font-style="italic" font-size="22" fill="#E8E2D5" opacity="0.85">An AI-native media operating company. Welch discipline. Berkshire patience. AI velocity.</text>
+
+  <!-- Bottom bar -->
+  <line x1="64" y1="562" x2="1136" y2="562" stroke="#B8860B" stroke-width="1" opacity="0.4"/>
+  <text x="64" y="596" font-family="'Courier New', Courier, monospace" font-weight="700" font-size="13" fill="#B8860B" letter-spacing="4">▲ THE HOUSE · THE STUDIO · THE WIRE</text>
+  <text x="1136" y="596" font-family="'Courier New', Courier, monospace" font-weight="600" font-size="12" fill="#7A7A7A" letter-spacing="3" text-anchor="end">truest.holdings · Victoria, BC</text>
+
+  <!-- TS monogram watermark top right -->
+  <text x="1080" y="340" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="220" text-anchor="middle" fill="#B8860B" opacity="0.06">T<tspan font-style="italic">S</tspan></text>
+</svg>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truest Story Holdings · Logo Pack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;700&family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --onyx: #050505; --carbon: #0d0d0d; --bullion: #B8860B; --bullion-bright: #D4A017;
+    --bullion-deep: #8B6914; --ember: #C73E1D; --bone: #E8E2D5; --paper: #F0E9D8; --mercury: #7A7A7A;
+    --rule: rgba(232, 226, 213, 0.12); --rule-gold: rgba(184, 134, 11, 0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--onyx); color: var(--bone); font-family: "Fraunces", serif; padding: 48px 24px; min-height: 100vh; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  .header { border-bottom: 2px solid var(--bullion); padding-bottom: 24px; margin-bottom: 48px; }
+  .header .top {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion); margin-bottom: 16px;
+  }
+  .header h1 {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: clamp(40px, 7vw, 64px);
+    line-height: 0.95; letter-spacing: -0.03em;
+  }
+  .header h1 em { font-style: italic; color: var(--bullion); }
+  .header .sub {
+    font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 13px;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--mercury); margin-top: 16px;
+  }
+  .section-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 12px; border-bottom: 1px solid var(--bullion); margin: 64px 0 24px;
+  }
+  .section-head .lhs {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion);
+  }
+  .section-head .rhs {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+  }
+
+  .logo-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin: 32px 0; }
+  @media (min-width: 720px) { .logo-grid.two { grid-template-columns: 1fr 1fr; } }
+
+  .logo-display {
+    border: 1px solid var(--rule-gold); padding: 0; overflow: hidden;
+  }
+  .logo-canvas {
+    padding: 64px 40px; min-height: 320px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-canvas.dark { background: var(--onyx); }
+  .logo-canvas.carbon { background: var(--carbon); }
+  .logo-canvas.paper { background: var(--paper); }
+  .logo-canvas.gold { background: var(--bullion); }
+  .logo-canvas.ember { background: var(--ember); }
+  .logo-canvas.bone { background: var(--bone); }
+  .logo-meta {
+    padding: 16px 20px; background: var(--carbon); border-top: 1px solid var(--rule-gold);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .logo-meta .name {
+    font-family: "Fraunces", serif; font-weight: 700; font-size: 16px; color: var(--bone);
+  }
+  .logo-meta .tag {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--bullion);
+  }
+
+  /* SVG containers should scale */
+  .logo-canvas svg { max-width: 100%; height: auto; }
+
+  .note {
+    font-family: "Fraunces", serif; font-size: 16px; line-height: 1.6;
+    color: var(--bone); opacity: 0.85; margin: 16px 0; max-width: 720px;
+  }
+  .note strong { color: var(--bullion-bright); }
+
+  .usage {
+    border: 1px solid var(--rule-gold); padding: 24px; background: var(--carbon); margin: 24px 0;
+  }
+  .usage h3 {
+    font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion); margin-bottom: 14px;
+  }
+  .usage ul { list-style: none; }
+  .usage li {
+    padding: 8px 0 8px 24px; position: relative; font-size: 15px; color: var(--bone); line-height: 1.55;
+  }
+  .usage li::before {
+    content: "▲"; position: absolute; left: 0; top: 8px; color: var(--bullion); font-size: 11px;
+  }
+  .usage li.no::before { content: "✕"; color: var(--ember); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="top">▲ Logo Pack · Production Files · Vol. II · MMXXVI</div>
+  <h1>Truest <em>Story</em> Holdings</h1>
+  <div class="sub">Wordmark · Lockups · Marks · Division Signatures</div>
+</div>
+
+<p class="note">
+  Each SVG below is production-ready and can be extracted with right-click → <strong>Inspect</strong> → copy the <code style="font-family: 'IBM Plex Mono', monospace; color: var(--bullion-bright);">&lt;svg&gt;</code> element. For print use, convert text to outlines in Illustrator first. The bullion italic on the second word is the brand's signature — never substitute the gradient for solid, never substitute italic for upright.
+</p>
+
+<!-- PRIMARY WORDMARK -->
+<div class="section-head">
+  <span class="lhs">▲ 01 — Primary Stacked Mark</span>
+  <span class="rhs">use for letterhead, splash, hero</span>
+</div>
+
+<div class="logo-display">
+  <div class="logo-canvas dark">
+    <svg viewBox="0 0 600 540" width="500" xmlns="http://www.w3.org/2000/svg">
+      <text x="300" y="160" font-family="Fraunces, serif" font-weight="900" font-size="160" text-anchor="middle" fill="#E8E2D5">Truest</text>
+      <text x="300" y="320" font-family="Fraunces, serif" font-weight="900" font-style="italic" font-size="160" text-anchor="middle" fill="#B8860B">Story</text>
+      <line x1="180" y1="375" x2="420" y2="375" stroke="#B8860B" stroke-width="2"/>
+      <text x="300" y="420" font-family="Inter Tight, sans-serif" font-weight="700" font-size="28" text-anchor="middle" fill="#E8E2D5" letter-spacing="8">HOLDINGS</text>
+      <text x="300" y="480" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="14" text-anchor="middle" fill="#B8860B" letter-spacing="6">MEDIA · GAMING · DISTRIBUTION</text>
+    </svg>
+  </div>
+  <div class="logo-meta">
+    <div class="name">Primary Stacked · Bullion italic</div>
+    <div class="tag">SVG · 600×540</div>
+  </div>
+</div>
+
+<!-- HORIZONTAL LOCKUP -->
+<div class="section-head">
+  <span class="lhs">▲ 02 — Horizontal Lockup</span>
+  <span class="rhs">use for headers, sigs, ribbons</span>
+</div>
+
+<div class="logo-display">
+  <div class="logo-canvas dark">
+    <svg viewBox="0 0 900 240" width="800" xmlns="http://www.w3.org/2000/svg">
+      <text x="40" y="140" font-family="Fraunces, serif" font-weight="900" font-size="120" fill="#E8E2D5">Truest <tspan font-style="italic" fill="#B8860B">Story</tspan></text>
+      <line x1="40" y1="170" x2="860" y2="170" stroke="#B8860B" stroke-width="1.5"/>
+      <text x="40" y="208" font-family="Inter Tight, sans-serif" font-weight="700" font-size="18" fill="#E8E2D5" letter-spacing="6">HOLDINGS</text>
+      <text x="860" y="208" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="14" fill="#B8860B" letter-spacing="4" text-anchor="end">EST · MMXXVI</text>
+    </svg>
+  </div>
+  <div class="logo-meta">
+    <div class="name">Horizontal · Single Line</div>
+    <div class="tag">SVG · 900×240</div>
+  </div>
+</div>
+
+<!-- LOCKUP VARIANTS ON DIFFERENT FIELDS -->
+<div class="section-head">
+  <span class="lhs">▲ 03 — Wordmark on Approved Fields</span>
+  <span class="rhs">four authorized backgrounds</span>
+</div>
+
+<div class="logo-grid two">
+
+  <div class="logo-display">
+    <div class="logo-canvas dark">
+      <svg viewBox="0 0 480 180" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <text x="40" y="120" font-family="Fraunces, serif" font-weight="900" font-size="84" fill="#E8E2D5">Truest <tspan font-style="italic" fill="#B8860B">Story</tspan></text>
+      </svg>
+    </div>
+    <div class="logo-meta">
+      <div class="name">On Onyx</div>
+      <div class="tag">Primary · Bone + Bullion</div>
+    </div>
+  </div>
+
+  <div class="logo-display">
+    <div class="logo-canvas paper">
+      <svg viewBox="0 0 480 180" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <text x="40" y="120" font-family="Fraunces, serif" font-weight="900" font-size="84" fill="#050505">Truest <tspan font-style="italic" fill="#8B6914">Story</tspan></text>
+      </svg>
+    </div>
+    <div class="logo-meta">
+      <div class="name">On Paper</div>
+      <div class="tag">Print · Onyx + Bullion Deep</div>
+    </div>
+  </div>
+
+  <div class="logo-display">
+    <div class="logo-canvas gold">
+      <svg viewBox="0 0 480 180" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <text x="40" y="120" font-family="Fraunces, serif" font-weight="900" font-size="84" fill="#050505">Truest <tspan font-style="italic" fill="#050505" font-weight="900">Story</tspan></text>
+      </svg>
+    </div>
+    <div class="logo-meta">
+      <div class="name">On Bullion</div>
+      <div class="tag">Mono · Onyx on Gold</div>
+    </div>
+  </div>
+
+  <div class="logo-display">
+    <div class="logo-canvas ember">
+      <svg viewBox="0 0 480 180" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <text x="40" y="120" font-family="Fraunces, serif" font-weight="900" font-size="84" fill="#E8E2D5">Truest <tspan font-style="italic" fill="#E8E2D5">Story</tspan></text>
+      </svg>
+    </div>
+    <div class="logo-meta">
+      <div class="name">On Ember</div>
+      <div class="tag">Alert · Bone on Ember</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- MONOGRAM / FAVICON -->
+<div class="section-head">
+  <span class="lhs">▲ 04 — Monogram &amp; App Mark</span>
+  <span class="rhs">favicon, app icon, social avatar</span>
+</div>
+
+<div class="logo-grid two">
+
+  <div class="logo-display">
+    <div class="logo-canvas dark">
+      <svg viewBox="0 0 240 240" width="200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="200" height="200" fill="none" stroke="#B8860B" stroke-width="2"/>
+        <text x="120" y="170" font-family="Fraunces, serif" font-weight="900" font-size="160" text-anchor="middle" fill="#E8E2D5">T<tspan font-style="italic" fill="#B8860B">S</tspan></text>
+      </svg>
+    </div>
+    <div class="logo-meta">
+      <div class="name">Bordered Monogram · T+S</div>
+      <div class="tag">SVG · 240×240</div>
+    </div>
+  </div>
+
+  <div class="logo-display">
+    <div class="logo-canvas gold">
+      <svg viewBox="0 0 240 240" width="200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="240" height="240" fill="#B8860B"/>
+        <text x="120" y="170" font-family="Fraunces, serif" font-weight="900" font-size="160" text-anchor="middle" fill="#050505">T<tspan font-style="italic" fill="#050505">S</tspan></text>
+      </svg>
+    </div>
+    <div class="logo-meta">
+      <div class="name">Reverse · Gold Field</div>
+      <div class="tag">App icon · favicon</div>
+    </div>
+  </div>
+
+  <div class="logo-display">
+    <div class="logo-canvas carbon">
+      <svg viewBox="0 0 240 240" width="200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="120" cy="120" r="110" fill="#050505" stroke="#B8860B" stroke-width="2"/>
+        <text x="120" y="170" font-family="Fraunces, serif" font-weight="900" font-size="160" text-anchor="middle" fill="#E8E2D5">T<tspan font-style="italic" fill="#B8860B">S</tspan></text>
+      </svg>
+    </div>
+    <div class="logo-meta">
+      <div class="name">Round Mark</div>
+      <div class="tag">Social avatar · profile</div>
+    </div>
+  </div>
+
+  <div class="logo-display">
+    <div class="logo-canvas dark">
+      <svg viewBox="0 0 240 240" width="200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="40" width="160" height="160" fill="#B8860B"/>
+        <text x="120" y="170" font-family="Fraunces, serif" font-weight="900" font-size="120" text-anchor="middle" fill="#050505">T<tspan font-style="italic" fill="#050505">S</tspan></text>
+      </svg>
+    </div>
+    <div class="logo-meta">
+      <div class="name">Stamped Mark</div>
+      <div class="tag">Used for seal applications</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- DIVISION MARKS -->
+<div class="section-head">
+  <span class="lhs">▲ 05 — Division Marks</span>
+  <span class="rhs">five operating units</span>
+</div>
+
+<div class="logo-display">
+  <div class="logo-canvas dark">
+    <svg viewBox="0 0 1000 400" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <!-- Header -->
+      <text x="500" y="50" font-family="IBM Plex Mono, monospace" font-weight="700" font-size="14" text-anchor="middle" fill="#B8860B" letter-spacing="8">▼ THE DIVISIONS</text>
+      <line x1="200" y1="80" x2="800" y2="80" stroke="#B8860B" stroke-width="1.5"/>
+
+      <!-- Five divisions in italic -->
+      <text x="100" y="200" font-family="Fraunces, serif" font-weight="600" font-size="20" fill="#E8E2D5">The</text>
+      <text x="100" y="260" font-family="Fraunces, serif" font-weight="900" font-style="italic" font-size="48" fill="#B8860B">House</text>
+
+      <text x="280" y="200" font-family="Fraunces, serif" font-weight="600" font-size="20" fill="#E8E2D5">The</text>
+      <text x="280" y="260" font-family="Fraunces, serif" font-weight="900" font-style="italic" font-size="48" fill="#B8860B">Studio</text>
+
+      <text x="470" y="200" font-family="Fraunces, serif" font-weight="600" font-size="20" fill="#E8E2D5">The</text>
+      <text x="470" y="260" font-family="Fraunces, serif" font-weight="900" font-style="italic" font-size="48" fill="#B8860B">Wire</text>
+
+      <text x="610" y="200" font-family="Fraunces, serif" font-weight="600" font-size="20" fill="#E8E2D5">The</text>
+      <text x="610" y="260" font-family="Fraunces, serif" font-weight="900" font-style="italic" font-size="48" fill="#B8860B">Desk</text>
+
+      <text x="750" y="200" font-family="Fraunces, serif" font-weight="600" font-size="20" fill="#E8E2D5">The</text>
+      <text x="750" y="260" font-family="Fraunces, serif" font-weight="900" font-style="italic" font-size="48" fill="#B8860B">Treasury</text>
+
+      <line x1="200" y1="320" x2="800" y2="320" stroke="#B8860B" stroke-width="1.5"/>
+      <text x="500" y="360" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="11" text-anchor="middle" fill="#7A7A7A" letter-spacing="5">UNDER TRUEST STORY HOLDINGS</text>
+    </svg>
+  </div>
+  <div class="logo-meta">
+    <div class="name">Five Divisions · Horizontal</div>
+    <div class="tag">Use on quarterly letterhead, deck dividers</div>
+  </div>
+</div>
+
+<!-- USAGE RULES -->
+<div class="usage">
+  <h3>▼ Usage Rules</h3>
+  <ul>
+    <li>The second word is always italic, always bullion gold. <strong>The italic is the signature.</strong></li>
+    <li>Minimum clearspace around the mark = height of the capital T. Nothing intrudes inside.</li>
+    <li>Minimum size for the horizontal lockup: 120px wide on screen, 24mm on print.</li>
+    <li>Minimum size for the monogram: 16px (favicon), 88px (app icon).</li>
+    <li>Approved fields only: Onyx, Carbon, Paper, Bullion, Ember, Bone. <strong>Nothing else.</strong></li>
+    <li>Division marks always preceded by "The" — never "House" alone, always "The House."</li>
+    <li class="no">Never recolor the italic. Bullion only (or Onyx on gold/bone fields, Bone on ember).</li>
+    <li class="no">Never use the wordmark over photography without an Onyx or Bullion plate behind it.</li>
+    <li class="no">Never stretch, skew, condense, or apply effects. <em>The mark is monumental, not malleable.</em></li>
+    <li class="no">Never substitute "Truest Story" for "Truest <em>Story</em>" — the italic carries the brand.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truest Story Holdings · OG Image Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --onyx: #050505; --carbon: #0d0d0d; --bullion: #B8860B; --bullion-bright: #D4A017;
+    --ember: #C73E1D; --bone: #E8E2D5; --paper: #F0E9D8; --mercury: #7A7A7A;
+    --rule-gold: rgba(184, 134, 11, 0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #1a1a1a; padding: 24px 16px; min-height: 100vh;
+  }
+  .preview-bar {
+    max-width: 1200px; margin: 0 auto 20px;
+    padding: 14px 24px; background: var(--onyx); color: var(--bone);
+    border-left: 3px solid var(--bullion);
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .preview-bar .gold { color: var(--bullion); }
+
+  .og-stack { max-width: 1200px; margin: 0 auto; }
+
+  /* OG card — 1200x630 standard */
+  .og {
+    width: 100%; aspect-ratio: 1200 / 630;
+    margin: 0 auto 32px;
+    background: var(--onyx); color: var(--bone);
+    padding: 56px 64px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .og-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 12px; border-bottom: 1px solid var(--bullion);
+  }
+  .og-pre {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--bullion);
+  }
+  .og-meta {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+    text-align: right;
+  }
+
+  .og-center {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+  }
+  .og-mark {
+    font-family: "Fraunces", serif; font-weight: 900;
+    font-size: clamp(60px, 9vw, 132px); line-height: 0.88;
+    letter-spacing: -0.04em; color: var(--bone);
+  }
+  .og-mark em { font-style: italic; color: var(--bullion); }
+  .og-tag {
+    font-family: "Fraunces", serif; font-style: italic; font-weight: 400;
+    font-size: clamp(18px, 2vw, 26px); color: var(--bone); opacity: 0.9;
+    margin-top: 20px; max-width: 700px; line-height: 1.35;
+  }
+
+  .og-bottom {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-top: 16px; border-top: 1px solid var(--bullion);
+  }
+  .og-bottom .lhs {
+    font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 13px;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--bullion);
+  }
+  .og-bottom .rhs {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+    text-align: right;
+  }
+
+  .og::before {
+    content: ""; position: absolute; top: 0; right: 0; width: 50%; height: 100%;
+    background: radial-gradient(circle at 90% 40%, rgba(184, 134, 11, 0.07), transparent 65%);
+    pointer-events: none;
+  }
+
+  /* Variant — ember (alerts, cut announcements) */
+  .og.ember-v {
+    background: var(--carbon);
+    border-top: 4px solid var(--ember);
+  }
+  .og.ember-v .og-pre { color: var(--ember); }
+  .og.ember-v .og-top { border-bottom-color: var(--ember); }
+  .og.ember-v .og-bottom { border-top-color: var(--ember); }
+  .og.ember-v .og-bottom .lhs { color: var(--ember); }
+  .og.ember-v .og-mark em { color: var(--ember); }
+
+  /* Variant — paper (annual reports, quarterly letters) */
+  .og.paper-v {
+    background: var(--paper); color: var(--onyx);
+  }
+  .og.paper-v .og-pre { color: var(--bullion); }
+  .og.paper-v .og-top { border-bottom-color: var(--bullion); }
+  .og.paper-v .og-bottom { border-top-color: var(--bullion); }
+  .og.paper-v .og-bottom .lhs { color: var(--bullion); }
+  .og.paper-v .og-mark { color: var(--onyx); }
+  .og.paper-v .og-mark em { color: var(--bullion); }
+  .og.paper-v .og-tag { color: var(--onyx); opacity: 0.85; }
+  .og.paper-v .og-meta { color: var(--mercury); }
+  .og.paper-v .og-bottom .rhs { color: var(--mercury); }
+  .og.paper-v::before { background: radial-gradient(circle at 90% 40%, rgba(184, 134, 11, 0.1), transparent 65%); }
+
+  /* Variant — gold (major announcements) */
+  .og.gold-v {
+    background: var(--bullion); color: var(--onyx);
+  }
+  .og.gold-v .og-pre { color: var(--onyx); }
+  .og.gold-v .og-top { border-bottom-color: var(--onyx); }
+  .og.gold-v .og-bottom { border-top-color: var(--onyx); }
+  .og.gold-v .og-bottom .lhs { color: var(--onyx); }
+  .og.gold-v .og-mark { color: var(--onyx); }
+  .og.gold-v .og-mark em { color: var(--onyx); font-weight: 900; }
+  .og.gold-v .og-tag { color: var(--onyx); opacity: 0.8; }
+  .og.gold-v .og-meta { color: var(--onyx); opacity: 0.65; }
+  .og.gold-v .og-bottom .rhs { color: var(--onyx); opacity: 0.65; }
+  .og.gold-v::before { display: none; }
+
+  .label-strip {
+    text-align: center; margin: 8px 0 24px;
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion);
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .preview-bar, .label-strip { display: none; }
+    .og { box-shadow: none; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-bar">
+  <span class="gold">▲ OG IMAGE TEMPLATES · 1200×630</span>
+  <span>FOR LINKEDIN, X, FB, EMAIL PREVIEWS</span>
+</div>
+
+<div class="og-stack">
+
+  <!-- PRIMARY (Onyx) -->
+  <div class="label-strip">▼ Primary · Onyx Field · Default share card</div>
+  <div class="og">
+    <div class="og-top">
+      <div class="og-pre">▲ Truest Story Holdings</div>
+      <div class="og-meta">
+        Vol. II · MMXXVI<br>
+        Brand System
+      </div>
+    </div>
+    <div class="og-center">
+      <h1 class="og-mark">Truest <em>Story.</em></h1>
+      <div class="og-tag">An AI-native media operating company. Welch discipline. Berkshire patience. AI velocity.</div>
+    </div>
+    <div class="og-bottom">
+      <div class="lhs">▲ Media · Gaming · Distribution</div>
+      <div class="rhs">truest.holdings · Victoria, BC</div>
+    </div>
+  </div>
+
+  <!-- PAPER (annual reports) -->
+  <div class="label-strip">▼ Paper Variant · Annual report, quarterly letter releases</div>
+  <div class="og paper-v">
+    <div class="og-top">
+      <div class="og-pre">▲ Quarterly Letter · Q2 MMXXVI</div>
+      <div class="og-meta">
+        Released 26 May<br>
+        For Operating Partners
+      </div>
+    </div>
+    <div class="og-center">
+      <h1 class="og-mark">The Welch <em>cycle.</em></h1>
+      <div class="og-tag">$184K reallocated. 14 positions cut. The math decided.</div>
+    </div>
+    <div class="og-bottom">
+      <div class="lhs">▲ Capital Allocation Report</div>
+      <div class="rhs">Page 01 / 14</div>
+    </div>
+  </div>
+
+  <!-- EMBER (cut announcements, alerts) -->
+  <div class="label-strip">▼ Ember Variant · Kill notices, urgent allocation announcements</div>
+  <div class="og ember-v">
+    <div class="og-top">
+      <div class="og-pre">▲ Cut Notice · Welch Law 01</div>
+      <div class="og-meta">
+        Cycle 26-W21<br>
+        Auto-executed
+      </div>
+    </div>
+    <div class="og-center">
+      <h1 class="og-mark">Fourteen positions <em>cut.</em></h1>
+      <div class="og-tag">Bottom decile ROAS. Two cycles missed. No sentiment.</div>
+    </div>
+    <div class="og-bottom">
+      <div class="lhs">▲ The Treasury · Operating Discipline</div>
+      <div class="rhs">$184K reallocated</div>
+    </div>
+  </div>
+
+  <!-- GOLD (major announcements, fundraise) -->
+  <div class="label-strip">▼ Gold Variant · Major announcements, fundraise rounds, launches</div>
+  <div class="og gold-v">
+    <div class="og-top">
+      <div class="og-pre">▲ Announcement · MMXXVI</div>
+      <div class="og-meta">
+        For Immediate Release<br>
+        Victoria, BC
+      </div>
+    </div>
+    <div class="og-center">
+      <h1 class="og-mark">An operating <em>company.</em></h1>
+      <div class="og-tag">Five divisions. One operating system. Built to compound.</div>
+    </div>
+    <div class="og-bottom">
+      <div class="lhs">▲ Truest Story Holdings</div>
+      <div class="rhs">truest.holdings</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bgGlow" cx="85%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#B8860B" stop-opacity="0.09"/>
+      <stop offset="100%" stop-color="#B8860B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#050505"/>
+  <rect width="1200" height="630" fill="url(#bgGlow)"/>
+  <rect width="1200" height="4" fill="#B8860B"/>
+
+  <line x1="64" y1="72" x2="1136" y2="72" stroke="#B8860B" stroke-width="1" opacity="0.4"/>
+  <text x="64" y="56" font-family="'Courier New', Courier, monospace" font-weight="700" font-size="13" fill="#B8860B" letter-spacing="5">▲ TRUEST STORY HOLDINGS</text>
+  <text x="1136" y="56" font-family="'Courier New', Courier, monospace" font-weight="600" font-size="12" fill="#7A7A7A" letter-spacing="3" text-anchor="end">01 OF 05 · THE DIVISIONS</text>
+
+  <!-- Division label -->
+  <text x="64" y="200" font-family="'Courier New', Courier, monospace" font-weight="700" font-size="13" fill="#B8860B" letter-spacing="6">THE</text>
+
+  <!-- Division name -->
+  <text x="64" y="380" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-style="italic" font-size="270" fill="#B8860B" letter-spacing="-8">House</text>
+
+  <text x="64" y="490" font-family="Georgia, 'Times New Roman', serif" font-weight="400" font-style="italic" font-size="22" fill="#E8E2D5" opacity="0.85">Telegram Mini App casino on TON. Slots, Roulette, Crash. The front-end revenue engine.</text>
+
+  <line x1="64" y1="530" x2="1136" y2="530" stroke="#B8860B" stroke-width="1" opacity="0.4"/>
+  <text x="64" y="564" font-family="'Courier New', Courier, monospace" font-weight="700" font-size="13" fill="#B8860B" letter-spacing="4">▲ LIVE</text>
+  <text x="1136" y="564" font-family="'Courier New', Courier, monospace" font-weight="600" font-size="12" fill="#7A7A7A" letter-spacing="3" text-anchor="end">TON CONNECT · TELEGRAM STARS</text>
+
+  <!-- Background TS -->
+  <text x="1050" y="480" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="400" text-anchor="middle" fill="#B8860B" opacity="0.04">H</text>
+</svg>

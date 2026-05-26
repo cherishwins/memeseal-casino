@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truest Story Holdings · Pitch Cover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --onyx: #050505; --carbon: #0d0d0d; --bullion: #B8860B; --bullion-bright: #D4A017;
+    --ember: #C73E1D; --bone: #E8E2D5; --mercury: #7A7A7A; --rule-gold: rgba(184, 134, 11, 0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #1a1a1a; padding: 32px 16px; min-height: 100vh; font-family: "Fraunces", serif;
+  }
+  .preview-bar {
+    max-width: 1280px; margin: 0 auto 24px;
+    padding: 16px 24px; background: var(--onyx); color: var(--bone);
+    border-left: 3px solid var(--bullion);
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .preview-bar .gold { color: var(--bullion); }
+
+  /* 16:9 slide */
+  .slide {
+    max-width: 1280px; aspect-ratio: 16 / 9;
+    margin: 0 auto; background: var(--onyx); color: var(--bone);
+    padding: 64px 72px; position: relative; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+
+  /* Top bar */
+  .slide-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 16px; border-bottom: 1px solid var(--bullion);
+  }
+  .slide-top .lhs {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion);
+  }
+  .slide-top .rhs {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+    text-align: right; line-height: 1.7;
+  }
+  .slide-top .rhs .ember { color: var(--ember); }
+
+  /* Middle hero */
+  .slide-center {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    padding: 24px 0;
+  }
+  .slide-pre {
+    font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 13px;
+    letter-spacing: 0.32em; text-transform: uppercase; color: var(--bullion);
+    margin-bottom: 24px;
+  }
+  .slide-headline {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: clamp(80px, 12vw, 180px);
+    line-height: 0.86; letter-spacing: -0.04em; color: var(--bone);
+  }
+  .slide-headline em { font-style: italic; color: var(--bullion); }
+
+  .slide-tagline {
+    font-family: "Fraunces", serif; font-weight: 400; font-style: italic;
+    font-size: clamp(22px, 2.5vw, 32px); line-height: 1.3; color: var(--bone);
+    opacity: 0.9; margin-top: 32px; max-width: 800px;
+  }
+  .slide-tagline strong { font-weight: 700; color: var(--bullion); font-style: normal; }
+
+  /* Stat strip */
+  .slide-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: 1px solid var(--bullion); border-bottom: 1px solid var(--bullion);
+    margin-top: 32px;
+  }
+  .slide-stat {
+    padding: 16px 20px; border-right: 1px solid var(--rule-gold);
+  }
+  .slide-stat:last-child { border-right: 0; }
+  .slide-stat .lbl {
+    font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--mercury);
+    margin-bottom: 6px;
+  }
+  .slide-stat .val {
+    font-family: "Inter Tight", sans-serif; font-weight: 800; font-size: 28px;
+    color: var(--bullion-bright); letter-spacing: -0.02em; line-height: 1;
+  }
+  .slide-stat .val.bone { color: var(--bone); }
+
+  /* Bottom */
+  .slide-bottom {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-top: 24px; border-top: 1px solid var(--bullion);
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+  }
+  .slide-bottom .gold { color: var(--bullion); font-weight: 700; }
+  .slide-bottom .pg {
+    text-align: right; line-height: 1.7;
+  }
+
+  /* Subtle background */
+  .slide::before {
+    content: ""; position: absolute; top: 0; right: 0; width: 60%; height: 100%;
+    background: radial-gradient(circle at 80% 50%, rgba(184, 134, 11, 0.05), transparent 60%);
+    pointer-events: none;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .preview-bar { display: none; }
+    .slide { box-shadow: none; max-width: 100%; }
+    @page { size: landscape; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-bar">
+  <span class="gold">▲ PITCH COVER · 16:9 · 1280×720</span>
+  <span>USE FOR INVESTOR DECKS, BOARD MEMOS, INTRO SLIDES</span>
+</div>
+
+<div class="slide">
+  <!-- Top -->
+  <div class="slide-top">
+    <div class="lhs">▲ Operating Company · MMXXVI</div>
+    <div class="rhs">
+      <div>VOL. II · BRAND SYSTEM</div>
+      <div class="ember">CONFIDENTIAL · INVESTORS</div>
+    </div>
+  </div>
+
+  <!-- Center hero -->
+  <div class="slide-center">
+    <div class="slide-pre">▼ An Operating Company Pitch</div>
+    <h1 class="slide-headline">Truest <em>Story</em><br>Holdings.</h1>
+    <div class="slide-tagline">An <strong>AI-native</strong> media operating company that ruthlessly reallocates capital from losers to winners. <em>Welch discipline. Berkshire patience. AI velocity.</em></div>
+  </div>
+
+  <!-- Stats -->
+  <div class="slide-stats">
+    <div class="slide-stat">
+      <div class="lbl">Active Divisions</div>
+      <div class="val">05</div>
+    </div>
+    <div class="slide-stat">
+      <div class="lbl">Pipeline / wk</div>
+      <div class="val bone">1,847</div>
+    </div>
+    <div class="slide-stat">
+      <div class="lbl">Capital Reallocated</div>
+      <div class="val">$1.2M</div>
+    </div>
+    <div class="slide-stat">
+      <div class="lbl">Losers Cut YTD</div>
+      <div class="val">14</div>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="slide-bottom">
+    <span class="gold">▲ MEDIA · GAMING · DISTRIBUTION</span>
+    <div class="pg">
+      <div>Victoria · British Columbia</div>
+      <div>Slide 01 / xx</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

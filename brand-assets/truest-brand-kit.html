@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truest Story Holdings · Brand Kit Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --onyx: #050505; --carbon: #0d0d0d; --bullion: #B8860B; --bullion-bright: #D4A017;
+    --bullion-deep: #8B6914; --ember: #C73E1D; --bone: #E8E2D5; --paper: #F0E9D8;
+    --mercury: #7A7A7A; --rule-gold: rgba(184, 134, 11, 0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--onyx); color: var(--bone); font-family: "Fraunces", serif;
+    line-height: 1.55; min-height: 100vh;
+  }
+
+  /* Masthead */
+  .masthead {
+    background: var(--carbon); border-top: 1px solid var(--bullion);
+    border-bottom: 1px solid var(--bullion); padding: 10px 24px;
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bullion); display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 80px 32px; border-bottom: 2px solid var(--bullion);
+    background:
+      radial-gradient(circle at 80% 20%, rgba(184, 134, 11, 0.06), transparent 50%),
+      var(--onyx);
+  }
+  .hero-wrap { max-width: 1080px; margin: 0 auto; }
+  .hero-pre {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.32em; text-transform: uppercase; color: var(--bullion);
+    margin-bottom: 16px; display: inline-block; padding-bottom: 8px;
+    border-bottom: 1px solid var(--bullion);
+  }
+  .hero-mark {
+    font-family: "Fraunces", serif; font-weight: 900;
+    font-size: clamp(56px, 11vw, 144px); line-height: 0.86;
+    letter-spacing: -0.04em; color: var(--bone);
+    margin: 16px 0 8px;
+  }
+  .hero-mark em { font-style: italic; color: var(--bullion); }
+  .hero-sub {
+    font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: clamp(14px, 2vw, 18px);
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bone);
+    margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--bullion);
+  }
+  .hero-sub .gold { color: var(--bullion); }
+  .hero-sub .sep { color: var(--mercury); padding: 0 10px; }
+
+  .hero-lede {
+    font-family: "Fraunces", serif; font-weight: 400; font-style: italic;
+    font-size: clamp(20px, 2.5vw, 26px); line-height: 1.4;
+    color: var(--bone); opacity: 0.92; margin-top: 32px; max-width: 760px;
+  }
+
+  /* Section */
+  section { padding: 80px 32px; border-bottom: 1px solid var(--rule-gold); }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+
+  .section-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 14px; border-bottom: 2px solid var(--bullion); margin-bottom: 36px;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .section-head .lhs {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion);
+  }
+  .section-head .rhs {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+  }
+
+  h2 {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: clamp(38px, 6vw, 56px);
+    line-height: 0.98; letter-spacing: -0.025em; margin-bottom: 24px;
+  }
+  h2 em { font-style: italic; color: var(--bullion); }
+
+  p.lede {
+    font-family: "Fraunces", serif; font-weight: 400; font-style: italic;
+    font-size: 21px; line-height: 1.45; color: var(--bone); opacity: 0.9;
+    margin-bottom: 28px; max-width: 800px;
+  }
+
+  /* Asset cards grid */
+  .asset-grid {
+    display: grid; grid-template-columns: 1fr; gap: 14px; margin: 28px 0;
+  }
+  @media (min-width: 720px) {
+    .asset-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .asset {
+    border: 1px solid var(--rule-gold); padding: 28px 24px;
+    background: var(--carbon); text-decoration: none; color: inherit;
+    display: flex; flex-direction: column; justify-content: space-between;
+    min-height: 220px; position: relative; transition: border-color 0.2s, background 0.2s;
+  }
+  .asset:hover {
+    border-color: var(--bullion); background: #141414;
+  }
+  .asset-meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 16px;
+  }
+  .asset-num {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.22em; color: var(--bullion);
+  }
+  .asset-tag {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+  }
+  .asset-tag.live { color: var(--bullion-bright); }
+  .asset-title {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: 26px;
+    color: var(--bone); letter-spacing: -0.015em; line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  .asset-title em { font-style: italic; color: var(--bullion); }
+  .asset-desc {
+    font-family: "Fraunces", serif; font-size: 15px; line-height: 1.5;
+    color: var(--bone); opacity: 0.78; margin-bottom: 16px;
+  }
+  .asset-cta {
+    font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--bullion);
+    display: flex; align-items: center; gap: 8px;
+    margin-top: auto; padding-top: 14px; border-top: 1px solid var(--rule-gold);
+  }
+  .asset-cta .arrow { font-family: "IBM Plex Mono", monospace; }
+
+  /* Divisions */
+  .divisions {
+    display: grid; grid-template-columns: 1fr; gap: 0; margin: 28px 0;
+    border-top: 2px solid var(--bullion); border-bottom: 2px solid var(--bullion);
+  }
+  .division {
+    display: grid; grid-template-columns: 80px 1fr; padding: 20px 0;
+    border-bottom: 1px solid var(--rule-gold);
+  }
+  .division:last-child { border-bottom: 0; }
+  .division .n {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.15em; color: var(--bullion); padding-top: 4px;
+  }
+  .division .body {
+    display: grid; grid-template-columns: 1fr; gap: 4px;
+  }
+  @media (min-width: 720px) {
+    .division .body { grid-template-columns: 200px 1fr 120px; gap: 24px; align-items: baseline; }
+  }
+  .division .name {
+    font-family: "Fraunces", serif; font-weight: 900; font-style: italic;
+    font-size: 24px; color: var(--bullion); letter-spacing: -0.015em; line-height: 1;
+  }
+  .division .name .the { color: var(--bone); font-style: normal; font-weight: 700; }
+  .division .desc {
+    font-family: "Fraunces", serif; font-size: 15px; color: var(--bone); opacity: 0.85;
+  }
+  .division .status {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--bullion-bright);
+  }
+
+  /* Color strip */
+  .color-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--rule-gold); border: 1px solid var(--bullion);
+    margin: 24px 0;
+  }
+  @media (min-width: 720px) {
+    .color-strip { grid-template-columns: repeat(8, 1fr); }
+  }
+  .color {
+    aspect-ratio: 1 / 1.2; padding: 14px 12px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .color .name {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: 14px;
+    line-height: 1; letter-spacing: -0.01em;
+  }
+  .color .hex {
+    font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--carbon); padding: 64px 32px;
+    border-top: 2px solid var(--bullion); text-align: center;
+  }
+  .foot-mark {
+    font-family: "Fraunces", serif; font-weight: 900;
+    font-size: clamp(36px, 6vw, 48px); line-height: 0.9;
+    letter-spacing: -0.03em; color: var(--bone); margin-bottom: 24px;
+  }
+  .foot-mark em { font-style: italic; color: var(--bullion); }
+  .foot-meta {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--mercury);
+    line-height: 2.4; padding-top: 24px; border-top: 1px solid var(--bullion);
+    max-width: 600px; margin: 0 auto;
+  }
+  .foot-meta .gold { color: var(--bullion); }
+
+</style>
+</head>
+<body>
+
+<!-- Masthead -->
+<div class="masthead">
+  <span>▲ Brand Kit · Vol. II · Master Index</span>
+  <span>MMXXVI · Victoria · BC</span>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-wrap">
+    <div class="hero-pre">▲ Brand System · Vol. II · MMXXVI</div>
+    <h1 class="hero-mark">Truest <em>Story</em><br>Holdings.</h1>
+    <div class="hero-sub">
+      <span class="gold">Media</span><span class="sep">/</span><span class="gold">Gaming</span><span class="sep">/</span><span class="gold">Distribution</span>
+    </div>
+    <p class="hero-lede">An AI-native media operating company that ruthlessly reallocates capital from losers to winners. This is the complete brand system — bible, logos, templates, and applications. Everything you need to ship.</p>
+  </div>
+</header>
+
+<!-- DIVISIONS -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="lhs">▲ Section 01 — The Operating Company</span>
+      <span class="rhs">Five Divisions · One System</span>
+    </div>
+
+    <h2>The <em>portfolio</em> at a glance.</h2>
+
+    <div class="divisions">
+      <div class="division">
+        <div class="n">01 ·</div>
+        <div class="body">
+          <div class="name"><span class="the">The</span> House</div>
+          <div class="desc">Telegram Mini App casino on TON. The front-end revenue engine.</div>
+          <div class="status">▲ LIVE</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="n">02 ·</div>
+        <div class="body">
+          <div class="name"><span class="the">The</span> Studio</div>
+          <div class="desc">AI music and image generation. Daily output, branded and unbranded.</div>
+          <div class="status">▲ SCALING</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="n">03 ·</div>
+        <div class="body">
+          <div class="name"><span class="the">The</span> Wire</div>
+          <div class="desc">n8n distribution pipeline. Multi-channel chop, format, ship.</div>
+          <div class="status">▲ LIVE</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="n">04 ·</div>
+        <div class="body">
+          <div class="name"><span class="the">The</span> Desk</div>
+          <div class="desc">Analytics + LLM feedback loop. Self-improving.</div>
+          <div class="status">▲ LIVE</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="n">05 ·</div>
+        <div class="body">
+          <div class="name"><span class="the">The</span> Treasury</div>
+          <div class="desc">Capital allocation. The Welch discipline made automatic.</div>
+          <div class="status">▲ LIVE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PALETTE STRIP -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="lhs">▲ Section 02 — The Palette</span>
+      <span class="rhs">8 colors · hard rules</span>
+    </div>
+
+    <h2>Onyx. <em>Bullion.</em> Ember. Bone.</h2>
+
+    <div class="color-strip">
+      <div class="color" style="background: #050505; color: #E8E2D5;">
+        <div class="name">Onyx</div><div class="hex">#050505</div>
+      </div>
+      <div class="color" style="background: #0d0d0d; color: #E8E2D5;">
+        <div class="name">Carbon</div><div class="hex">#0D0D0D</div>
+      </div>
+      <div class="color" style="background: #B8860B; color: #050505;">
+        <div class="name">Bullion</div><div class="hex">#B8860B</div>
+      </div>
+      <div class="color" style="background: #8B6914; color: #E8E2D5;">
+        <div class="name">Deep</div><div class="hex">#8B6914</div>
+      </div>
+      <div class="color" style="background: #C73E1D; color: #E8E2D5;">
+        <div class="name">Ember</div><div class="hex">#C73E1D</div>
+      </div>
+      <div class="color" style="background: #E8E2D5; color: #050505;">
+        <div class="name">Bone</div><div class="hex">#E8E2D5</div>
+      </div>
+      <div class="color" style="background: #F0E9D8; color: #050505;">
+        <div class="name">Paper</div><div class="hex">#F0E9D8</div>
+      </div>
+      <div class="color" style="background: #7A7A7A; color: #E8E2D5;">
+        <div class="name">Mercury</div><div class="hex">#7A7A7A</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSETS -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="lhs">▲ Section 03 — The Files</span>
+      <span class="rhs">8 deliverables · production-ready</span>
+    </div>
+
+    <h2>Every asset you need to <em>ship.</em></h2>
+
+    <p class="lede">Each file below opens as a standalone HTML page. Print to PDF, screenshot to PNG, or extract SVG source directly from the markup. All files use the same shared font stack (Fraunces · Inter Tight · IBM Plex Mono) and color tokens for consistency across the system.</p>
+
+    <div class="asset-grid">
+      <a class="asset" href="truest-story-holdings.html">
+        <div class="asset-meta">
+          <div class="asset-num">FILE 01</div>
+          <div class="asset-tag live">▲ MASTER · 12 SECTIONS</div>
+        </div>
+        <div>
+          <div class="asset-title">The Brand <em>Bible</em></div>
+          <div class="asset-desc">The complete operating-company brand system. Positioning, divisions, operating system, Welch ledger, mark, palette, type, voice, dashboard, rules.</div>
+        </div>
+        <div class="asset-cta">Open Brand Bible <span class="arrow">→</span></div>
+      </a>
+
+      <a class="asset" href="truest-logo-pack.html">
+        <div class="asset-meta">
+          <div class="asset-num">FILE 02</div>
+          <div class="asset-tag">SVG · 12 VARIANTS</div>
+        </div>
+        <div>
+          <div class="asset-title">Logo <em>Pack</em></div>
+          <div class="asset-desc">Primary stacked mark, horizontal lockup, monogram, division marks, and four-field variants. Extract SVG source directly or convert text to paths for print.</div>
+        </div>
+        <div class="asset-cta">Open Logo Pack <span class="arrow">→</span></div>
+      </a>
+
+      <a class="asset" href="truest-letterhead.html">
+        <div class="asset-meta">
+          <div class="asset-num">FILE 03</div>
+          <div class="asset-tag">PRINT · 8.5×11"</div>
+        </div>
+        <div>
+          <div class="asset-title">The <em>Letterhead</em></div>
+          <div class="asset-desc">Production letterhead template with sample correspondence. Paper field, Bullion Deep italic, IBM Plex Mono metadata. Ctrl/Cmd+P to PDF.</div>
+        </div>
+        <div class="asset-cta">Open Letterhead <span class="arrow">→</span></div>
+      </a>
+
+      <a class="asset" href="truest-pitch-cover.html">
+        <div class="asset-meta">
+          <div class="asset-num">FILE 04</div>
+          <div class="asset-tag">DECK · 16:9</div>
+        </div>
+        <div>
+          <div class="asset-title">Pitch <em>Cover</em></div>
+          <div class="asset-desc">1280×720 fundraise deck cover slide. Hero wordmark, tagline, four-stat strip. Drop into Keynote or Google Slides as first slide.</div>
+        </div>
+        <div class="asset-cta">Open Pitch Cover <span class="arrow">→</span></div>
+      </a>
+
+      <a class="asset" href="truest-og-image.html">
+        <div class="asset-meta">
+          <div class="asset-num">FILE 05</div>
+          <div class="asset-tag">OG · 1200×630</div>
+        </div>
+        <div>
+          <div class="asset-title">OG <em>Image</em> Templates</div>
+          <div class="asset-desc">Four social share variants — Onyx default, Paper for reports, Ember for cuts, Gold for announcements. LinkedIn, X, Facebook, email previews.</div>
+        </div>
+        <div class="asset-cta">Open OG Templates <span class="arrow">→</span></div>
+      </a>
+
+      <a class="asset" href="truest-business-card.html">
+        <div class="asset-meta">
+          <div class="asset-num">FILE 06</div>
+          <div class="asset-tag">PRINT · 3.5×2"</div>
+        </div>
+        <div>
+          <div class="asset-title">Business <em>Cards</em></div>
+          <div class="asset-desc">Front + back, two finishes. Standard staff card and gold variant for operating partners. 32pt cotton stock with gold foil debossing recommended.</div>
+        </div>
+        <div class="asset-cta">Open Business Cards <span class="arrow">→</span></div>
+      </a>
+
+      <a class="asset" href="truest-social-cards.html">
+        <div class="asset-meta">
+          <div class="asset-num">FILE 07</div>
+          <div class="asset-tag">SOCIAL · 1080×1080</div>
+        </div>
+        <div>
+          <div class="asset-title">Social <em>Cards</em></div>
+          <div class="asset-desc">Four card systems — announcement, stat callout, cut notice, principle. IG, X, LinkedIn carousels. The full ember and gold variant set.</div>
+        </div>
+        <div class="asset-cta">Open Social Cards <span class="arrow">→</span></div>
+      </a>
+
+      <a class="asset" href="truest-email-signature.html">
+        <div class="asset-meta">
+          <div class="asset-num">FILE 08</div>
+          <div class="asset-tag">EMAIL · HTML + TEXT</div>
+        </div>
+        <div>
+          <div class="asset-title">Email <em>Signature</em></div>
+          <div class="asset-desc">Light and dark variants. HTML source ready to paste into Gmail, Outlook, Superhuman. Plain-text fallback included for non-HTML clients.</div>
+        </div>
+        <div class="asset-cta">Open Email Signature <span class="arrow">→</span></div>
+      </a>
+
+      <a class="asset" href="truest-quarterly-letter.html" style="grid-column: 1 / -1;">
+        <div class="asset-meta">
+          <div class="asset-num">FILE 09</div>
+          <div class="asset-tag">PRINT · 2-PAGE LETTER</div>
+        </div>
+        <div>
+          <div class="asset-title">Quarterly <em>Letter</em> Template</div>
+          <div class="asset-desc">Buffett-style letter to operating partners — cover page with stats, body page with sample Q2 reallocation narrative and inline ledger. The flagship governance document.</div>
+        </div>
+        <div class="asset-cta">Open Quarterly Letter <span class="arrow">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="lhs">▲ Section 04 — How To Use This Kit</span>
+      <span class="rhs">For operators · designers · partners</span>
+    </div>
+
+    <h2>The kit is <em>opinionated.</em> Use it that way.</h2>
+
+    <p class="lede">Every asset is built to be used as-is. Edit the body copy, swap the data, replace the names. Don't substitute typefaces, don't recolor the italic, don't soften the discipline. The brand survives because the discipline is preserved.</p>
+
+    <div class="divisions">
+      <div class="division">
+        <div class="n">A ·</div>
+        <div class="body">
+          <div class="name"><span class="the">For</span> Operators</div>
+          <div class="desc">Open the Brand Bible first to internalize the voice. Then use the templates as drop-in production files for letterhead, decks, social posts, and signatures.</div>
+          <div class="status">↳ START</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="n">B ·</div>
+        <div class="body">
+          <div class="name"><span class="the">For</span> Designers</div>
+          <div class="desc">Extract SVG source from the Logo Pack via Inspect Element. Color tokens and typography stack documented in §06 and §07 of the Brand Bible.</div>
+          <div class="status">↳ ASSETS</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="n">C ·</div>
+        <div class="body">
+          <div class="name"><span class="the">For</span> Partners &amp; Press</div>
+          <div class="desc">The OG templates and Quarterly Letter are the public-facing surfaces. Use the Pitch Cover for investor materials. All approved fields documented.</div>
+          <div class="status">↳ EXTERNAL</div>
+        </div>
+      </div>
+      <div class="division">
+        <div class="n">D ·</div>
+        <div class="body">
+          <div class="name"><span class="the">For</span> Engineers</div>
+          <div class="desc">The Dashboard mockup in the Brand Bible §09 is the production grammar for The Desk's UI. Bloomberg-terminal layout. JetBrains Mono data. Bullion + Ember alerts.</div>
+          <div class="status">↳ BUILD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-mark">
+    Truest <em>Story</em> Holdings
+  </div>
+  <div class="foot-meta">
+    Brand System · Volume II · Master Index<br>
+    <span class="gold">▲</span> Anno Domini MMXXVI · May <span class="gold">▲</span><br>
+    Victoria · British Columbia · Canada<br>
+    Media · Gaming · Distribution<br>
+    <span class="gold">Confidential · For Operating Partners</span>
+  </div>
+</footer>
+
+</body>
+</html>

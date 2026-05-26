@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Onyx background -->
+  <rect width="512" height="512" fill="#050505"/>
+  <!-- Gold border rule -->
+  <rect x="20" y="20" width="472" height="472" fill="none" stroke="#B8860B" stroke-width="3"/>
+  <!-- TS Monogram -->
+  <text x="256" y="360" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="300" text-anchor="middle" fill="#E8E2D5">T<tspan font-style="italic" fill="#B8860B">S</tspan></text>
+  <!-- Hairline under monogram -->
+  <line x1="120" y1="400" x2="392" y2="400" stroke="#B8860B" stroke-width="1.5" opacity="0.6"/>
+  <!-- Tagline -->
+  <text x="256" y="450" font-family="'Courier New', Courier, monospace" font-weight="700" font-size="22" text-anchor="middle" fill="#B8860B" letter-spacing="6">TRUEST STORY</text>
+</svg>

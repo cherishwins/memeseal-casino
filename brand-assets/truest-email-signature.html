@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truest Story Holdings · Email Signature</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,700;1,900&family=IBM+Plex+Mono:wght@500;600;700&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --onyx: #050505; --bullion: #B8860B; --bullion-deep: #8B6914;
+    --bone: #E8E2D5; --paper: #F0E9D8; --mercury: #7A7A7A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #1a1a1a; padding: 48px 24px; min-height: 100vh;
+    font-family: "Fraunces", serif; color: var(--bone);
+  }
+  .wrap { max-width: 800px; margin: 0 auto; }
+
+  .preview-bar {
+    padding: 14px 24px; background: var(--onyx); color: var(--bone);
+    border-left: 3px solid var(--bullion); margin-bottom: 32px;
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
+  }
+  .preview-bar .gold { color: var(--bullion); }
+
+  .label {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion);
+    margin: 32px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--bullion);
+  }
+  .note {
+    font-family: "Fraunces", serif; font-size: 14px; line-height: 1.6;
+    color: var(--bone); opacity: 0.85; max-width: 720px; margin-bottom: 16px;
+  }
+  .note strong { color: var(--bullion); }
+
+  /* Email Demo Frame */
+  .email-frame {
+    background: #f8f8f8; color: #1a1a1a; padding: 32px;
+    border-radius: 8px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    margin-bottom: 24px; font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .email-body {
+    font-size: 14px; line-height: 1.55; color: #2a2a2a;
+    padding-bottom: 24px; margin-bottom: 24px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .email-body p { margin-bottom: 12px; }
+
+  /* SIGNATURE — minimal, plain text-friendly */
+  .sig {
+    font-family: "Fraunces", "Times New Roman", serif;
+    font-size: 14px; line-height: 1.6; color: #1a1a1a;
+  }
+  .sig-name {
+    font-family: "Fraunces", serif; font-weight: 700; font-size: 16px;
+    color: #050505;
+  }
+  .sig-title {
+    font-family: "Inter Tight", -apple-system, sans-serif; font-weight: 700; font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: #8B6914;
+    margin-top: 2px;
+  }
+  .sig-rule {
+    width: 60px; height: 1px; background: #B8860B; margin: 10px 0;
+  }
+  .sig-company {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: 14px;
+    color: #050505; letter-spacing: -0.01em;
+  }
+  .sig-company em { font-style: italic; color: #8B6914; }
+  .sig-meta {
+    font-family: "IBM Plex Mono", "Courier New", monospace;
+    font-size: 10px; color: #6a6a6a; line-height: 1.7;
+    letter-spacing: 0.04em; margin-top: 6px;
+  }
+  .sig-meta a { color: #8B6914; text-decoration: none; font-weight: 700; }
+  .sig-meta .gold { color: #8B6914; font-weight: 700; }
+
+  /* DARK MODE VARIANT */
+  .email-frame.dark {
+    background: #1a1a1a; color: var(--bone);
+  }
+  .email-frame.dark .email-body { color: var(--bone); border-bottom-color: rgba(232, 226, 213, 0.15); }
+  .email-frame.dark .sig { color: var(--bone); }
+  .email-frame.dark .sig-name { color: var(--bone); }
+  .email-frame.dark .sig-company { color: var(--bone); }
+  .email-frame.dark .sig-meta { color: var(--mercury); }
+
+  /* HTML SOURCE BLOCK */
+  .source {
+    background: var(--onyx); border: 1px solid rgba(184, 134, 11, 0.3);
+    padding: 20px 24px; font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; line-height: 1.65; color: var(--bone);
+    overflow-x: auto; white-space: pre; margin-bottom: 24px;
+  }
+  .source .tag { color: var(--bullion); }
+  .source .attr { color: var(--bone); opacity: 0.75; }
+  .source .val { color: #B6FF3C; opacity: 0.8; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<div class="preview-bar">
+  <span class="gold">▲ EMAIL SIGNATURE</span> · TWO VARIANTS · PLAIN-TEXT FALLBACK
+</div>
+
+<p class="note">
+  Email signatures must work on every client — Gmail, Outlook, Apple Mail, Superhuman, mobile. The structure below uses <strong>Fraunces + Inter Tight + IBM Plex Mono</strong> with serif/sans/monospace fallbacks so it degrades gracefully when the brand fonts don't load. Two variants below: light-mode default and dark-mode aware.
+</p>
+
+<div class="label">▼ Standard · For All Outbound Email</div>
+
+<div class="email-frame">
+  <div class="email-body">
+    <p>Hi —</p>
+    <p>Following up on the Q2 reallocation review we discussed on Friday. The Desk has the prelim cycle numbers ready for the partners' read. I'll forward the letter tomorrow morning.</p>
+    <p>Best,</p>
+  </div>
+
+  <div class="sig">
+    <div class="sig-name">Jesse James</div>
+    <div class="sig-title">PRINCIPAL · THE TREASURY</div>
+    <div class="sig-rule"></div>
+    <div class="sig-company">Truest <em>Story</em> Holdings</div>
+    <div class="sig-meta">
+      Media · Gaming · Distribution<br>
+      <a href="mailto:jesse@truest.holdings">jesse@truest.holdings</a>  ·  <a href="https://truest.holdings">truest.holdings</a><br>
+      <span class="gold">VICTORIA · BRITISH COLUMBIA</span>
+    </div>
+  </div>
+</div>
+
+<div class="label">▼ Dark-Mode Variant · For Clients That Support It</div>
+
+<div class="email-frame dark">
+  <div class="email-body">
+    <p>Hi —</p>
+    <p>Following up on the Q2 reallocation review we discussed on Friday. The Desk has the prelim cycle numbers ready for the partners' read. I'll forward the letter tomorrow morning.</p>
+    <p>Best,</p>
+  </div>
+
+  <div class="sig">
+    <div class="sig-name">Jesse James</div>
+    <div class="sig-title">PRINCIPAL · THE TREASURY</div>
+    <div class="sig-rule"></div>
+    <div class="sig-company">Truest <em>Story</em> Holdings</div>
+    <div class="sig-meta">
+      Media · Gaming · Distribution<br>
+      <a href="mailto:jesse@truest.holdings">jesse@truest.holdings</a>  ·  <a href="https://truest.holdings">truest.holdings</a><br>
+      <span class="gold">VICTORIA · BRITISH COLUMBIA</span>
+    </div>
+  </div>
+</div>
+
+<div class="label">▼ HTML Source · Copy into your email client</div>
+
+<div class="source"><span class="tag">&lt;table</span> <span class="attr">cellpadding=</span><span class="val">"0"</span> <span class="attr">cellspacing=</span><span class="val">"0"</span> <span class="attr">style=</span><span class="val">"font-family:Georgia,serif;font-size:14px;line-height:1.6;color:#1a1a1a;"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;tr&gt;&lt;td</span> <span class="attr">style=</span><span class="val">"padding:0;"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="val">"font-weight:700;font-size:16px;color:#050505;"</span><span class="tag">&gt;</span>Jesse James<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="val">"font-family:Arial,sans-serif;font-weight:700;font-size:10px;letter-spacing:0.18em;color:#8B6914;text-transform:uppercase;margin-top:2px;"</span><span class="tag">&gt;</span>PRINCIPAL · THE TREASURY<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="val">"width:60px;height:1px;background:#B8860B;margin:10px 0;"</span><span class="tag">&gt;&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="val">"font-weight:900;font-size:14px;color:#050505;"</span><span class="tag">&gt;</span>Truest <span class="tag">&lt;em</span> <span class="attr">style=</span><span class="val">"color:#8B6914;"</span><span class="tag">&gt;</span>Story<span class="tag">&lt;/em&gt;</span> Holdings<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="val">"font-family:Courier New,monospace;font-size:10px;color:#6a6a6a;line-height:1.7;margin-top:6px;"</span><span class="tag">&gt;</span>
+      Media · Gaming · Distribution<span class="tag">&lt;br&gt;</span>
+      <span class="tag">&lt;a</span> <span class="attr">href=</span><span class="val">"mailto:jesse@truest.holdings"</span> <span class="attr">style=</span><span class="val">"color:#8B6914;text-decoration:none;font-weight:700;"</span><span class="tag">&gt;</span>jesse@truest.holdings<span class="tag">&lt;/a&gt;</span>  ·  <span class="tag">&lt;a</span> <span class="attr">href=</span><span class="val">"https://truest.holdings"</span> <span class="attr">style=</span><span class="val">"color:#8B6914;text-decoration:none;font-weight:700;"</span><span class="tag">&gt;</span>truest.holdings<span class="tag">&lt;/a&gt;&lt;br&gt;</span>
+      <span class="tag">&lt;span</span> <span class="attr">style=</span><span class="val">"color:#8B6914;font-weight:700;"</span><span class="tag">&gt;</span>VICTORIA · BRITISH COLUMBIA<span class="tag">&lt;/span&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="tag">&lt;/table&gt;</span></div>
+
+<div class="label">▼ Plain-text fallback · For non-HTML clients</div>
+
+<div class="source">Jesse James
+PRINCIPAL · THE TREASURY
+──────────────
+Truest Story Holdings
+Media · Gaming · Distribution
+jesse@truest.holdings  ·  truest.holdings
+VICTORIA · BRITISH COLUMBIA</div>
+
+</div>
+
+</body>
+</html>

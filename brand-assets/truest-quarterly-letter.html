@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truest Story Holdings · Quarterly Letter Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --onyx: #050505; --bullion: #B8860B; --bullion-deep: #8B6914;
+    --ember: #C73E1D; --paper: #F0E9D8; --paper-deep: #E0D9C5; --mercury: #7A7A7A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #1a1a1a; padding: 32px 16px; min-height: 100vh;
+    font-family: "Fraunces", serif;
+  }
+  .preview-bar {
+    max-width: 8.5in; margin: 0 auto 24px;
+    padding: 14px 24px; background: var(--onyx); color: var(--paper);
+    border-left: 3px solid var(--bullion);
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .preview-bar .gold { color: var(--bullion); }
+
+  /* The actual letter — US Letter size */
+  .letter {
+    background: var(--paper); color: var(--onyx);
+    max-width: 8.5in; margin: 0 auto 32px;
+    padding: 0.75in; min-height: 11in;
+    font-family: "Fraunces", serif; font-size: 14px; line-height: 1.65;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+  }
+  .letter + .letter { margin-top: 0; }
+
+  /* Cover page */
+  .cover {
+    display: flex; flex-direction: column; justify-content: space-between;
+    min-height: calc(11in - 1.5in);
+  }
+  .cover-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 16px; border-bottom: 2px solid var(--bullion);
+  }
+  .cover-mark {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: 36px;
+    line-height: 0.92; letter-spacing: -0.025em;
+  }
+  .cover-mark em { font-style: italic; color: var(--bullion-deep); }
+  .cover-mark-sub {
+    font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 9px;
+    letter-spacing: 0.28em; text-transform: uppercase; margin-top: 6px;
+  }
+  .cover-ref {
+    font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 600;
+    line-height: 1.7; letter-spacing: 0.06em; text-align: right;
+  }
+  .cover-ref .gold { color: var(--bullion-deep); font-weight: 700; }
+
+  .cover-center { padding: 64px 0 32px; }
+  .cover-pre {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.32em; text-transform: uppercase; color: var(--bullion-deep);
+    margin-bottom: 24px;
+  }
+  .cover-title {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: 64px;
+    line-height: 0.92; letter-spacing: -0.035em; color: var(--onyx);
+  }
+  .cover-title em { font-style: italic; color: var(--bullion-deep); }
+  .cover-subtitle {
+    font-family: "Fraunces", serif; font-style: italic; font-weight: 400;
+    font-size: 20px; line-height: 1.4; color: var(--onyx);
+    margin-top: 28px; max-width: 540px;
+  }
+
+  /* Cover stats summary */
+  .cover-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: 1px solid var(--bullion-deep); border-bottom: 1px solid var(--bullion-deep);
+    margin-top: 48px;
+  }
+  .cover-stat {
+    padding: 14px 12px; border-right: 1px solid rgba(139, 105, 20, 0.3);
+  }
+  .cover-stat:last-child { border-right: 0; }
+  .cover-stat .lbl {
+    font-family: "IBM Plex Mono", monospace; font-size: 8px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury); margin-bottom: 4px;
+  }
+  .cover-stat .val {
+    font-family: "Inter Tight", sans-serif; font-weight: 800; font-size: 22px;
+    color: var(--bullion-deep); letter-spacing: -0.02em; line-height: 1;
+  }
+  .cover-stat .val.ember-c { color: var(--ember); }
+
+  .cover-bottom {
+    padding-top: 16px; border-top: 1px solid var(--bullion);
+    display: flex; justify-content: space-between;
+    font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+  }
+  .cover-bottom .gold { color: var(--bullion-deep); font-weight: 700; }
+
+  /* Letter body pages */
+  .letter-page .lh-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 12px; border-bottom: 1px solid var(--bullion);
+    margin-bottom: 28px;
+  }
+  .letter-page .lh-mark {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: 20px;
+    line-height: 0.92; letter-spacing: -0.02em;
+  }
+  .letter-page .lh-mark em { font-style: italic; color: var(--bullion-deep); }
+  .letter-page .lh-meta {
+    font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+    text-align: right; line-height: 1.7;
+  }
+
+  .lh-section-tag {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--bullion-deep);
+    margin-bottom: 12px;
+  }
+  .lh-h2 {
+    font-family: "Fraunces", serif; font-weight: 900; font-style: italic;
+    font-size: 30px; line-height: 1.05; letter-spacing: -0.015em;
+    margin-bottom: 24px; color: var(--onyx); max-width: 560px;
+  }
+  .lh-h2 em { color: var(--bullion-deep); }
+
+  .lh-body p {
+    margin-bottom: 14px; font-size: 13.5px; line-height: 1.7; color: var(--onyx);
+    max-width: 620px;
+  }
+  .lh-body p strong { color: var(--bullion-deep); font-weight: 700; }
+  .lh-body p em { font-style: italic; }
+
+  /* Inline ledger */
+  .inline-ledger {
+    border: 1px solid var(--bullion-deep); margin: 20px 0; max-width: 620px;
+  }
+  .inline-ledger .lh-row {
+    display: grid; grid-template-columns: 1fr 70px 70px 80px;
+    padding: 10px 14px; gap: 8px;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.3); align-items: baseline;
+  }
+  .inline-ledger .lh-row:last-child { border-bottom: 0; }
+  .inline-ledger .lh-row.head {
+    background: var(--onyx); color: var(--paper);
+    font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .inline-ledger .lh-row.head .col { color: var(--bullion); }
+  .inline-ledger .item {
+    font-family: "Fraunces", serif; font-size: 13px; color: var(--onyx);
+  }
+  .inline-ledger .item em { color: var(--bullion-deep); font-style: italic; }
+  .inline-ledger .num {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 700;
+    color: var(--onyx); text-align: right;
+  }
+  .inline-ledger .verdict {
+    font-family: "Inter Tight", sans-serif; font-size: 9px; font-weight: 800;
+    letter-spacing: 0.15em; text-transform: uppercase; text-align: right;
+  }
+  .inline-ledger .verdict.invest { color: #0a5c2e; }
+  .inline-ledger .verdict.cut { color: var(--ember); }
+
+  /* Pull quote */
+  .pullquote {
+    margin: 28px 0; padding: 20px 24px;
+    border-left: 3px solid var(--bullion-deep); background: var(--paper-deep);
+    font-family: "Fraunces", serif; font-style: italic; font-weight: 500;
+    font-size: 18px; line-height: 1.4; color: var(--onyx); max-width: 620px;
+  }
+
+  /* Sign-off */
+  .lh-sig {
+    margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--bullion-deep);
+  }
+  .lh-sig .salutation {
+    font-family: "Fraunces", serif; font-style: italic; font-size: 14px;
+    color: var(--onyx); margin-bottom: 48px;
+  }
+  .lh-sig .name {
+    font-family: "Fraunces", serif; font-weight: 700; font-size: 14px;
+    color: var(--onyx); border-top: 1px solid var(--bullion-deep); padding-top: 6px;
+    display: inline-block; min-width: 200px;
+  }
+  .lh-sig .title {
+    font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--bullion-deep);
+    margin-top: 4px;
+  }
+
+  /* Footer */
+  .lh-foot {
+    margin-top: 48px; padding-top: 12px; border-top: 1px solid var(--bullion);
+    display: flex; justify-content: space-between;
+    font-family: "IBM Plex Mono", monospace; font-size: 8px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--mercury);
+  }
+  .lh-foot .gold { color: var(--bullion-deep); font-weight: 700; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .preview-bar { display: none; }
+    .letter { box-shadow: none; max-width: 100%; margin: 0; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-bar">
+  <span class="gold">▲ QUARTERLY LETTER · US LETTER · 2 PAGE TEMPLATE</span>
+  <span>CTRL/CMD+P TO PRINT</span>
+</div>
+
+<!-- COVER PAGE -->
+<div class="letter">
+  <div class="cover">
+    <div class="cover-top">
+      <div>
+        <div class="cover-mark">Truest <em>Story</em></div>
+        <div class="cover-mark-sub">Holdings · Operating Company</div>
+      </div>
+      <div class="cover-ref">
+        <div class="gold">QUARTERLY LETTER</div>
+        <div>Q2 · MMXXVI</div>
+        <div>Released 26 May</div>
+        <div>For Operating Partners</div>
+      </div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-pre">▲ Letter From The Treasury · Volume II</div>
+      <h1 class="cover-title">The Welch <em>cycle,</em><br>completed.</h1>
+      <div class="cover-subtitle">$184,000 reallocated. Fourteen positions cut. The math decided. The position adjusts.</div>
+    </div>
+
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <div class="lbl">Revenue · Q2</div>
+        <div class="val">$284K</div>
+      </div>
+      <div class="cover-stat">
+        <div class="lbl">Reallocated</div>
+        <div class="val">$184K</div>
+      </div>
+      <div class="cover-stat">
+        <div class="lbl">Positions Cut</div>
+        <div class="val ember-c">14</div>
+      </div>
+      <div class="cover-stat">
+        <div class="lbl">Pipeline / wk</div>
+        <div class="val">1,847</div>
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <span class="gold">▲ TRUEST STORY HOLDINGS</span>
+      <span>CONFIDENTIAL · PARTNERS ONLY</span>
+      <span>PAGE 01 / 02</span>
+    </div>
+  </div>
+</div>
+
+<!-- LETTER BODY PAGE -->
+<div class="letter">
+  <div class="letter-page">
+    <div class="lh-top">
+      <div class="lh-mark">Truest <em>Story</em> Holdings</div>
+      <div class="lh-meta">
+        Q2 MMXXVI<br>
+        Page 02 / 02
+      </div>
+    </div>
+
+    <div class="lh-section-tag">▼ The Letter</div>
+    <h2 class="lh-h2">To the operating partners — <em>the cycle, in summary.</em></h2>
+
+    <div class="lh-body">
+      <p>This quarter, we operated under the discipline we publish. The Desk flagged underperformance across <strong>fourteen positions</strong> in the trailing six weeks. The Treasury executed the cuts on schedule. No position survived sentimentally. No exception was made for tenure.</p>
+
+      <p>Capital cut from the bottom decile totaled <strong>$184,000</strong>. The full reallocation flowed into the top-decile assets identified by The Desk's hourly LLM-driven analysis. The largest single redirection was to <em>The Studio · Hyperpop B-sides</em>, which sustained a <strong>6.4× ROAS</strong> across four cycles and was scaled to triple its prior allocation. The largest single cut was to <em>The Studio · Y2K Nostalgia Image Series</em>, terminated after a 24-point ROAS decline.</p>
+
+      <div class="inline-ledger">
+        <div class="lh-row head">
+          <div>▼ Position</div>
+          <div class="col" style="text-align:right;">ROAS</div>
+          <div class="col" style="text-align:right;">Trend</div>
+          <div class="col" style="text-align:right;">Verdict</div>
+        </div>
+        <div class="lh-row">
+          <div class="item"><em>Studio</em> · Hyperpop B-sides</div>
+          <div class="num">6.4×</div>
+          <div class="num">▲ +43%</div>
+          <div class="verdict invest">Invest 3×</div>
+        </div>
+        <div class="lh-row">
+          <div class="item"><em>House</em> · TikTok-US ads</div>
+          <div class="num">4.7×</div>
+          <div class="num">▲ +18%</div>
+          <div class="verdict invest">Invest 2×</div>
+        </div>
+        <div class="lh-row">
+          <div class="item"><em>Studio</em> · Y2K Nostalgia</div>
+          <div class="num">0.9×</div>
+          <div class="num">▼ −24%</div>
+          <div class="verdict cut">Cut</div>
+        </div>
+        <div class="lh-row">
+          <div class="item"><em>Wire</em> · X long-form text</div>
+          <div class="num">0.4×</div>
+          <div class="num">▼ −47%</div>
+          <div class="verdict cut">Cut</div>
+        </div>
+      </div>
+
+      <p>Pipeline throughput continued to compound. The Wire shipped <strong>1,847 assets</strong> across the seven authorized channels in the trailing seven days — a 20% lift driven by automation efficiency in the n8n workflow refactor completed by the engineering team on the 14th. The Desk processed <strong>247 LLM decisions today alone</strong>, of which 89 were routine reallocations executed automatically below the kill threshold.</p>
+
+      <div class="pullquote">"The discipline is not cruelty. The discipline is what makes the room possible. We cut what does not work because we owe better than that to what does."</div>
+
+      <p>For the next cycle, The Desk has flagged a candidate experiment: <em>The House × TikTok-US creative loop</em>, where winning seals from the casino auto-generate short-form content for paid placement. Expected uplift: high. Expected risk: low. Recommended allocation: $48,000 across four cycles, kill flag set at 2.4× ROAS minimum. The Treasury approved on Monday.</p>
+
+      <p>The position adjusts.</p>
+    </div>
+
+    <div class="lh-sig">
+      <div class="salutation">For the operating partners,</div>
+      <div class="name">Jesse James</div>
+      <div class="title">Principal · The Treasury</div>
+    </div>
+
+    <div class="lh-foot">
+      <span class="gold">▲ TRUEST STORY HOLDINGS</span>
+      <span>CONFIDENTIAL · PARTNERS ONLY</span>
+      <span>END OF LETTER</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
