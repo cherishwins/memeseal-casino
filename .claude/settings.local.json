@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\memeseal-casino\" status)",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\memeseal-casino\" log --oneline -3)",
+      "Read(//c/Users/User/Dev/**)",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\memeseal-casino\" add casino-README.md)",
+      "Bash(git -C 'c:\\\\Users\\\\User\\\\Dev\\\\memeseal-casino' commit -m ' *)",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\memeseal-casino\" config user.email \"parvparmar333@gmail.com\")",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\memeseal-casino\" config user.name \"cherishwins\")",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\memeseal-casino\" push origin main)",
+      "Bash(git clone *)",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\x402-facilitator\" log --oneline -3)",
+      "Bash(cp \"c:\\\\Users\\\\User\\\\Dev\\\\memeseal-casino\\\\x402-README.md\" \"c:\\\\Users\\\\User\\\\Dev\\\\x402-facilitator\\\\README.md\")",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\x402-facilitator\" config user.email \"parvparmar333@gmail.com\")",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\x402-facilitator\" config user.name \"cherishwins\")",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\x402-facilitator\" add README.md)",
+      "Bash(git -C 'c:\\\\Users\\\\User\\\\Dev\\\\x402-facilitator' commit -m ' *)",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\x402-facilitator\" push origin main)",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\music\" ls-tree -r HEAD --name-only)",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\music\" show HEAD:creative-hub/README.md)",
+      "Bash(git -C \"c:\\\\Users\\\\User\\\\Dev\\\\music\" show HEAD:creative-hub/package.json)",
+      "Bash(gh api *)",
+      "PowerShell(gh api orgs/trueststory/repos --jq '.[].name' 2>&1)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\User\\Dev\\x402-facilitator"
+    ]
+  }
+}
