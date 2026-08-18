@@ -1,3 +1,5 @@
+
+
 # MEMESEAL CASINO — Telegram Mini App Starter Kit
 
 A complete, ready-to-deploy Telegram Mini App casino built with React 18, Vite 5, TON Connect, and Telegram Stars. Three working games, lottery system, loyalty cards, and a fully-themable Matrix/meme UI.
@@ -49,6 +51,8 @@ npx vercel --prod
 ```
 
 Then in [@BotFather](https://t.me/BotFather): `/newapp` → set Web App URL to your Vercel URL → add menu button to your bot.
+
+Before going live with your own deployment, update `public/tonconnect-manifest.json` and the `manifestUrl` in `src/main.jsx` to point at your Vercel URL.
 
 ---
 
