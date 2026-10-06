@@ -12,12 +12,16 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     chunkSizeWarningLimit: 700,
-    rollupOptions: {
+    // Vite 8 bundles with Rolldown, whose chunk groups replace the old
+    // manualChunks object. Same three vendor chunks as before.
+    rolldownOptions: {
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom', 'react-router-dom'],
-          ton: ['@tonconnect/ui-react'],
-          three: ['three', '@react-three/fiber', '@react-three/drei'],
+        codeSplitting: {
+          groups: [
+            { name: 'three', test: /node_modules[\\/](three|@react-three)[\\/]/, priority: 30 },
+            { name: 'ton', test: /node_modules[\\/]@tonconnect[\\/]/, priority: 20 },
+            { name: 'react', test: /node_modules[\\/](react|react-dom|scheduler)[\\/]/, priority: 10 },
+          ],
         },
       },
     },
