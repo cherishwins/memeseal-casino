@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { DEMO_MODE } from '../config'
 
 const PotDisplay = ({ potSize }) => {
   const [displayValue, setDisplayValue] = useState(0)
@@ -37,13 +38,16 @@ const PotDisplay = ({ potSize }) => {
             <p className="font-casino text-3xl neon-gold animate-pulse">
               {displayValue.toLocaleString()}
             </p>
-            <p className="text-casino-gold/70 text-sm">STARS</p>
+            {/* In demo mode the pot is local play chips, not Stars or TON */}
+            <p className="text-casino-gold/70 text-sm">{DEMO_MODE ? 'PLAY CHIPS' : 'STARS'}</p>
           </div>
           <span className="text-3xl">🏆</span>
         </div>
-        <p className="text-lg text-neon-cyan mt-2">
-          ~{tonValue} TON
-        </p>
+        {!DEMO_MODE && (
+          <p className="text-lg text-neon-cyan mt-2">
+            ~{tonValue} TON
+          </p>
+        )}
         <div className="mt-3 flex justify-center gap-4 text-xs text-matrix-green/50">
           <span>🎰 Every bet = entry</span>
           <span>🐸 20% feeds pot</span>

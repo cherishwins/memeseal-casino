@@ -73,6 +73,15 @@ const THEMES = {
   },
 };
 
+// Shown in the header of every theme (src/components/PlayMoneyNotice.jsx).
+// Game outcomes are decided in the browser, so this kit is play money only.
+// Keep it unless outcomes, balances and auth are server-side and you hold a
+// gambling license (README, "Demo / play-money only").
+export const PLAY_MONEY_NOTICE = {
+  headline: 'Play money — demo only, no real-value prizes',
+  detail: 'Chips have no cash value and nothing here can be cashed out.',
+};
+
 const themeName = import.meta.env.VITE_THEME || 'memeseal';
 export const THEME = THEMES[themeName] || THEMES.memeseal;
 export const AVAILABLE_THEMES = Object.keys(THEMES);
