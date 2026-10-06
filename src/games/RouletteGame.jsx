@@ -49,7 +49,7 @@ const RouletteGame = ({ balance, setBalance, onBet }) => {
       const winAmount = betAmount * bet.multiplier
       setBalance(prev => prev + winAmount)
       setResult({
-        message: `${bet.emoji} ${bet.label} WINS! +${winAmount.toFixed(2)} TON`,
+        message: `${bet.emoji} ${bet.label} WINS! +${winAmount.toFixed(2)} CHIPS`,
         win: true,
         winner
       })
@@ -139,7 +139,7 @@ const RouletteGame = ({ balance, setBalance, onBet }) => {
         </button>
         <div className="text-center">
           <p className="text-xs text-matrix-green/70">BET</p>
-          <p className="font-casino text-xl">{betAmount.toFixed(2)} TON</p>
+          <p className="font-casino text-xl">{betAmount.toFixed(2)} CHIPS</p>
         </div>
         <button
           onClick={() => setBetAmount(prev => prev + 0.1)}

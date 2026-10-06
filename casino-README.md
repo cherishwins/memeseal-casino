@@ -30,7 +30,9 @@ You can have a branded casino Mini App deployed to your domain by tonight.
 
 Real-money operation requires what every casino requires: a custodial wallet system or non-custodial payment integration, provably-fair RNG verification, anti-fraud, player limits, KYC routing, and a gambling license in your jurisdiction. This is the front-end. **See [SALES.md](./SALES.md) for what we can build for you.**
 
-For non-custodial USDC payments on Base, we have a separate product — the **[x402 facilitator](https://github.com/cherishwins/x402-facilitator)** — used in production by our other consumer apps.
+**As shipped, this kit is play money only.** Every game outcome is decided in the browser, so a player can choose their own results. Outcomes have to be computed on a server before chips are worth anything real. See [README.md](./README.md#demo--play-money-only) and [docs/API_CONTRACT.md](./docs/API_CONTRACT.md).
+
+The casino does not use x402. The maintained merchant-side x402 code is **[cherishwins/x402-facilitator](https://github.com/cherishwins/x402-facilitator)**.
 
 ## Quick start (demo mode)
 

@@ -4,6 +4,7 @@ import MatrixRain from './components/MatrixRain'
 import FrogDealer from './components/FrogDealer'
 import LotteryCountdown from './components/LotteryCountdown'
 import PotDisplay from './components/PotDisplay'
+import PlayMoneyNotice from './components/PlayMoneyNotice'
 import LoyaltyCard from './components/LoyaltyCard'
 import DailyReward from './components/engagement/DailyReward'
 import StreakBadge from './components/engagement/StreakBadge'
@@ -408,9 +409,7 @@ function App() {
             {BRAND.name}
           </h1>
           <p className="text-lg neon-pink font-casino">{BRAND.tagline}</p>
-          {DEMO_MODE && (
-            <p className="text-xs text-casino-gold/70 mt-1">DEMO MODE — chips are local</p>
-          )}
+          <PlayMoneyNotice />
           <FrogDealer />
         </header>
 

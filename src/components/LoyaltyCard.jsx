@@ -14,11 +14,11 @@ const LoyaltyCard = ({ onClose, onCredit }) => {
     setLoading(true)
     setStatus('Validating...')
 
-    // Simulate API call - always gives 5 TON testnet for now
+    // Simulated validation: every code credits 5 play chips (no backend)
     await new Promise(r => setTimeout(r, 1500))
 
     // In production, validate against backend
-    setStatus('SUCCESS! +5 TON credited!')
+    setStatus('SUCCESS! +5 chips credited!')
     onCredit(5)
     setLoading(false)
 

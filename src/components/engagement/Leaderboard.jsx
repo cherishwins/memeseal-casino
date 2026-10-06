@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react'
 import { useEngagementStore } from '../../stores/engagementStore'
 
+// Sample data only: names and scores are generated here, not read from a
+// backend. The UI labels the board "SAMPLE DATA" so nobody mistakes it for real
+// players. Keep the label until this reads real rankings from a server.
 const MOCK_NAMES = [
   'PEPE_KING', 'ROCKETMAN', 'DIAMOND4', 'FROG_GOD',
   'WAGMI_42', 'CHAD_77', 'NEONOPS', 'CYBR_PUNK',
@@ -38,11 +41,17 @@ export default function Leaderboard() {
   }
   const { unit, formatter } = labelMap[tab]
 
-  const yourRank = tab === 'streaks' ? (streak >= 7 ? 11 : 237) : 237
-
   return (
     <div>
-      <h3 className="font-casino text-sm neon-cyan mb-3">LEADERBOARD</h3>
+      <div className="flex items-center justify-between gap-2 mb-1">
+        <h3 className="font-casino text-sm neon-cyan">LEADERBOARD</h3>
+        <span className="font-casino text-[10px] font-bold uppercase tracking-wide text-casino-gold border border-casino-gold/60 rounded px-1.5 py-0.5">
+          Sample data
+        </span>
+      </div>
+      <p className="text-[10px] text-matrix-green/50 mb-3">
+        Generated names and scores, not real players. No prizes are awarded.
+      </p>
 
       <div role="tablist" aria-label="Leaderboard categories" className="flex gap-1 mb-3">
         {[
@@ -66,7 +75,7 @@ export default function Leaderboard() {
         ))}
       </div>
 
-      <ol className="space-y-1" aria-label={`Top 10 ${unit}`}>
+      <ol className="space-y-1" aria-label={`Sample top 10 by ${unit}, not real players`}>
         {board.map((row, i) => {
           const isPodium = i < 3
           const medal = ['🥇', '🥈', '🥉'][i]
@@ -95,14 +104,12 @@ export default function Leaderboard() {
         })}
       </ol>
 
-      <div className="mt-3 pt-3 border-t border-matrix-green/20 flex items-center justify-between">
+      <div className="mt-3 pt-3 border-t border-matrix-green/20 flex items-center justify-between gap-2">
         <span className="font-casino text-xs text-matrix-green/60">
-          You: #{yourRank}
+          Your streak: {streak} day{streak === 1 ? '' : 's'}
         </span>
-        <span className="text-[10px] text-matrix-green/40">
-          {tab === 'today' && 'Top 3 win bonus chips at midnight'}
-          {tab === 'lifetime' && 'Demo board — wire to your backend'}
-          {tab === 'streaks' && `Your streak: ${streak} day${streak === 1 ? '' : 's'}`}
+        <span className="text-[10px] text-matrix-green/40 text-right">
+          Sample board. Wire to your backend.
         </span>
       </div>
     </div>

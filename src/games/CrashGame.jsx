@@ -72,7 +72,7 @@ const CrashGame = ({ balance, setBalance, onBet }) => {
     setBalance(prev => prev + winAmount)
     setGameState('cashed')
     setResult({
-      message: `CASHED OUT AT ${multiplier.toFixed(2)}x! +${winAmount.toFixed(2)} TON`,
+      message: `CASHED OUT AT ${multiplier.toFixed(2)}x! +${winAmount.toFixed(2)} CHIPS`,
       win: true
     })
     setBetPlaced(false)
@@ -233,7 +233,7 @@ const CrashGame = ({ balance, setBalance, onBet }) => {
         </button>
         <div className="text-center">
           <p className="text-xs text-matrix-green/70">BET</p>
-          <p className="font-casino text-xl">{betAmount.toFixed(2)} TON</p>
+          <p className="font-casino text-xl">{betAmount.toFixed(2)} CHIPS</p>
         </div>
         <button
           onClick={() => setBetAmount(prev => prev + 0.1)}
@@ -275,7 +275,7 @@ const CrashGame = ({ balance, setBalance, onBet }) => {
           onClick={cashOut}
           className="w-full btn-casino bg-gradient-to-r from-green-500 to-green-300 text-black text-xl py-4 animate-pulse"
         >
-          CASH OUT ({(betAmount * multiplier).toFixed(2)} TON)
+          CASH OUT ({(betAmount * multiplier).toFixed(2)} CHIPS)
         </button>
       )}
 
