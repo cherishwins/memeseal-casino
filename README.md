@@ -1,4 +1,10 @@
-# MEMESEAL CASINO — Telegram Mini App Starter Kit
+# LEGACY: MEMESEAL CASINO — Telegram Mini App Starter Kit
+
+> **LEGACY REPOSITORY. Not under active development.**
+> The only active repo is **[cherishwins/x402-facilitator](https://github.com/cherishwins/x402-facilitator)**. Work there.
+> Telegram Mini App casino starter kit, demo and play money only. No buyers.
+> Marked legacy 20 October 2026 so this repo stops being opened by mistake. Archive it in Settings when convenient.
+
 
 A complete, ready-to-deploy Telegram Mini App casino built with React 18, Vite 5, TON Connect, and Telegram Stars. Three working games, lottery system, loyalty cards, and a fully-themable Matrix/meme UI.
 
